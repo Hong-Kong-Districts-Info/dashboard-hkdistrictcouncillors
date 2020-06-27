@@ -2,7 +2,7 @@
 Repository for code underlying the Shiny app dashboard for HK district councillors
 
 ## Background
-The aim of this app is to provide a live one-stop-shop for information on the district councillors in Hong Kong, via aggregating posts and feeds from their public Facebook pages. 
+The aim of this app is to provide a convenient site for live information on the district councillors in Hong Kong, via aggregating posts and feeds from their public Facebook pages. 
 
 This is a proof-of-concept implementation using Shiny, but there is an ambition to take this fully into production once the pipelines are figured out.
 
