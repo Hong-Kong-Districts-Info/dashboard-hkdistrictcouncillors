@@ -15,3 +15,9 @@ This is a proof-of-concept implementation using Shiny, but there is an ambition 
 1. Not all district councillors will have public Facebook pages, but the aim is for the app to be as comprehensive as possible in coverage. 
 2. Essential filters for the app
 3. Question to whether display only a live feed, or to save a 'permanent' copy of the content as part of a post
+
+## Data Source
+
+A list of the District Councillors and their handles are compiled here:
+
+https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0
