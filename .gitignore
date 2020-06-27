@@ -1,4 +1,12 @@
+# r-specific
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+
+# mac-specific
+.DS_Store
+
+# data-files
+data/*
+*.csv
