@@ -8,6 +8,10 @@ before_install:
  - echo 'R_LIBS=/usr/lib/R/library:/usr/lib/R/site-library/' > ~/.Renviron
  - sudo chmod 2777 /usr/lib/R/library
 
+
+# using renv with travis.ci
+# https://rstudio.github.io/renv/articles/ci.html
+
 cache:
   directories:
   - $HOME/.local/share/renv
