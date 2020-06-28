@@ -1,14 +1,9 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: r
-warnings_are_errors: true
+#warnings_are_errors: true
 sudo: required
-
-before_install:
- - sudo mkdir -p /usr/lib/R/library
- - echo 'R_LIBS=/usr/lib/R/library:/usr/lib/R/site-library/' > ~/.Renviron
- - sudo chmod 2777 /usr/lib/R/library
-
+dist: trusty
 
 # using renv with travis.ci
 # https://rstudio.github.io/renv/articles/ci.html
@@ -21,3 +16,6 @@ cache:
 install:
   - Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv')"
   - Rscript -e "renv::restore()"
+  
+script:
+  - Rscript -e '<your-build-action>'
