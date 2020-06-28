@@ -1,0 +1,14 @@
+Package: hkdistrictcouncillors
+Title: Dashboard: HK District Councillors
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Avision",
+           family = "Ho",
+           role = c("aut", "cre"),
+           email = "a_vision@hotmail.co.uk"
+Description: This stores the code underlying the dashboard.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
