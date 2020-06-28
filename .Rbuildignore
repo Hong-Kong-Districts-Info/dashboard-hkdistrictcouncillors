@@ -1,3 +1,6 @@
+.Rprofile
+^renv$
+^renv\.lock$
 .travis.yml
 ^\.travis\.yml$
 ^LICENSE\.md$
