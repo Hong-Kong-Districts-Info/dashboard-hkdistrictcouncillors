@@ -1,0 +1,14 @@
+name: dashboard-hkdistrictcouncillors
+title:
+username:
+account: avisionh
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2513387
+bundleId: 3325660
+url: https://avisionh.shinyapps.io/dashboard-hkdistrictcouncillors/
+when: 1593344883.5715
+lastSyncTime: 1593344883.57151
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .Rprofile|.travis.yml|LICENSE|README.md|docs/pull_request_template.md
