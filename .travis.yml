@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: r
@@ -23,3 +24,29 @@ install:
 
 script:
   - Rscript -e '<your-build-action>'
+||||||| constructed merge base
+=======
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: r
+warnings_are_errors: true
+sudo: required
+
+before_install:
+ - sudo mkdir -p /usr/lib/R/library
+ - echo 'R_LIBS=/usr/lib/R/library:/usr/lib/R/site-library/' > ~/.Renviron
+ - sudo chmod 2777 /usr/lib/R/library
+
+
+# using renv with travis.ci
+# https://rstudio.github.io/renv/articles/ci.html
+
+cache:
+  directories:
+  - $HOME/.local/share/renv
+  - $TRAVIS_BUILD_DIR/renv/library
+
+install:
+  - Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv')"
+  - Rscript -e "renv::restore()"
+>>>>>>> Stashed changes
