@@ -1,0 +1,30 @@
+Package: hkdistrictcouncillors
+Title: Dashboard: HK District Councillors
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Avision",
+           family = "Ho",
+           role = c("aut", "cre"),
+           email = "a_vision@hotmail.co.uk"),
+    person(given = "Martin",
+           family = "Chan",
+           role = "aut",
+           email = "martinchan53@gmail.com"),
+    person(given = "Ocean",
+           family = "",
+           role = "aut"))
+Description: This stores the code underlying the dashboard.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    dplyr,
+    tidyr,
+    shiny,
+    shinydashboard,
+    DT
+Suggests: 
+    data.table,
+    dtplyr

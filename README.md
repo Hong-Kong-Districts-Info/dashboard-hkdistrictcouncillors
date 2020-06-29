@@ -1,4 +1,7 @@
 # Dashboard: Hong Kong District Councillors
+
+[![Travis build status](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors.svg?branch=master)](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors)
+
 Repository for code underlying the Shiny app dashboard for HK district councillors
 
 ## Background
