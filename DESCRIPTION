@@ -8,7 +8,8 @@ Authors@R:
            email = "a_vision@hotmail.co.uk"),
     person(given = "Martin",
            family = "Chan",
-           role = "aut"),
+           role = "aut",
+           email = "martinchan53@gmail.com"),
     person(given = "Ocean",
            family = "",
            role = "aut"))
