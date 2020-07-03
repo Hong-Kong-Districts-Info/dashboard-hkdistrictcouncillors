@@ -6,6 +6,9 @@
 
 Repository for code underlying the Shiny app dashboard for HK district councillors
 
+The Shiny app is deployed onto shinyapps.io in the link below:
+ - https://avisionh.shinyapps.io/dashboard-hkdistrictcouncillors/
+
 ## Background
 The aim of this app is to provide a convenient site for live information on the district councillors in Hong Kong, via aggregating posts and feeds from their public Facebook pages.
 
