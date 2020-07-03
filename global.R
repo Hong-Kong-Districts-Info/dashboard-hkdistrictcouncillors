@@ -18,3 +18,8 @@ library(tidyr)
 library(shiny)
 library(shinydashboard)
 library(DT)
+
+# dummy data 
+data_region <- c("Hong Kong Island", 
+                 "Kowloon",
+                 "New Territories")
