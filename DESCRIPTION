@@ -24,7 +24,8 @@ Imports:
     tidyr,
     shiny,
     shinydashboard,
-    DT
+    DT,
+    googlesheets4
 Suggests: 
     data.table,
     dtplyr
