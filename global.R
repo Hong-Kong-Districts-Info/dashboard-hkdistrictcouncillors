@@ -13,7 +13,7 @@ library(dplyr)
 library(data.table)
 library(dtplyr)
 library(tidyr)
-# library(googlesheets4)
+library(googlesheets4)
 
 ## shiny-related
 library(shiny)
@@ -24,3 +24,10 @@ library(DT)
 data_region <- c("Hong Kong Island", 
                  "Kowloon",
                  "New Territories")
+
+## Read data from Google Sheets 4
+sheet_url <- "https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/"
+
+data_master_raw <-
+  googlesheets4::read_sheet(ss = sheet_url,
+                            sheet = "Master")
