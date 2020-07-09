@@ -17,6 +17,7 @@ library(googlesheets4)
 
 ## shiny-related
 library(shiny)
+library(shinyBS)
 library(shinydashboard)
 library(DT)
 
