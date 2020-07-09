@@ -130,7 +130,15 @@ ui <- dashboardPage(
                     choices = sort(unique(data_master_raw$Constituency_EN))),
         selectInput(inputId = "input_constituency_zh",
                     label = "Please choose a constituency",
-                    choices = sort(unique(data_master_raw$Constituency_ZH)))
+                    choices = sort(unique(data_master_raw$Constituency_ZH))),
+        
+        column(
+          width = 8,
+          
+          fluidRow(
+            valueBoxOutput(outputId = "valuebox_party_en", width = NULL)
+          )
+        )
       ), #tabItem
       
       
