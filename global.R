@@ -20,10 +20,6 @@ library(shiny)
 library(shinydashboard)
 library(DT)
 
-# dummy data 
-data_region <- c("Hong Kong Island", 
-                 "Kowloon",
-                 "New Territories")
 
 ## Read data from Google Sheets 4
 sheet_url <- "https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/"
