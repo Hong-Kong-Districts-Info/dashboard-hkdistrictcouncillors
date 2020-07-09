@@ -8,6 +8,10 @@
 #       server.R must create a function called server, like below:
 
 server <- function(input, output, session) {
+
+  # ----- REACTIVES ----- #
+ 
+
   
   
 }

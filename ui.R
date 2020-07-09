@@ -125,12 +125,12 @@ ui <- dashboardPage(
       
       tabItem(
         tabName = "tab_dclist",
-        radioButtons(
-          inputId = "input_consituency_en",
-          label = "Please choose a constituency",
-          choices = sort(unique(data_master_raw$Constituency_EN))
-        )
-        
+        selectInput(inputId = "input_consituency_en",
+                    label = "Please choose a constituency",
+                    choices = sort(unique(data_master_raw$Constituency_EN))),
+        selectInput(inputId = "input_constituency_zh",
+                    label = "Please choose a constituency",
+                    choices = sort(unique(data_master_raw$Constituency_ZH)))
       ), #tabItem
       
       
