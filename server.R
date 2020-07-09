@@ -29,7 +29,7 @@ server <- function(input, output, session) {
     expr = {
       tags$div(
         tipify(
-          el = valueBox(value = react_data_constituency(),
+          el = valueBox(value = react_data_constituency()$Party_EN,
                         subtitle = "Affiliated party (English)",
                         icon = icon(name = "box"),
                         color = "maroon"),
