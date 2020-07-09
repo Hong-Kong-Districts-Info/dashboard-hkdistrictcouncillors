@@ -126,9 +126,9 @@ ui <- dashboardPage(
       tabItem(
         tabName = "tab_dclist",
         radioButtons(
-          inputId = "input_region",
-          label = "Please choose a region of Hong Kong",
-          choices = sort(unique(data_region))
+          inputId = "input_consituency_en",
+          label = "Please choose a constituency",
+          choices = sort(unique(data_master_raw$Constituency_EN))
         )
         
       ), #tabItem
