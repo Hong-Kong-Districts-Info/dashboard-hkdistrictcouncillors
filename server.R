@@ -31,7 +31,7 @@ server <- function(input, output, session) {
         tipify(
           el = valueBox(value = react_data_constituency()$Party_EN,
                         subtitle = "Affiliated party (English)",
-                        icon = icon(name = "box"),
+                        icon = icon(name = "vote-yea"),
                         color = "maroon"),
           title = "This is the political party that the constituency's DC belongs to", 
           trigger = "hover"
