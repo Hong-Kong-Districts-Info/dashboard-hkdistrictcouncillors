@@ -133,7 +133,7 @@ ui <- dashboardPage(
                     choices = sort(unique(data_master_raw$Constituency_ZH))),
         
         column(
-          width = 8,
+          width = 12,
           
           fluidRow(
             valueBoxOutput(outputId = "valuebox_party_en", width = NULL)
