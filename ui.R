@@ -136,7 +136,8 @@ ui <- dashboardPage(
           width = 12,
           
           fluidRow(
-            valueBoxOutput(outputId = "valuebox_party_en", width = NULL)
+            valueBoxOutput(outputId = "valuebox_party_en", width = NULL),
+            infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
           )
         )
       ), #tabItem
