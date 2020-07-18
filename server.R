@@ -23,7 +23,17 @@ server <- function(input, output, session) {
   
   # ----- TAB: Data Explorer ----- #
   
-
+  # ValueBox: Party (English) -----------------------------------------------
+  output$infobox_fb <- renderInfoBox(
+    expr = {
+      infoBox(value = react_data_constituency()$DC_ZN,
+              icon = icon(name = "vote-yea"),
+              color = "purple",
+              href = react_data_constituency()$facebook,
+              title = "Click this box to visit the DC's FB page")
+    }
+  )
+  
   # ValueBox: Party (English) -----------------------------------------------
   output$valuebox_party_en <- renderValueBox(
     expr = {
