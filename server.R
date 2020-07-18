@@ -27,8 +27,8 @@ server <- function(input, output, session) {
   output$infobox_fb <- renderInfoBox(
     expr = {
       infoBox(value = react_data_constituency()$DC_ZN,
-              icon = icon(name = "vote-yea"),
-              color = "purple",
+              icon = icon(name = "facebook-square"),
+              color = "blue",
               href = react_data_constituency()$facebook,
               title = "Click this box to visit the DC's FB page")
     }
