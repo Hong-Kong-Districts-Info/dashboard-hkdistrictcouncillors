@@ -125,12 +125,20 @@ ui <- dashboardPage(
       
       tabItem(
         tabName = "tab_dclist",
-        radioButtons(
-          inputId = "input_region",
-          label = "Please choose a region of Hong Kong",
-          choices = sort(unique(data_region))
-        )
+        selectInput(inputId = "input_consituency_en",
+                    label = "Please choose a constituency",
+                    choices = sort(unique(data_master_raw$Constituency_EN))),
+        selectInput(inputId = "input_constituency_zh",
+                    label = "Please choose a constituency",
+                    choices = sort(unique(data_master_raw$Constituency_ZH))),
         
+        column(
+          width = 12,
+          
+          fluidRow(
+            valueBoxOutput(outputId = "valuebox_party_en", width = NULL)
+          )
+        )
       ), #tabItem
       
       
