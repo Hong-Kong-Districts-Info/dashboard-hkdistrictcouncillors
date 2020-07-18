@@ -40,7 +40,20 @@ server <- function(input, output, session) {
     }
   )
 
-
-  
+  # InfoBox: Constituency (English) -----------------------------------------
+  output$infobox_constituency_en <- renderInfoBox(
+    expr = {
+      tags$div(
+        tipify(
+          el = valueBox(value = react_data_constituency()$Constituency_EN,
+                        subtitle = "Constituency (English)",
+                        icon = icon(name = "map-signs"),
+                        color = "maroon"),
+          title = "This is the constituency the DC belongs to", 
+          trigger = "hover"
+        ) #tipify
+      ) #div
+    }
+  )
   
 }
