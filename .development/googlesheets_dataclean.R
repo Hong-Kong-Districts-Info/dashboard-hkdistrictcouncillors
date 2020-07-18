@@ -24,10 +24,7 @@ clean_gsheet_dat <- function(data){
 # bind list and assign to master ------------------------------------------
 
 master_sheet <-
-  list(data_master_cnw,
-       data_master_wanchai,
-       data_master_eastern,
-       data_master_southern) %>%
+  list_data %>%
   map(clean_gsheet_dat) %>%
   bind_rows()
 
