@@ -25,7 +25,8 @@ Imports:
     shiny,
     shinydashboard,
     DT,
-    googlesheets4
+    googlesheets4,
+    shinyBS
 Suggests: 
     data.table,
     dtplyr
