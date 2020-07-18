@@ -4,12 +4,9 @@ library(googlesheets4)
 sheet_url <- "https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/"
 
 # define google sheets ----------------------------------------------------
-## may consider using purrr once we get to more sheets
-
-data_master_cnw <- googlesheets4::read_sheet(ss = sheet_url, sheet = "Central & Western")
-data_master_wanchai <- googlesheets4::read_sheet(ss = sheet_url, sheet = "Wan Chai")
-data_master_eastern <- googlesheets4::read_sheet(ss = sheet_url, sheet = "Eastern")
-data_master_southern <- googlesheets4::read_sheet(ss = sheet_url, sheet = "Southern")
+list_arguments <- list(sheet = c("Central & Western", "Wan Chai", "Eastern", "Southern"))
+list_data <- pmap(.l = vec_sheet, .f = read_sheet, ss = sheet_url)
+names(list_data) <- paste0("data_master_", c("cnw", "wanchai", "eastern", "southern"))
 
 
 # clean googlesheets ------------------------------------------------------
