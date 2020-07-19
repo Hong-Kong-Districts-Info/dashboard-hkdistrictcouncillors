@@ -10,8 +10,6 @@
 
 ## datawrangling
 library(dplyr)
-library(data.table)
-library(dtplyr)
 library(tidyr)
 library(googlesheets4)
 
