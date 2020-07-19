@@ -10,3 +10,6 @@
 # data-files
 data/*
 *.csv
+
+# api/auth keys
+.httr-oauth
