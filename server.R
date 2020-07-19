@@ -35,7 +35,8 @@ server <- function(input, output, session) {
                        title = "區議員名稱 / DC's name",
                        subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page."),
           title = "If it does not re-direct to their FB page, this means their FB page does not exist or we could not find it.",
-          trigger = "hover"
+          trigger = "hover",
+          placement = "right"
         ) #tipify
       ) #div
     }
@@ -53,7 +54,8 @@ server <- function(input, output, session) {
                        color = "red",
                        fill = TRUE),
           title = "This is the political party that the DC belongs to", 
-          trigger = "hover"
+          trigger = "hover",
+          placement = "bottom"
         ) #tipify
       ) #div
     }
@@ -71,7 +73,8 @@ server <- function(input, output, session) {
                        color = "red",
                        fill = TRUE),
           title = "This is the constituency the DC belongs to", 
-          trigger = "hover"
+          trigger = "hover",
+          placement = "bottom"
         ) #tipify
       ) #div
     }
