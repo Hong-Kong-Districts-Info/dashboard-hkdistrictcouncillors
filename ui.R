@@ -13,7 +13,7 @@ ui <- dashboardPage(
   
   # Header
   header = dashboardHeader(
-    title = "Hong Kong: District Councillors"
+    title = "HK: District Councillors"
   ),
   
   # Sidebar
@@ -31,16 +31,16 @@ ui <- dashboardPage(
       
       # DCs list tab
       menuItem(
+        text = "Overview of a DC",
+        icon = icon(name = "search"),
+        tabName = "tab_dcoverview"
+      ),
+      
+      # DCs list tab
+      menuItem(
         text = "List of DCs",
         icon = icon(name = "list-ul"),
         tabName = "tab_dclist"
-      ),
-      
-      # DC updates tab
-      menuItem(
-        text = "FB updates of DC",
-        icon = icon(name = "window-maximize"),
-        tabName = "tab_dcupdate"
       )
       
     ) # sidebarMenu
@@ -121,31 +121,30 @@ ui <- dashboardPage(
       ), #tabItem
       
       
-      # Tab: Data Explorer ----------------------------------------------------------
+      # Tab: DC Overview ----------------------------------------------------------
       
       tabItem(
-        tabName = "tab_dclist",
-        selectInput(inputId = "input_consituency_en",
-                    label = "Please choose a constituency",
-                    choices = sort(unique(data_master_raw$Constituency_EN))),
-        selectInput(inputId = "input_constituency_zh",
-                    label = "Please choose a constituency",
-                    choices = sort(unique(data_master_raw$Constituency_ZH))),
+        tabName = "tab_dcoverview",
+        selectInput(inputId = "input_dropdowntext",
+                    label = "Please choose a district",
+                    choices = sort(unique(data_master_raw$DropDownText))),
         
-        column(
-          width = 12,
-          
-          fluidRow(
-            valueBoxOutput(outputId = "valuebox_party_en", width = NULL)
-          )
+
+        fluidRow(
+          infoBoxOutput(outputId = "infobox_fb", width = NULL)
+        ),
+        
+        fluidRow(
+          infoBoxOutput(outputId = "infobox_party_en", width = NULL),
+          infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
         )
       ), #tabItem
       
       
-      # Tab: MI Report -------------------------------------------------------
+      # Tab: DC List -------------------------------------------------------
       
       tabItem(
-        tabName = "tab_dcupdate"
+        tabName = "tab_dclist"
         
       ) #tabItem
       
