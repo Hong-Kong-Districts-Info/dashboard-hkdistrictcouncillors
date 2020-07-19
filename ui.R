@@ -13,7 +13,7 @@ ui <- dashboardPage(
   
   # Header
   header = dashboardHeader(
-    title = "Hong Kong: District Councillors"
+    title = "HK: District Councillors"
   ),
   
   # Sidebar
@@ -31,17 +31,17 @@ ui <- dashboardPage(
       
       # DCs list tab
       menuItem(
+        text = "Overview of a DC",
+        icon = icon(name = "search"),
+        tabName = "tab_dcoverview"
+      ),
+      
+      # DCs list tab
+      menuItem(
         text = "List of DCs",
         icon = icon(name = "list-ul"),
         tabName = "tab_dclist"
       ),
-      
-      # DC updates tab
-      menuItem(
-        text = "FB updates of DC",
-        icon = icon(name = "window-maximize"),
-        tabName = "tab_dcupdate"
-      )
       
     ) # sidebarMenu
   ), #dashboardSidebar
@@ -121,10 +121,10 @@ ui <- dashboardPage(
       ), #tabItem
       
       
-      # Tab: Data Explorer ----------------------------------------------------------
+      # Tab: DC Overview ----------------------------------------------------------
       
       tabItem(
-        tabName = "tab_dclist",
+        tabName = "tab_dcoverview",
         selectInput(inputId = "input_dropdowntext",
                     label = "Please choose a district",
                     choices = sort(unique(data_master_raw$DropDownText))),
@@ -141,10 +141,10 @@ ui <- dashboardPage(
       ), #tabItem
       
       
-      # Tab: MI Report -------------------------------------------------------
+      # Tab: DC List -------------------------------------------------------
       
       tabItem(
-        tabName = "tab_dcupdate"
+        tabName = "tab_dclist"
         
       ) #tabItem
       
