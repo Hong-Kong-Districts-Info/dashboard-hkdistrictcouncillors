@@ -41,6 +41,13 @@ ui <- dashboardPage(
         text = "List of DCs",
         icon = icon(name = "list-ul"),
         tabName = "tab_dclist"
+      ),
+      
+      # DCs list tab
+      menuItem(
+        text = "Details",
+        icon = icon(name = "table"),
+        tabName = "tab_dctable"
       )
       
     ) # sidebarMenu
@@ -140,11 +147,18 @@ ui <- dashboardPage(
         )
       ), #tabItem
       
-      
       # Tab: DC List -------------------------------------------------------
       
       tabItem(
         tabName = "tab_dclist"
+        
+      ),
+      
+      
+      # Tab: DC Appendix -----------------------------------------------------
+      
+      tabItem(
+        tabName = "tab_dctable"
         
       ) #tabItem
       
