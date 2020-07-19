@@ -33,7 +33,8 @@ server <- function(input, output, session) {
                        color = react_data_dropdown()$exists_fb,
                        href = react_data_dropdown()$facebook,
                        title = "區議員名稱 / DC's name",
-                       subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page."),
+                       subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page.",
+                       width = 12),
           title = "If it does not re-direct to their FB page, this means their FB page does not exist or we could not find it.",
           trigger = "hover",
           placement = "right"
@@ -52,7 +53,8 @@ server <- function(input, output, session) {
                        subtitle = react_data_dropdown()$Party_EN,
                        icon = icon(name = "vote-yea"),
                        color = "red",
-                       fill = TRUE),
+                       fill = TRUE,
+                       width = 6),
           title = "This is the political party that the DC belongs to", 
           trigger = "hover",
           placement = "bottom"
@@ -71,7 +73,8 @@ server <- function(input, output, session) {
                        subtitle = react_data_dropdown()$Constituency_EN,
                        icon = icon(name = "map-signs"),
                        color = "red",
-                       fill = TRUE),
+                       fill = TRUE,
+                       width = 6),
           title = "This is the constituency the DC belongs to", 
           trigger = "hover",
           placement = "bottom"
