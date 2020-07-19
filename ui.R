@@ -150,7 +150,11 @@ ui <- dashboardPage(
       # Tab: DC List -------------------------------------------------------
       
       tabItem(
-        tabName = "tab_dclist"
+        tabName = "tab_dclist",
+        
+        fluidPage(
+          DTOutput("dc_table")
+        )
         
       ),
       

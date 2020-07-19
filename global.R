@@ -33,3 +33,16 @@ data_master_raw <-
                             na = c("N/A", "")) %>% 
   # infoBox colour indicating if FB link exists
   mutate(exists_fb = if_else(condition = !is.na(x = facebook), "blue", "black"))
+
+# Version to be shown with DT on app
+data_master_details <-
+  googlesheets4::read_sheet(ss = sheet_url,
+                            sheet = "Master",
+                            na = c("N/A", "")) %>%
+  select(Constituency = "DropDownText",
+         Party_ZH,
+         Party_EN,
+         DC_ZH,
+         DC_EN,
+         FB = "facebook")
+  

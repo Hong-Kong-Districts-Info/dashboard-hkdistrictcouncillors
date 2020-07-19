@@ -83,4 +83,10 @@ server <- function(input, output, session) {
     }
   )
   
+  # Data Table with DC Details  ---------------------------------------------
+  
+  output$dc_table = renderDT(
+    data_master_details, options = list(lengthChange = FALSE)
+  )
+  
 }
