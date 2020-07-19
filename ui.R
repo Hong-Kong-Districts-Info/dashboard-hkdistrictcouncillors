@@ -41,7 +41,7 @@ ui <- dashboardPage(
         text = "List of DCs",
         icon = icon(name = "list-ul"),
         tabName = "tab_dclist"
-      ),
+      )
       
     ) # sidebarMenu
   ), #dashboardSidebar

@@ -37,7 +37,7 @@ server <- function(input, output, session) {
                        width = 12),
           title = "If it does not re-direct to their FB page, this means their FB page does not exist or we could not find it.",
           trigger = "hover",
-          placement = "right"
+          placement = "left"
         ) #tipify
       ) #div
     }
