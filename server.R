@@ -86,7 +86,22 @@ server <- function(input, output, session) {
   # Data Table with DC Details  ---------------------------------------------
   
   output$dc_table = renderDT(
-    data_master_details, options = list(lengthChange = FALSE)
+    data_master_details,
+    filter = "top",
+    options = list(lengthMenu = list(c(10, 20, -1),
+                                     c('10', '20', 'All')),
+                   pageLength = 20,
+                   buttons = list(
+                     list(
+                       extend = "collection",
+                       text = 'Show All',
+                       action = DT::JS("function ( e, dt, node, config ) {
+                                    dt.page.len(-1);
+                                    dt.ajax.reload();
+                                }")
+                     )
+                     )
+    )
   )
   
 }

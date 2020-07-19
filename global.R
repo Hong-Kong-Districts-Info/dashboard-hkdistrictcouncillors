@@ -40,9 +40,9 @@ data_master_details <-
                             sheet = "Master",
                             na = c("N/A", "")) %>%
   select(Constituency = "DropDownText",
-         Party_ZH,
-         Party_EN,
-         DC_ZH,
-         DC_EN,
+         Party,
+         DC,
+         Region,
+         District,
          FB = "facebook")
   
