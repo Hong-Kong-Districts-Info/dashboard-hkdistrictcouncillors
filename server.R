@@ -35,15 +35,16 @@ server <- function(input, output, session) {
   )
   
   # ValueBox: Party (English) -----------------------------------------------
-  output$valuebox_party_en <- renderValueBox(
+  output$infobox_party_en <- renderInfoBox(
     expr = {
       tags$div(
         tipify(
-          el = valueBox(value = react_data_constituency()$Party_EN,
-                        subtitle = "Affiliated party (English)",
-                        icon = icon(name = "vote-yea"),
-                        color = "maroon"),
-          title = "This is the political party that the constituency's DC belongs to", 
+          el = infoBox(value = react_data_constituency()$Party_EN,
+                       title = "Affiliated party (English)",
+                       icon = icon(name = "vote-yea"),
+                       color = "red",
+                       fill = TRUE),
+          title = "This is the political party that the DC belongs to", 
           trigger = "hover"
         ) #tipify
       ) #div
@@ -55,10 +56,11 @@ server <- function(input, output, session) {
     expr = {
       tags$div(
         tipify(
-          el = valueBox(value = react_data_constituency()$Constituency_EN,
-                        subtitle = "Constituency (English)",
-                        icon = icon(name = "map-signs"),
-                        color = "maroon"),
+          el = infoBox(value = react_data_constituency()$Constituency_EN,
+                       title = "Constituency (English)",
+                       icon = icon(name = "map-signs"),
+                       color = "red",
+                       fill = TRUE),
           title = "This is the constituency the DC belongs to", 
           trigger = "hover"
         ) #tipify

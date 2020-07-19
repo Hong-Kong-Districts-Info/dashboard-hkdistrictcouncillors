@@ -137,10 +137,10 @@ ui <- dashboardPage(
           ),
           
           fluidRow(
-            valueBoxOutput(outputId = "valuebox_party_en", width = NULL),
+            infoBoxOutput(outputId = "infobox_party_en", width = NULL),
             infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
           )
-        )
+        ) #column
       ), #tabItem
       
       
