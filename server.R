@@ -12,7 +12,7 @@ server <- function(input, output, session) {
   # ----- REACTIVES ----- #
   
   # filter data according to user selected option
-  react_data_constituency <- reactive(
+  react_data_dropdown <- reactive(
     x = {
       data_select <- filter(.data = data_master_raw, 
                             DropDownText == input$input_dropdowntext)
@@ -26,11 +26,18 @@ server <- function(input, output, session) {
   # ValueBox: Party (English) -----------------------------------------------
   output$infobox_fb <- renderInfoBox(
     expr = {
-      infoBox(value = paste0(react_data_constituency()$DC_ZH, " / ", react_data_constituency()$DC_EN),
-              icon = icon(name = "facebook-square"),
-              color = "blue",
-              href = react_data_constituency()$facebook,
-              title = "Click this box to visit the DC's FB page")
+      tags$div(
+        tipify(
+          el = infoBox(value = paste0(react_data_dropdown()$DC_ZH, " / ", react_data_dropdown()$DC_EN),
+                       icon = icon(name = "facebook-square"),
+                       color = react_data_dropdown()$exists_fb,
+                       href = react_data_dropdown()$facebook,
+                       title = "區議員名稱 / DC's name",
+                       subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page."),
+          title = "If it does not re-direct to their FB page, this means their FB page does not exist or we could not find it.",
+          trigger = "hover"
+        ) #tipify
+      ) #div
     }
   )
   
@@ -39,9 +46,9 @@ server <- function(input, output, session) {
     expr = {
       tags$div(
         tipify(
-          el = infoBox(value = react_data_constituency()$Party_ZH,
-                       title = "(Placeholder Chinese text) / Affiliated party",
-                       subtitle = react_data_constituency()$Party_EN,
+          el = infoBox(value = react_data_dropdown()$Party_ZH,
+                       title = "黨派 / Affiliated party",
+                       subtitle = react_data_dropdown()$Party_EN,
                        icon = icon(name = "vote-yea"),
                        color = "red",
                        fill = TRUE),
@@ -57,9 +64,9 @@ server <- function(input, output, session) {
     expr = {
       tags$div(
         tipify(
-          el = infoBox(value = react_data_constituency()$Constituency_ZH,
-                       title = "(Placeholder Chinese text) / Constituency (English)",
-                       subtitle = react_data_constituency()$Constituency_EN,
+          el = infoBox(value = react_data_dropdown()$Constituency_ZH,
+                       title = "選區 / Constituency",
+                       subtitle = react_data_dropdown()$Constituency_EN,
                        icon = icon(name = "map-signs"),
                        color = "red",
                        fill = TRUE),
