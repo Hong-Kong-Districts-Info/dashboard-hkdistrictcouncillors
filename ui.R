@@ -129,18 +129,15 @@ ui <- dashboardPage(
                     label = "Please choose a district",
                     choices = sort(unique(data_master_raw$DropDownText))),
         
-        column(
-          width = 12,
-          
-          fluidRow(
-            infoBoxOutput(outputId = "infobox_fb", width = NULL)
-          ),
-          
-          fluidRow(
-            infoBoxOutput(outputId = "infobox_party_en", width = NULL),
-            infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
-          )
-        ) #column
+
+        fluidRow(
+          infoBoxOutput(outputId = "infobox_fb", width = NULL)
+        ),
+        
+        fluidRow(
+          infoBoxOutput(outputId = "infobox_party_en", width = NULL),
+          infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
+        )
       ), #tabItem
       
       
