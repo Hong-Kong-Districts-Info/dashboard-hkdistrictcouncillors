@@ -26,7 +26,7 @@ server <- function(input, output, session) {
   # ValueBox: Party (English) -----------------------------------------------
   output$infobox_fb <- renderInfoBox(
     expr = {
-      infoBox(value = react_data_constituency()$DC_EN,
+      infoBox(value = paste0(react_data_constituency()$DC_ZH, " / ", react_data_constituency()$DC_EN),
               icon = icon(name = "facebook-square"),
               color = "blue",
               href = react_data_constituency()$facebook,
@@ -39,8 +39,9 @@ server <- function(input, output, session) {
     expr = {
       tags$div(
         tipify(
-          el = infoBox(value = react_data_constituency()$Party_EN,
-                       title = "Affiliated party (English)",
+          el = infoBox(value = react_data_constituency()$Party_ZH,
+                       title = "(Placeholder Chinese text) / Affiliated party",
+                       subtitle = react_data_constituency()$Party_EN,
                        icon = icon(name = "vote-yea"),
                        color = "red",
                        fill = TRUE),
@@ -56,8 +57,9 @@ server <- function(input, output, session) {
     expr = {
       tags$div(
         tipify(
-          el = infoBox(value = react_data_constituency()$Constituency_EN,
-                       title = "Constituency (English)",
+          el = infoBox(value = react_data_constituency()$Constituency_ZH,
+                       title = "(Placeholder Chinese text) / Constituency (English)",
+                       subtitle = react_data_constituency()$Constituency_EN,
                        icon = icon(name = "map-signs"),
                        color = "red",
                        fill = TRUE),
