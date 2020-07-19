@@ -6,6 +6,9 @@ library(googlesheets4)
 
 sheet_url <- "https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/"
 
+# authorise Google account via prompt
+gs4_auth()
+
 # define google sheets ----------------------------------------------------
 list_arguments <- list(sheet = c("Central & Western", "Wan Chai", "Eastern", "Southern"))
 list_data <- pmap(.l = list_arguments, .f = read_sheet, ss = sheet_url)
