@@ -27,5 +27,8 @@ Imports:
     DT,
     googlesheets4
 Suggests: 
-    data.table,
-    dtplyr
+    janitor,
+    purrr,
+    rsconnect,
+    rstudioapi,
+    packrat
