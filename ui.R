@@ -125,12 +125,9 @@ ui <- dashboardPage(
       
       tabItem(
         tabName = "tab_dclist",
-        selectInput(inputId = "input_consituency_en",
-                    label = "Please choose a constituency",
-                    choices = sort(unique(data_master_raw$Constituency_EN))),
-        selectInput(inputId = "input_constituency_zh",
-                    label = "Please choose a constituency",
-                    choices = sort(unique(data_master_raw$Constituency_ZH))),
+        selectInput(inputId = "input_dropdowntext",
+                    label = "Please choose a district",
+                    choices = sort(unique(data_master_raw$DropDownText))),
         
         column(
           width = 12,

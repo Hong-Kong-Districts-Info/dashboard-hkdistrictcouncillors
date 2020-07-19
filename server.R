@@ -15,7 +15,7 @@ server <- function(input, output, session) {
   react_data_constituency <- reactive(
     x = {
       data_select <- filter(.data = data_master_raw, 
-                            Constituency_EN == input$input_consituency_en)
+                            DropDownText == input$input_dropdowntext)
       
       return(data_select)
     }
@@ -26,7 +26,7 @@ server <- function(input, output, session) {
   # ValueBox: Party (English) -----------------------------------------------
   output$infobox_fb <- renderInfoBox(
     expr = {
-      infoBox(value = react_data_constituency()$DC_ZN,
+      infoBox(value = react_data_constituency()$DC_EN,
               icon = icon(name = "facebook-square"),
               color = "blue",
               href = react_data_constituency()$facebook,
