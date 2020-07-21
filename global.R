@@ -21,7 +21,7 @@ library(DT)
 
 
 ## Read data from Google Sheets 4
-sheet_url <- "https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/"
+sheet_url <- "https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/"
 
 # put gsheets into de-authorised state
 # so no need to provide personal token

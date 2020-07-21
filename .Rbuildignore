@@ -4,3 +4,5 @@
 ^\.travis\.yml$
 ^LICENSE\.md$
 ^\.development$
+^.*\.Rproj$
+^\.Rproj\.user$

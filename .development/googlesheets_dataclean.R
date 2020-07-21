@@ -4,21 +4,21 @@ library(janitor)
 library(tidyr)
 library(googlesheets4)
 
-sheet_url <- "https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/"
+sheet_url <- "https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/"
 
 # authorise Google account via prompt
 gs4_auth()
 
 # define google sheets ----------------------------------------------------
-list_arguments <- list(sheet = c("Central & Western", "Wan Chai", "Eastern", "Southern"))
-list_data <- pmap(.l = list_arguments, .f = read_sheet, ss = sheet_url)
-names(list_data) <- paste0("data_master_", c("cnw", "wanchai", "eastern", "southern"))
+dc_sheet_names <- sheet_names(sheet_url)
+dc_sheet_names2 <- dc_sheet_names[!grepl(x = dc_sheet_names, pattern = "^Master$|^DistrictCouncilKey$")]
 
+list_arguments <- list(sheet = dc_sheet_names2)
+list_data <- pmap(.l = list_arguments, .f = read_sheet, ss = sheet_url)
+names(list_data) <- paste0("data_master_", make_clean_names(dc_sheet_names2))
 
 # Read in DistrictCouncilKey separately
 dc_key_sheet <- read_sheet(ss = sheet_url, sheet = "DistrictCouncilKey")
-
-
 
 # Clean District Council Key sheet ----------------------------------------
 
