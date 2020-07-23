@@ -137,7 +137,7 @@ ui <- dashboardPage(
       ), #tabItem
       
       
-      # Tab: DC Overview ----------------------------------------------------------
+      # Tab: Overview of a DC ----------------------------------------------------------
       
       tabItem(
         tabName = "tab_dcoverview",
@@ -156,7 +156,7 @@ ui <- dashboardPage(
         )
       ), #tabItem
       
-      # Tab: DC List -------------------------------------------------------
+      # Tab: List of DCs -------------------------------------------------------
       
       tabItem(
         tabName = "tab_dclist",

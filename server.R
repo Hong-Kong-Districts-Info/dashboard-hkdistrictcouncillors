@@ -21,7 +21,8 @@ server <- function(input, output, session) {
     }
   )
   
-  # ----- TAB: Data Explorer ----- #
+  
+  # ----- TAB: Overview of a DC ----- #
   
   # ValueBox: Party (English) -----------------------------------------------
   output$infobox_fb <- renderInfoBox(
@@ -82,6 +83,9 @@ server <- function(input, output, session) {
       ) #div
     }
   )
+  
+  
+  # ----- TAB: List of DCs ----- #
   
   # Data Table with DC Details  ---------------------------------------------
   
