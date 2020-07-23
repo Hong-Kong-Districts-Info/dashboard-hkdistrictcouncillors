@@ -99,9 +99,9 @@ server <- function(input, output, session) {
                                     dt.page.len(-1);
                                     dt.ajax.reload();
                                 }")
-                     )
-                     )
-    )
-  )
+                     ) #list
+                  ) #list
+    ) #list
+  ) #renderDT
   
 }
