@@ -13,6 +13,7 @@ gs4_auth()
 dc_sheet_names <- sheet_names(sheet_url)
 dc_sheet_names2 <- dc_sheet_names[!grepl(x = dc_sheet_names, pattern = "^Master$|^DistrictCouncilKey$")]
 
+# read each sheet into a df contained in a list
 list_arguments <- list(sheet = dc_sheet_names2)
 list_data <- pmap(.l = list_arguments, .f = read_sheet, ss = sheet_url)
 names(list_data) <- paste0("data_master_", make_clean_names(dc_sheet_names2))
@@ -29,7 +30,7 @@ dc_key <-
 
 # clean googlesheets ------------------------------------------------------
 
-clean_gsheet_dat <- function(data){
+clean_gsheet_data <- function(data){
   data %>%
     clean_names() %>%
     separate(col = xuan_qu_constituency, into = c("Constituency_ZH", "Constituency_EN"), sep = "\n", extra = "merge") %>%
@@ -46,7 +47,7 @@ clean_gsheet_dat <- function(data){
 
 master_sheet <-
   list_data %>%
-  map(clean_gsheet_dat) %>%
+  map(.f = clean_gsheet_data) %>%
   bind_rows() %>%
   mutate(Code = substr(ConstituencyCode, start = 1, stop = 1)) %>%
   left_join(dc_key, by = "Code") %>%
