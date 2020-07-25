@@ -25,6 +25,14 @@ library(DT)
 # put gsheets into de-authorised state so no need for personal token for app
 gs4_deauth()
 
+# set theme for plots
+plot_theme <- theme(plot.title = element_text(face = "bold", hjust = 0.5),
+                    plot.subtitle = element_text(face = "bold", hjust = 0.5),
+                    panel.background = element_blank(),
+                    axis.line = element_blank(),
+                    axis.text = element_blank(),
+                    axis.ticks = element_blank())
+
 # Data file paths ---------------------------------------------------------
 sheet_url <- "https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/"
 path_shape_district <- "data/dcca_2019/DCCA_2019.shp"
@@ -102,5 +110,14 @@ shape_district <- st_read(dsn = path_shape_district)
 shape_hk <- st_read(dsn = path_shape_hk)
 
 # Pre-load/create map
+<<<<<<< HEAD
 map_hk_districts <- 
 >>>>>>> feat: Load in HK and district shapes
+||||||| constructed merge base
+map_hk_districts <- 
+=======
+map_hk_districts <- ggplot() +
+  geom_sf(data = shape_hk, colour = 'green') +
+  geom_sf(data = shape_district, fill = 'blue', alpha = 0.2, linetype = 'dotted', size = 0.2) +
+  plot_theme
+>>>>>>> feat: Make lines thinner
