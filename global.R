@@ -12,7 +12,7 @@
 library(dplyr)
 library(tidyr)
 library(googlesheets4)
-library(rgdal)
+library(sf)
 
 library(ggplot2)
 
@@ -22,15 +22,18 @@ library(shinyBS)
 library(shinydashboard)
 library(DT)
 
-
-## data source
-sheet_url <- "https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/"
-path_shape <- "data/DCCA_2019.shp"
-
-# put gsheets into de-authorised state
-# so no need to provide personal token
+# put gsheets into de-authorised state so no need for personal token for app
 gs4_deauth()
 
+# Data file paths ---------------------------------------------------------
+sheet_url <- "https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/"
+path_shape_district <- "data/dcca_2019/DCCA_2019.shp"
+path_shape_hk <- "data/gadm/gadm36_HKG_0.shp"
+
+
+# Data import -------------------------------------------------------------
+
+## gsheets
 data_master_raw <-
   googlesheets4::read_sheet(ss = sheet_url,
                             sheet = "Master",
@@ -68,6 +71,7 @@ data_master_details <-
          District,
          FB = "facebook")
 
+<<<<<<< HEAD
 # map
 shape_district <- readOGR(dsn = path_shape)
 ## convert to dataframe
@@ -80,3 +84,23 @@ centroids <- setNames(object = do.call(what = "rbind.data.frame",
 centroids$label <- shape_district$id[match(rownames(centroids), shape_district$group)]
   
 >>>>>>> feat: Import shapesfile of districts
+||||||| constructed merge base
+# map
+shape_district <- readOGR(dsn = path_shape)
+## convert to dataframe
+shape_district <- fortify(model = shape_district)
+
+## prepare for chloropleth
+centroids <- setNames(object = do.call(what = "rbind.data.frame",
+                                      args = by(shape_district, shape_district$group, function(x) {Polygon(x[c('long', 'lat')])@labpt})),
+                      c('long', 'lat'))
+centroids$label <- shape_district$id[match(rownames(centroids), shape_district$group)]
+  
+=======
+## shapefiles
+shape_district <- st_read(dsn = path_shape_district)
+shape_hk <- st_read(dsn = path_shape_hk)
+
+# Pre-load/create map
+map_hk_districts <- 
+>>>>>>> feat: Load in HK and district shapes
