@@ -8,10 +8,13 @@
 
 # Packages ----------------------------------------------------------------
 
-## datawrangling
+## data wrangling
 library(dplyr)
 library(tidyr)
 library(googlesheets4)
+library(rgdal)
+
+library(ggplot2)
 
 ## shiny-related
 library(shiny)
