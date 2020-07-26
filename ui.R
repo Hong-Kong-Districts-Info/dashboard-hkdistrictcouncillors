@@ -34,13 +34,6 @@ ui <- dashboardPage(
     sidebarMenu(
       id = "menu",
       
-      # Guidance tab
-      menuItem(
-        text = "Guidance",
-        icon = icon(name = "info-circle"),
-        tabName = "tab_guidance"
-      ),
-      
       # DCs list tab
       menuItem(
         text = "Overview of a DC",
@@ -53,7 +46,7 @@ ui <- dashboardPage(
         text = "List of DCs",
         icon = icon(name = "list-ul"),
         tabName = "tab_dclist"
-      )#,
+      ),
       
       # DCs list tab
       #menuItem(
@@ -62,12 +55,75 @@ ui <- dashboardPage(
       #  tabName = "tab_dctable"
       #)
       
+      # Guidance tab
+      menuItem(
+        text = "Guidance",
+        icon = icon(name = "info-circle"),
+        tabName = "tab_guidance"
+      )
+      
     ) # sidebarMenu
   ), #dashboardSidebar
   
   # Body
   body = dashboardBody(
     tabItems(
+      
+      # Tab: Overview of a DC ----------------------------------------------------------
+      
+      tabItem(
+        tabName = "tab_dcoverview",
+        selectizeInput(inputId = "input_dropdowntext",
+                    label = "請選擇選區 / Please choose a district",
+                    choices = sort(unique(data_master_raw$DropDownText))),
+        
+
+        fluidRow(
+          infoBoxOutput(outputId = "infobox_fb", width = NULL)
+        ),
+        
+        fluidRow(
+          infoBoxOutput(outputId = "infobox_party_en", width = NULL),
+          infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
+        ),
+        
+        fluidRow(
+          column(
+            width = 3,
+            uiOutput("frame") # iframe
+          )
+        ),
+        
+        fluidRow(
+          box(
+            title = tags$b("District chosen"), 
+            solidHeader = TRUE, status = "danger", width = 12,
+            plotOutput(outputId = "plot_district", width = NULL)
+          ) #box
+        )
+        
+      ), #tabItem
+      
+      
+      # Tab: List of DCs -------------------------------------------------------
+      
+      tabItem(
+        tabName = "tab_dclist",
+        
+        fluidPage(
+          DTOutput("dc_table")
+        ) #fluidPage
+        
+      ), #tabItem
+      
+      
+      # Tab: DC Appendix -----------------------------------------------------
+      
+      tabItem(
+        tabName = "tab_dctable"
+        
+      ), #tabItem
+      
       
       # Tab: Guidance ---------------------------------------------------
       tabItem(
@@ -133,60 +189,6 @@ ui <- dashboardPage(
           ), hr()
           
         ) #box
-        
-      ), #tabItem
-      
-      
-      # Tab: Overview of a DC ----------------------------------------------------------
-      
-      tabItem(
-        tabName = "tab_dcoverview",
-        selectizeInput(inputId = "input_dropdowntext",
-                    label = "請選擇選區 / Please choose a district",
-                    choices = sort(unique(data_master_raw$DropDownText))),
-        
-
-        fluidRow(
-          infoBoxOutput(outputId = "infobox_fb", width = NULL)
-        ),
-        
-        fluidRow(
-          infoBoxOutput(outputId = "infobox_party_en", width = NULL),
-          infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
-        ),
-        
-        fluidRow(
-          column(
-            width = 3,
-            uiOutput("frame") # iframe
-          )
-        ),
-        
-        fluidRow(
-          box(
-            title = tags$b("District chosen"), 
-            solidHeader = TRUE, status = "danger", width = 12,
-            plotOutput(outputId = "plot_district", width = NULL)
-          ) #box
-        )
-      ), #tabItem
-      
-      # Tab: List of DCs -------------------------------------------------------
-      
-      tabItem(
-        tabName = "tab_dclist",
-        
-        fluidPage(
-          DTOutput("dc_table")
-        )
-        
-      ),
-      
-      
-      # Tab: DC Appendix -----------------------------------------------------
-      
-      tabItem(
-        tabName = "tab_dctable"
         
       ) #tabItem
       
