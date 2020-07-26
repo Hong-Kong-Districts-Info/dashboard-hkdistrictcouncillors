@@ -97,10 +97,7 @@ server <- function(input, output, session) {
   output$plot_district <- renderPlot(
     expr = {
       
-      # convert to sf so can plot
-      react_data_dropdown
-      
-      map_hk_districts <- map_hk_districts +
+      map_hk_districts +
         geom_sf(data = react_district_highlight(), fill = 'red', alpha = 0.3)
       
     }
