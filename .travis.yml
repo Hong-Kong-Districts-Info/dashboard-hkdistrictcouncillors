@@ -24,4 +24,6 @@ addons:
   apt:
     packages:
       - libudunits2-dev
-      - gdal
+      - libgdal-gdal
+      - libgeos-dev
+      - libproj-dev
