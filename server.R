@@ -42,7 +42,7 @@ server <- function(input, output, session) {
         ) #tipify
       ) #div
     }
-  )
+  ) #renderInfoBox
   
   # ValueBox: Party (English) -----------------------------------------------
   output$infobox_party_en <- renderInfoBox(
@@ -62,7 +62,7 @@ server <- function(input, output, session) {
         ) #tipify
       ) #div
     }
-  )
+  ) #renderInfoBox
 
   # InfoBox: Constituency (English) -----------------------------------------
   output$infobox_constituency_en <- renderInfoBox(
@@ -82,7 +82,7 @@ server <- function(input, output, session) {
         ) #tipify
       ) #div
     }
-  )
+  ) #renderInfoBox
   
   # iframe  ---------------------------------------------
   output$frame <- renderUI({
