@@ -109,6 +109,11 @@ centroids$label <- shape_district$id[match(rownames(centroids), shape_district$g
 shape_district <- st_read(dsn = path_shape_district)
 shape_hk <- st_read(dsn = path_shape_hk)
 
+
+data_master <- data_master_raw %>% 
+  mutate(ConstituencyCode = gsub(x = ConstituencyCode, pattern = "-", replacement = "")) %>% 
+  left_join(y = shape_district, by = c("ConstituencyCode" = "CACODE"))
+
 # Pre-load/create map
 <<<<<<< HEAD
 map_hk_districts <- 
@@ -117,7 +122,7 @@ map_hk_districts <-
 map_hk_districts <- 
 =======
 map_hk_districts <- ggplot() +
-  geom_sf(data = shape_hk, colour = 'green') +
-  geom_sf(data = shape_district, fill = 'blue', alpha = 0.2, linetype = 'dotted', size = 0.2) +
+  geom_sf(data = shape_hk, fill = '#009E73') +
+  geom_sf(data = shape_district, fill = '#56B4E9', alpha = 0.2, linetype = 'dotted', size = 0.2) +
   plot_theme
 >>>>>>> feat: Make lines thinner
