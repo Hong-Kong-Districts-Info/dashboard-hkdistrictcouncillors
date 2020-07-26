@@ -163,7 +163,11 @@ ui <- dashboardPage(
         ),
         
         fluidRow(
-          plotOutput(outputId = "plot_district", width = NULL)
+          box(
+            title = tags$b("District chosen"), 
+            solidHeader = TRUE, status = "danger", width = 12,
+            plotOutput(outputId = "plot_district", width = NULL)
+          ) #box
         )
       ), #tabItem
       

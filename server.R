@@ -104,7 +104,7 @@ server <- function(input, output, session) {
     expr = {
       
       map_hk_districts +
-        geom_sf(data = react_district_highlight(), fill = 'red', alpha = 0.3)
+        geom_sf(data = react_district_highlight(), fill = '#D55E00', alpha = 0.5)
       
     }
   )
