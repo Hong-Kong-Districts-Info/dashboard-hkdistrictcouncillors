@@ -23,8 +23,8 @@ ui <- dashboardPage(
               title = "Email us"),
             class = "dropdown"),
     tags$li(a(href = 'https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors/',
-              img(src = 'HKDC-white.png', title = "Back to Home", height = "30px"),
-              style = "padding-top:10px; padding-bottom:10px;"),
+              img(src = 'logo.png', title = "Back to Home", height = "46px"),
+              style = "padding-top:2px; padding-bottom:2px;"),
             class = "dropdown")
   ),
   

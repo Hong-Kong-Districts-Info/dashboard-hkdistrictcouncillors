@@ -35,8 +35,8 @@ plot_theme <- theme(plot.title = element_text(face = "bold", hjust = 0.5),
 
 # Data file paths ---------------------------------------------------------
 sheet_url <- "https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/"
-path_shape_district <- "data/dcca_2019/DCCA_2019.shp"
-path_shape_hk <- "data/gadm/gadm36_HKG_0.shp"
+path_shape_district <- "inst/extdata/dcca_2019/DCCA_2019.shp"
+path_shape_hk <- "inst/extdata/gadm/gadm36_HKG_0.shp"
 
 
 # Data import -------------------------------------------------------------
