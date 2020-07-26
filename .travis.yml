@@ -19,3 +19,8 @@ install:
 
 script:
   - nohup R --slave --no-restore -e 'shiny::runApp(port = 3000)' &
+  
+addons:
+  apt:
+    packages:
+      - libudunits2-dev
