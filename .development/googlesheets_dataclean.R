@@ -11,6 +11,9 @@ gs4_auth()
 
 # define google sheets ----------------------------------------------------
 dc_sheet_names <- sheet_names(sheet_url)
+
+# Exclude sheets that are named 'Master' or 'DistrictCouncilKeys'
+# Leaving only sheets which are related to each DC
 dc_sheet_names2 <- dc_sheet_names[!grepl(x = dc_sheet_names, pattern = "^Master$|^DistrictCouncilKey$")]
 
 list_arguments <- list(sheet = dc_sheet_names2)
