@@ -3,7 +3,7 @@
 language: r
 #warnings_are_errors: true
 r:
-  -release
+  - release
 sudo: required
 dist: trusty
 
