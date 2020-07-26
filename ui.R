@@ -13,7 +13,19 @@ ui <- dashboardPage(
   
   # Header
   header = dashboardHeader(
-    title = "HK: District Councillors"
+    title = "HK: District Councillors",
+    tags$li(a(href = 'https://github.com/avisionh/dashboard-hkdistrictcouncillors/',
+              icon("github"),
+              title = "GitHub"),
+            class = "dropdown"),
+    tags$li(a(href = 'mailto: hkdistricts.info@gmail.com',
+              icon("envelope"),
+              title = "Email us"),
+            class = "dropdown"),
+    tags$li(a(href = 'https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors/',
+              img(src = 'HKDC-white.png', title = "Back to Home", height = "30px"),
+              style = "padding-top:10px; padding-bottom:10px;"),
+            class = "dropdown")
   ),
   
   # Sidebar
@@ -41,7 +53,14 @@ ui <- dashboardPage(
         text = "List of DCs",
         icon = icon(name = "list-ul"),
         tabName = "tab_dclist"
-      )
+      )#,
+      
+      # DCs list tab
+      #menuItem(
+      #  text = "Details",
+      #  icon = icon(name = "table"),
+      #  tabName = "tab_dctable"
+      #)
       
     ) # sidebarMenu
   ), #dashboardSidebar
@@ -62,8 +81,7 @@ ui <- dashboardPage(
           
           div(
             "Welcome to an app of Facebook page updates by Hong Kong District Councillors.",
-            p("The aim of this app is to provide a convenient site for live information on the district councillors in Hong Kong, 
-              via aggregating posts and feeds from their public Facebook pages. ."),
+            p("The aim of this app is to provide a convenient site for accessing the Facebook pages of district councillors in Hong Kong."),
             p(strong("This app is not affiliated to any political individuals nor movements."))
           ),
           
@@ -81,10 +99,7 @@ ui <- dashboardPage(
           h2(icon("question-circle-o"), "Further Information"), hr(),
           div(
             "Useful information about the Data Sources used, the 
-            Construction and Security of the app are placed in the box on 
-            the right hand side of this page. Please send any questions or feedback to ", 
-            a(href = "mailto:a_vision@hotmail.co.uk", "my email"),
-            " or to my ", a(href = "github.com/avisionh", "GitHub.")
+            Construction and Security of the app are placed on this tab."
           ), hr()
           
         ), #box
@@ -98,9 +113,10 @@ ui <- dashboardPage(
           div(
             "This app uses data from: ", br(),
             tags$ul(
-              tags$li("Data Item 1"),
-              tags$li("Data Item 2"),
-              tags$li("Data Item 3")
+              tags$li(a(href = "https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0", "Google Sheet of HK DCs")),
+              tags$li(a(href = "https://en.wikipedia.org/wiki/2019_Hong_Kong_local_elections", "Wikipedia of HK DCs")),
+              tags$li("Facebook pages of each HK DC"),
+              tags$li(a(href = "https://accessinfo.hk/en/request/shapefileshp_for_2019_district_c", "Shapefiles of HK district councils"))
             )
           ), hr(),
           
@@ -121,12 +137,12 @@ ui <- dashboardPage(
       ), #tabItem
       
       
-      # Tab: DC Overview ----------------------------------------------------------
+      # Tab: Overview of a DC ----------------------------------------------------------
       
       tabItem(
         tabName = "tab_dcoverview",
         selectInput(inputId = "input_dropdowntext",
-                    label = "Please choose a district",
+                    label = "請選擇選區 / Please choose a district",
                     choices = sort(unique(data_master_raw$DropDownText))),
         
 
@@ -140,11 +156,22 @@ ui <- dashboardPage(
         )
       ), #tabItem
       
-      
-      # Tab: DC List -------------------------------------------------------
+      # Tab: List of DCs -------------------------------------------------------
       
       tabItem(
-        tabName = "tab_dclist"
+        tabName = "tab_dclist",
+        
+        fluidPage(
+          DTOutput("dc_table")
+        )
+        
+      ),
+      
+      
+      # Tab: DC Appendix -----------------------------------------------------
+      
+      tabItem(
+        tabName = "tab_dctable"
         
       ) #tabItem
       

@@ -21,7 +21,8 @@ server <- function(input, output, session) {
     }
   )
   
-  # ----- TAB: Data Explorer ----- #
+  
+  # ----- TAB: Overview of a DC ----- #
   
   # ValueBox: Party (English) -----------------------------------------------
   output$infobox_fb <- renderInfoBox(
@@ -82,5 +83,35 @@ server <- function(input, output, session) {
       ) #div
     }
   )
+  
+  
+  # ----- TAB: List of DCs ----- #
+  
+  # Data Table with DC Details  ---------------------------------------------
+  
+  output$dc_table = renderDT(
+    select(.data = data_master_raw,
+           Constituency = DropDownText,
+           Party,
+           DC,
+           Region,
+           District,
+           FB = "facebook"),
+    filter = "top",
+    options = list(lengthMenu = list(c(10, 20, -1),
+                                     c('10', '20', 'All')),
+                   pageLength = 20,
+                   buttons = list(
+                     list(
+                       extend = "collection",
+                       text = 'Show All',
+                       action = DT::JS("function ( e, dt, node, config ) {
+                                    dt.page.len(-1);
+                                    dt.ajax.reload();
+                                }")
+                     ) #list
+                  ) #list
+    ) #list
+  ) #renderDT
   
 }
