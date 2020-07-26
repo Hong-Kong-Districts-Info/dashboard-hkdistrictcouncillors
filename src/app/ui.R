@@ -199,7 +199,6 @@ ui <- dashboardPage(
           
         ) #box
         
-        
       ) #tabItem
       
     ) #tabItems
