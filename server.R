@@ -21,6 +21,14 @@ server <- function(input, output, session) {
     }
   )
   
+  # convert filtered data to sf class for district map highlighting
+  react_district_highlight <- reactive(
+    x = {
+      data_select <- st_as_sf(x = react_data_dropdown())
+      return(data_select)
+    }
+  )
+  
   
   # ----- TAB: Overview of a DC ----- #
   
@@ -84,10 +92,26 @@ server <- function(input, output, session) {
     }
   ) #renderInfoBox
   
+  
   # iframe  ---------------------------------------------
   output$frame <- renderUI({
     HTML(react_data_dropdown()$iframe)
   })
+
+
+  # RenderPlot: Districts ---------------------------------------------------
+  output$plot_district <- renderPlot(
+    expr = {
+      
+      # convert to sf so can plot
+      react_data_dropdown
+      
+      map_hk_districts <- map_hk_districts +
+        geom_sf(data = react_district_highlight(), fill = 'red', alpha = 0.3)
+      
+    }
+  )
+  
   
   # ----- TAB: List of DCs ----- #
   
