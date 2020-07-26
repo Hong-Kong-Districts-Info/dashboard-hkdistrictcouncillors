@@ -113,6 +113,7 @@ server <- function(input, output, session) {
     }
   ) #renderInfoBox
   
+
   # iframe  ---------------------------------------------
   output$frame <- renderUI({
     HTML(react_data_dropdown()$iframe)
