@@ -1,2 +1,4 @@
 *
 !.gitignore
+!dcca_2019/DCCA_2019.shp
+!gadm/gadm36_HKG_0.shp
