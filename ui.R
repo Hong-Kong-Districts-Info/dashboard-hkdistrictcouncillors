@@ -154,11 +154,16 @@ ui <- dashboardPage(
           infoBoxOutput(outputId = "infobox_party_en", width = NULL),
           infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
         ),
+        
         fluidRow(
           column(
             width = 3,
             uiOutput("frame") # iframe
           )
+        ),
+        
+        fluidRow(
+          plotOutput(outputId = "plot_district", width = NULL)
         )
       ), #tabItem
       
