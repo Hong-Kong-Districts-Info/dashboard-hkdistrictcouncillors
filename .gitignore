@@ -7,9 +7,5 @@
 # mac-specific
 .DS_Store
 
-# data-files
-data/*
-*.csv
-
 # api/auth keys
 .httr-oauth
