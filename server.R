@@ -86,7 +86,13 @@ server <- function(input, output, session) {
   # Data Table with DC Details  ---------------------------------------------
   
   output$dc_table = renderDT(
-    data_master_details,
+    select(.data = data_master_raw,
+           Constituency = DropDownText,
+           Party,
+           DC,
+           Region,
+           District,
+           FB = "facebook"),
     filter = "top",
     options = list(lengthMenu = list(c(10, 20, -1),
                                      c('10', '20', 'All')),
