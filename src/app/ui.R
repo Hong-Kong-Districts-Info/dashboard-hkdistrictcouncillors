@@ -7,6 +7,10 @@
 
 ui <- dashboardPage(
   
+  tags$head(
+    tags$head(includeHTML(("google-analytics.html")))
+  ),
+  
   # Title and Skin
   title = "District Councillors",
   skin = "yellow",
