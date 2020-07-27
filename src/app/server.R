@@ -8,6 +8,27 @@
 #       server.R must create a function called server, like below:
 
 server <- function(input, output, session) {
+  
+  # Password and T&Cs Pop-up Box ---------------------------------------------------------
+  
+  # show modalDialog on app start-up
+  showModal(modal())  
+  
+  # check cookie-consent and render UI if correct
+  observeEvent(
+    
+    eventExpr = input$submit_cookieconsent,
+    
+    handlerExpr = {
+      
+      # allows access to dashboard if consent, otherwise shutdown
+      if (input$button_cookieconsent == "Yes") {
+        removeModal()
+      } else {
+        stopApp()
+      }
+    }
+  )
 
   # ----- REACTIVES ----- #
   
