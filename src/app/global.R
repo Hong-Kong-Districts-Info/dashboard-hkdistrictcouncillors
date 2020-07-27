@@ -8,8 +8,6 @@
 
 # Packages ----------------------------------------------------------------
 
-library(here)
-
 ## data wrangling
 library(dplyr)
 library(tidyr)
@@ -37,8 +35,9 @@ plot_theme <- theme(plot.title = element_text(face = "bold", hjust = 0.5),
 
 # Data file paths ---------------------------------------------------------
 sheet_url <- "https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/"
-path_shape_district <- here(path = "inst/extdata/dcca_2019/DCCA_2019.shp")
-path_shape_hk <- here(path = "inst/extdata/gadm/gadm36_HKG_0.shp")
+path_data <- "data"
+path_shape_district <- paste0(path_data, "/" , "dcca_2019/DCCA_2019.shp")
+path_shape_hk <- paste0(path_data, "/", "gadm/gadm36_HKG_0.shp")
 
 
 # Data import -------------------------------------------------------------

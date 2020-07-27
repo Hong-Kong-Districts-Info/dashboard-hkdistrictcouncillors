@@ -28,8 +28,7 @@ Imports:
     googlesheets4,
     shinyBS,
     sf,
-    ggplot2,
-    here
+    ggplot2
 Suggests: 
     janitor,
     purrr,
