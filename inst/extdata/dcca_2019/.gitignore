@@ -1,3 +1,5 @@
 *
 !.gitignore
 !DCCA_2019.shp
+!DCCA_2019.shx
+!DCCA_2019.dbf
