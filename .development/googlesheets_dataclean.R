@@ -59,7 +59,7 @@ master_sheet <-
 
 # add iframe to master sheet ----------------------------------------------
 chunk1 <- '<iframe src="https://www.facebook.com/plugins/page.php?href='
-chunk3 <- '&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=3131730406906292" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>'
+chunk3 <- '&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=3131730406906292" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>'
 
 master_sheet <-
   master_sheet %>%
