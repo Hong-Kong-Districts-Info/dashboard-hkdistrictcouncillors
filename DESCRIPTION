@@ -35,4 +35,5 @@ Suggests:
     rsconnect,
     rstudioapi,
     packrat,
-    renv
+    renv,
+    testthat

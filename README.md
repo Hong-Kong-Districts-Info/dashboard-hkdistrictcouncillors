@@ -1,5 +1,4 @@
-Dashboard: Hong Kong District Councillors
-==============================
+# Dashboard: Hong Kong District Councillors
 
 [![Travis build status](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors.svg?branch=master)](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors) [![R build status](https://github.com/avisionh/dashboard-hkdistrictcouncillors/workflows/R-CMD-check/badge.svg)](https://github.com/avisionh/dashboard-hkdistrictcouncillors/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -10,8 +9,9 @@ The Shiny app is deployed onto shinyapps.io in the link below:
  - Production: https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors/
  - Pre-Production: https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors-preprod/
 
-Project Organization
-------------
+***
+
+## Project organisation
 
     ├── LICENSE
     │
@@ -53,7 +53,7 @@ Project Organization
     │
     ├── dashboard-hkdistrictcouncillors.Rproj   <- Config to establish Rproject
 
---------
+***
 
 ### Components of the app
 1. Data mapping the Facebook pages of each district councillor to their names, constituencies, and basic information
