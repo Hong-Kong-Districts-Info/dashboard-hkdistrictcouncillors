@@ -36,4 +36,5 @@ Suggests:
     rstudioapi,
     packrat,
     renv,
-    testthat
+    testthat,
+    covr
