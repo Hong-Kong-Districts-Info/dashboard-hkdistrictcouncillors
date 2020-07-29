@@ -57,6 +57,10 @@ The Shiny app is deployed onto shinyapps.io in the link below:
 
 ***
 
+## Installation
+
+## Getting started
+
 ### Components of the app
 1. Data mapping the Facebook pages of each district councillor to their names, constituencies, and basic information
 2. API connection to Facebook pages
@@ -72,3 +76,8 @@ The Shiny app is deployed onto shinyapps.io in the link below:
 A list of the District Councillors and their handles are compiled here:
 
 https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0
+
+
+## Code of Conduct
+
+Please note that the hkdistrictcouncillors project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
