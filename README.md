@@ -19,6 +19,8 @@ The Shiny app is deployed onto shinyapps.io in the link below:
     │
     ├── DESCRIPTION             <- Store important metadata about project
     │
+    ├── CODE_OF_CONDUCT.md      <- Guide to define community standards, signal a welcoming and inclusive project, and outline procedures for handling abuse.
+    │
     ├── CONTRIBUTING.md         <- Guide to how potential contributors can help with your project
     │
     ├── NAMESPACE               <- Prevent conflict in package names
@@ -40,7 +42,7 @@ The Shiny app is deployed onto shinyapps.io in the link below:
     │   └── func_clean_gsheet_data.R    <- Function to clean Google Sheet
     │
     ├── .github/                         
-    │   └── pull_request_template.md    <- Pull request template
+    │   ├── pull_request_template.md    <- Pull request template
     |   └── ISSUE_TEMPLATE/
     |       ├── bug_report.md         <- Issue template for bugs
     |       └── feature_report.md     <- Issue template for features
@@ -58,8 +60,10 @@ The Shiny app is deployed onto shinyapps.io in the link below:
 ***
 
 ## Installation
+*placeholder text*
 
 ## Getting started
+*placeholder text*
 
 ### Components of the app
 1. Data mapping the Facebook pages of each district councillor to their names, constituencies, and basic information
@@ -75,7 +79,7 @@ The Shiny app is deployed onto shinyapps.io in the link below:
 
 A list of the District Councillors and their handles are compiled here:
 
-https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0
+- https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0
 
 
 ## Code of Conduct
