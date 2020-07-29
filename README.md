@@ -25,17 +25,19 @@ The Shiny app is deployed onto shinyapps.io in the link below:
     │
     ├── .gitignore              <- Files and directories to be ignored by git
     │
-    ├── src/
+    ├── inst/
     │   ├── app.R               <- App script calling sub-scripts
     │   └── app/               
-    |       ├── data/           <- Contains data for app
+    |       ├── extdata/           <- Contains data for app
     |       ├── R/              <- Contains functions for app
     |       ├── google-analytics.html    <- Code to link app with Google Analytics
     |       ├── global.R        <- Static objects for app
     |       ├── server.R        <- Reactive objects for app
     |       └── ui.R            <- User-interface for app
+    |
     ├── .development/
     │   ├── googlesheets_dataclean.R    <- Wrangles Google Sheet data for app
+    │   └── func_clean_gsheet_data.R    <- Function to clean Google Sheet
     │
     ├── .github/                         
     │   └── pull_request_template.md    <- Pull request template
