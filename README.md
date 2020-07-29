@@ -8,6 +8,7 @@ The Shiny app is deployed onto shinyapps.io in the link below:
 
  - Production: https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors/
  - Pre-Production: https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors-preprod/
+ - Development: https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors-dev/
 
 ***
 
