@@ -1,6 +1,6 @@
 # Dashboard: Hong Kong District Councillors
 
-[![Travis build status](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors.svg?branch=master)](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors) [![R build status](https://github.com/avisionh/dashboard-hkdistrictcouncillors/workflows/R-CMD-check/badge.svg)](https://github.com/avisionh/dashboard-hkdistrictcouncillors/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Codecov test coverage](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors/branch/master/graph/badge.svg)](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors?branch=master)
+[![Travis build status](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors.svg?branch=master)](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors) [![R build status](https://github.com/avisionh/dashboard-hkdistrictcouncillors/workflows/R-CMD-check/badge.svg)](https://github.com/avisionh/dashboard-hkdistrictcouncillors/actions) [![Codecov test coverage](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors/branch/master/graph/badge.svg)](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 > *To provide a convenient site for live information on the district councillors in Hong Kong, via aggregating posts and feeds from their public Facebook pages.*
 
