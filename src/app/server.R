@@ -8,6 +8,27 @@
 #       server.R must create a function called server, like below:
 
 server <- function(input, output, session) {
+  
+  # Password and T&Cs Pop-up Box ---------------------------------------------------------
+  
+  # show modalDialog on app start-up
+  showModal(modal())  
+  
+  # check cookie-consent and render UI if correct
+  observeEvent(
+    
+    eventExpr = input$submit_cookieconsent,
+    
+    handlerExpr = {
+      
+      # allows access to dashboard if consent, otherwise shutdown
+      if (input$button_cookieconsent == "Yes") {
+        removeModal()
+      } else {
+        stopApp()
+      }
+    }
+  )
 
   # ----- REACTIVES ----- #
   
@@ -61,7 +82,7 @@ server <- function(input, output, session) {
                        title = "黨派 / Affiliated party",
                        subtitle = react_data_dropdown()$Party_EN,
                        icon = icon(name = "vote-yea"),
-                       color = "yellow",
+                       color = "green",
                        fill = TRUE,
                        width = 6),
           title = "This is the political party that the DC belongs to", 
@@ -81,7 +102,7 @@ server <- function(input, output, session) {
                        title = "選區 / Constituency",
                        subtitle = react_data_dropdown()$Constituency_EN,
                        icon = icon(name = "map-signs"),
-                       color = "yellow",
+                       color = "green",
                        fill = TRUE,
                        width = 6),
           title = "This is the constituency the DC belongs to", 
@@ -91,7 +112,6 @@ server <- function(input, output, session) {
       ) #div
     }
   ) #renderInfoBox
-  
   
   # iframe  ---------------------------------------------
   output$frame <- renderUI({
@@ -108,7 +128,7 @@ server <- function(input, output, session) {
       
     }
   )
-  
+
   
   # ----- TAB: List of DCs ----- #
   
