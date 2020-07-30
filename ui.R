@@ -55,11 +55,11 @@ ui <- dashboardPage(
       #  tabName = "tab_dctable"
       #)
       
-      # Guidance tab
+      # construction tab
       menuItem(
-        text = "Guidance",
+        text = "Construction",
         icon = icon(name = "info-circle"),
-        tabName = "tab_guidance"
+        tabName = "tab_construction"
       )
       
     ) # sidebarMenu
@@ -125,24 +125,24 @@ ui <- dashboardPage(
       ), #tabItem
       
       
-      # Tab: Guidance ---------------------------------------------------
+      # Tab: Construction ---------------------------------------------------
       tabItem(
-        tabName = "tab_guidance",
+        tabName = "tab_construction",
         
         box(
           width = 7, status = "danger", solidHeader = TRUE,
           
-          # Welcome
-          h2(icon("info"), "Welcome"), hr(),
+          # Further Information
+          h2(icon("info"), "Further Information"), hr(),
           
           div(
-            "Welcome to an app of Facebook page updates by Hong Kong District Councillors.",
-            p("The aim of this app is to provide a convenient site for accessing the Facebook pages of district councillors in Hong Kong."),
-            p(strong("This app is not affiliated to any political individuals nor movements."))
+            "On this tab, we describe how this website was constructed and ways to contribute.",
+            p("Note, the aim of this app is to provide a convenient site for accessing the Facebook pages of district councillors in Hong Kong."),
+            p(strong("This website is not affiliated to any political individuals nor movements."))
           ),
           
-          # Using the app
-          h2(icon("users"), "Using the App"), hr(), 
+          # How to use the website?
+          h2(icon("users"), "How to use the website?"), hr(), 
           
           div(
             "Each of the tabs in the app are designed to do the following things:",
@@ -152,10 +152,15 @@ ui <- dashboardPage(
             )
           ),
           
-          h2(icon("question-circle-o"), "Further Information"), hr(),
+          # Want to contribute?
+          h2(icon("question-circle-o"), "Want to contribute?"), hr(),
           div(
-            "Useful information about the Data Sources used, the 
-            Construction and Security of the app are placed on this tab."
+            "If you wish to contribute to the project, do get in touch!",
+            p("You can contact us via the Octocat and Mail buttons at the top-right of the website."),
+            p("Please also read the ", 
+              a(href = "https://accessinfo.hk/en/request/shapefileshp_for_2019_district_c", 
+                "Contributor Code of Conduct"), "
+              before contributing.")
           ), hr()
           
         ), #box
@@ -163,8 +168,8 @@ ui <- dashboardPage(
         box(
           width = 5, status = "danger", solidHeader = TRUE,
           
-          # Data Sources
-          h2(icon("database"), "Data Sources"), hr(),
+          # Where is the data from?
+          h2(icon("database"), "Where is the data from?"), hr(),
           
           div(
             "This app uses data from: ", br(),
@@ -172,15 +177,16 @@ ui <- dashboardPage(
               tags$li(a(href = "https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0", "Google Sheet of HK DCs")),
               tags$li(a(href = "https://en.wikipedia.org/wiki/2019_Hong_Kong_local_elections", "Wikipedia of HK DCs")),
               tags$li("Facebook pages of each HK DC"),
+              tags$li(a(href = "https://gadm.org/", "Shapefiles of HK")),
               tags$li(a(href = "https://accessinfo.hk/en/request/shapefileshp_for_2019_district_c", "Shapefiles of HK district councils"))
             )
           ), hr(),
           
-          # Construction
-          h2(icon("cogs"), "Construction"), hr(),
+          # What is the framework?
+          h2(icon("cogs"), "What is the framework?"), hr(),
           
           div(
-            "This app has been constructed using: ", br(),
+            "This app has been built using: ", br(),
             tags$ul(
               tags$li(a(href = "https://www.r-project.org/", "R"), "(for the data processing and calculation)"),
               tags$li(a(href = "https://shiny.rstudio.com/", "R Shiny", target = "_blank"), "(for the app design and interactivity)"),
