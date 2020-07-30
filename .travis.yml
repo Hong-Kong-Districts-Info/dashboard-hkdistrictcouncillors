@@ -2,6 +2,8 @@
 
 language: r
 #warnings_are_errors: true
+r:
+  - release
 sudo: required
 dist: trusty
 
@@ -19,3 +21,11 @@ install:
 
 script:
   - nohup R --slave --no-restore -e 'shiny::runApp(port = 3000)' &
+  
+addons:
+  apt:
+    packages:
+      - libudunits2-dev
+      - libgdal-dev
+      - libgeos-dev
+      - libproj-dev

@@ -26,10 +26,13 @@ Imports:
     shinydashboard,
     DT,
     googlesheets4,
-    shinyBS
+    shinyBS,
+    sf,
+    ggplot2
 Suggests: 
     janitor,
     purrr,
     rsconnect,
     rstudioapi,
-    packrat
+    packrat,
+    renv

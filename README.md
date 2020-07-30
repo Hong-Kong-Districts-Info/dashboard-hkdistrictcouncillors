@@ -1,13 +1,13 @@
 # Dashboard: Hong Kong District Councillors
 
-[![Travis build status](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors.svg?branch=master)](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors)
-
-[![R build status](https://github.com/avisionh/dashboard-hkdistrictcouncillors/workflows/R-CMD-check/badge.svg)](https://github.com/avisionh/dashboard-hkdistrictcouncillors/actions)
+[![Travis build status](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors.svg?branch=master)](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors) [![R build status](https://github.com/avisionh/dashboard-hkdistrictcouncillors/workflows/R-CMD-check/badge.svg)](https://github.com/avisionh/dashboard-hkdistrictcouncillors/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Repository for code underlying the Shiny app dashboard for HK district councillors
 
 The Shiny app is deployed onto shinyapps.io in the link below:
- - https://avisionh.shinyapps.io/dashboard-hkdistrictcouncillors/
+
+ - Production: https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors/
+ - Pre-Production: https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors-preprod/
 
 ## Background
 The aim of this app is to provide a convenient site for live information on the district councillors in Hong Kong, via aggregating posts and feeds from their public Facebook pages.
