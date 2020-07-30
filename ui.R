@@ -91,14 +91,11 @@ ui <- dashboardPage(
           column(
             width = 3,
             uiOutput("frame") # iframe
-          )
-        ),
-        
-        fluidRow(
+          ), #column
+          
           box(
-            title = tags$b("District chosen"), 
-            solidHeader = TRUE, status = "danger", width = 12,
-            plotOutput(outputId = "plot_district", width = NULL)
+              solidHeader = TRUE, status = "danger", width = 9,
+              plotOutput(outputId = "plot_district", width = NULL)
           ) #box
         )
         
