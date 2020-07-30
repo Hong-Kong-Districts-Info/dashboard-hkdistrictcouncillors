@@ -84,6 +84,10 @@ server <- function(input, output, session) {
     }
   )
   
+  # iframe  ---------------------------------------------
+  output$frame <- renderUI({
+    HTML(react_data_dropdown()$iframe)
+  })
   
   # ----- TAB: List of DCs ----- #
   
