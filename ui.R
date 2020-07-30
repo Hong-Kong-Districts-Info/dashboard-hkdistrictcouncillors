@@ -155,7 +155,10 @@ ui <- dashboardPage(
           infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
         ),
         fluidRow(
-          uiOutput("frame") # iframe
+          column(
+            width = 3,
+            uiOutput("frame") # iframe
+          )
         )
       ), #tabItem
       
