@@ -82,7 +82,7 @@ server <- function(input, output, session) {
                        title = "黨派 / Affiliated party",
                        subtitle = react_data_dropdown()$Party_EN,
                        icon = icon(name = "vote-yea"),
-                       color = "yellow",
+                       color = "green",
                        fill = TRUE,
                        width = 6),
           title = "This is the political party that the DC belongs to", 
@@ -102,7 +102,7 @@ server <- function(input, output, session) {
                        title = "選區 / Constituency",
                        subtitle = react_data_dropdown()$Constituency_EN,
                        icon = icon(name = "map-signs"),
-                       color = "yellow",
+                       color = "green",
                        fill = TRUE,
                        width = 6),
           title = "This is the constituency the DC belongs to", 
@@ -112,19 +112,6 @@ server <- function(input, output, session) {
       ) #div
     }
   ) #renderInfoBox
-  
-
-  # RenderPlot: Districts ---------------------------------------------------
-  output$plot_district <- renderPlot(
-    expr = {
-      
-      map_hk_districts +
-        geom_sf(data = react_district_highlight(), fill = 'red', alpha = 0.3)
-      
-    }
-  )
-  
-  
   
   # iframe  ---------------------------------------------
   output$frame <- renderUI({

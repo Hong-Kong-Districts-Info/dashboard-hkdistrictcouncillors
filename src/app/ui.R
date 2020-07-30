@@ -9,7 +9,7 @@ ui <- dashboardPage(
   
   # Title and Skin
   title = "District Councillors",
-  skin = "yellow",
+  skin = "green",
   
   # Header
   header = dashboardHeader(
@@ -99,7 +99,7 @@ ui <- dashboardPage(
           ), #column
           
           box(
-              solidHeader = TRUE, status = "warning", width = 9,
+              solidHeader = TRUE, status = "success", width = 9,
               plotOutput(outputId = "plot_district", width = NULL)
           ) #box
         )
@@ -133,7 +133,7 @@ ui <- dashboardPage(
         tabName = "tab_construction",
         
         box(
-          width = 7, status = "warning", solidHeader = TRUE,
+          width = 7, status = "success", solidHeader = TRUE,
           
           # Further Information
           h2(icon("info"), "Further Information"), hr(),
@@ -169,7 +169,7 @@ ui <- dashboardPage(
         ), #box
         
         box(
-          width = 5, status = "warning", solidHeader = TRUE,
+          width = 5, status = "success", solidHeader = TRUE,
           
           # Where is the data from?
           h2(icon("database"), "Where is the data from?"), hr(),
