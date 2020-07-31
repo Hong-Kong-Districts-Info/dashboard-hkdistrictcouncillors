@@ -14,49 +14,49 @@ The Shiny app is deployed onto shinyapps.io in the links below:
 
 ## Project organisation
 
-    ├── LICENSE
+    ├── LICENSE                                 <- Sharing agreement
     │
-    ├── README.md               <- The top-level README for developers using this project
+    ├── README.md                               <- Introduces project
     │
-    ├── DESCRIPTION             <- Store important metadata about project
+    ├── DESCRIPTION                             <- Store important metadata about project
     │
-    ├── CODE_OF_CONDUCT.md      <- Guide to define community standards, signal a welcoming and inclusive project, and outline procedures for handling abuse.
+    ├── CODE_OF_CONDUCT.md                      <- Guide to define community standards
     │
-    ├── CONTRIBUTING.md         <- Guide to how potential contributors can help with your project
+    ├── CONTRIBUTING.md                         <- Guide to how contributors can help
     │
-    ├── NAMESPACE               <- Prevent conflict in package names
+    ├── NAMESPACE                               <- Prevent conflict in package names
     │
-    ├── .gitignore              <- Files and directories to be ignored by git
+    ├── .gitignore                              <- Files and folders to be ignored by git
     │
     ├── inst/
-    │   ├── app.R               <- App script calling sub-scripts
+    │   ├── app.R                               <- App script calling sub-scripts
     │   └── app/               
-    |       ├── extdata/           <- Contains data for app
-    |       ├── R/              <- Contains functions for app
-    |       ├── google-analytics.html    <- Code to link app with Google Analytics
-    |       ├── global.R        <- Static objects for app
-    |       ├── server.R        <- Reactive objects for app
-    |       └── ui.R            <- User-interface for app
+    |       ├── extdata/                        <- Data for app
+    |       ├── R/                              <- Functions for app
+    |       ├── google-analytics.html           <- Link app with Google Analytics
+    |       ├── global.R                        <- Static objects for app
+    |       ├── server.R                        <- Reactive objects for app
+    |       └── ui.R                            <- User-interface for app
     |
     ├── .development/
-    │   ├── googlesheets_dataclean.R    <- Wrangles Google Sheet data for app
-    │   └── func_clean_gsheet_data.R    <- Function to clean Google Sheet
+    │   ├── googlesheets_dataclean.R            <- Wrangles Google Sheet data for app
+    │   └── func_clean_gsheet_data.R            <- Function to clean Google Sheet
     │
     ├── .github/                         
-    │   ├── pull_request_template.md    <- Pull request template
+    │   ├── pull_request_template.md            <- Pull request template
     |   └── ISSUE_TEMPLATE/
-    |       ├── bug_report.md         <- Issue template for bugs
-    |       └── feature_report.md     <- Issue template for features
+    |       ├── bug_report.md                   <- Issue template for bugs
+    |       └── feature_report.md               <- Issue template for features
     |   └── workflows/
-    |       └── rcmd_build.yml    <- Instructions for R CMD checks
+    |       └── rcmd_build.yml                  <- Instructions for R CMD checks
     │
-    ├── renv/                     <- Contains config to use renv package
+    ├── renv/                                   <- Config to use renv package
     │
-    ├── renv.lock                 <- Contains package versions used for project
+    ├── renv.lock                               <- Package versions used for project
     │
-    ├── travis.yml                <- Instructions for travis.ci checks
+    ├── travis.yml                              <- Instructions for travis.ci checks
     │
-    ├── codecov.yml                <- Instructions for codecov.io checks
+    ├── codecov.yml                             <- Instructions for codecov.io checks
     │
     └── dashboard-hkdistrictcouncillors.Rproj   <- Config to establish Rproject
 
