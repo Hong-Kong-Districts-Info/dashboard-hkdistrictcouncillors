@@ -4,7 +4,7 @@
 
 > *To provide a convenient site for live information on the district councillors in Hong Kong, via aggregating posts and feeds from their public Facebook pages.*
 
-The Shiny app is deployed onto shinyapps.io in the link below:
+The Shiny app is deployed onto shinyapps.io in the links below:
 
  - Production: https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors/
  - Pre-Production: https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors-preprod/
@@ -63,10 +63,14 @@ The Shiny app is deployed onto shinyapps.io in the link below:
 ***
 
 ## Installation
-*placeholder text*
+Install and run this app locally in your command shell (instructions for iOS):
 
-## Getting started
-*placeholder text*
+```shell
+git clone https://github.com/avisionh/dashboard-hkdistrictcouncillors.git
+cd dashboard-hkdistrictcouncillors
+r
+shiny::runApp(appDir = "inst/app.R")
+```
 
 ### Components of the app
 1. Data mapping the Facebook pages of each district councillor to their names, constituencies, and basic information
@@ -74,15 +78,16 @@ The Shiny app is deployed onto shinyapps.io in the link below:
 3. Shiny front-end and visualisation
 
 ## Development considerations
-1. Not all district councillors will have public Facebook pages, but the aim is for the app to be as comprehensive as possible in coverage.
-2. Essential filters for the app
-3. Question to whether display only a live feed, or to save a 'permanent' copy of the content as part of a post
+- Not all district councillors will have public Facebook pages, but the aim is for the app to be as comprehensive as possible in coverage.
 
 ## Data Source
 
-A list of the District Councillors and their handles are compiled here:
+A list of the District Councillors and their Facebooks page hyperlinks are publicly-accessible on Google Drive [here](https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0).
 
-- https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0
+***
+
+## Getting help
+If you encounter a clear bug, please file an issue with a minimal reproducible example on [GitHub](https://github.com/avisionh/dashboard-hkdistrictcouncillors/issues).
 
 
 ## Code of Conduct
