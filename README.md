@@ -1,4 +1,4 @@
-# Dashboard: Hong Kong District Councillors
+# Dashboard: Hong Kong District Councillors <img src="https://raw.githubusercontent.com/avisionh/dashboard-hkdistrictcouncillors/master/inst/app/www/logo.png" align="right" height="140" />
 
 [![Travis build status](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors.svg?branch=master)](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors) [![R build status](https://github.com/avisionh/dashboard-hkdistrictcouncillors/workflows/R-CMD-check/badge.svg)](https://github.com/avisionh/dashboard-hkdistrictcouncillors/actions) [![Codecov test coverage](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors/branch/master/graph/badge.svg)](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
@@ -56,7 +56,9 @@ The Shiny app is deployed onto shinyapps.io in the link below:
     │
     ├── travis.yml                <- Instructions for travis.ci checks
     │
-    ├── dashboard-hkdistrictcouncillors.Rproj   <- Config to establish Rproject
+    ├── codecov.yml                <- Instructions for codecov.io checks
+    │
+    └── dashboard-hkdistrictcouncillors.Rproj   <- Config to establish Rproject
 
 ***
 
