@@ -37,7 +37,7 @@ ui <- dashboardPage(
       # DCs list tab
       menuItem(
         text = "Overview of a DC",
-        icon = icon(name = "search"),
+        icon = icon(name = "user"),
         tabName = "tab_dcoverview"
       ),
       
