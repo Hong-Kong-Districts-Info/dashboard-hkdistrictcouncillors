@@ -96,13 +96,16 @@ ui <- dashboardPage(
           column(
             width = 3,
             uiOutput("frame") # iframe
-          ), #column
+          ) #column
           
+        ), #fluidRow
+        
+        fluidRow(
           box(
-              solidHeader = TRUE, status = "success", width = 9,
-              plotOutput(outputId = "plot_district", width = NULL)
+            solidHeader = TRUE, status = "success", width = 9,
+            plotOutput(outputId = "plot_district", width = NULL)
           ) #box
-        )
+        ) #fluidRow
         
       ), #tabItem
       
