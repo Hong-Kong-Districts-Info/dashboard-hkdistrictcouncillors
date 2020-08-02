@@ -137,13 +137,12 @@ server <- function(input, output, session) {
   
   output$dc_table = renderDT(
     select(.data = data_master_raw,
-           Constituency = DropDownText,
-           Party,
-           DC,
            Region,
            District,
-           FB = "facebook"),
+           Constituency = DropDownText,
+           DC),
     filter = "top",
+    rownames = FALSE,
     options = list(lengthMenu = list(c(10, 20, -1),
                                      c('10', '20', 'All')),
                    pageLength = 20,
