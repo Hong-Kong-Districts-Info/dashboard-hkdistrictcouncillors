@@ -22,7 +22,7 @@ server <- function(input, output, session) {
     handlerExpr = {
       
       # allows access to dashboard if consent, otherwise shutdown
-      if (input$button_cookieconsent == "Yes") {
+      if (input$button_cookieconsent == "Yes, I accept tracking") {
         removeModal()
       } else {
         stopApp()
