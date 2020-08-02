@@ -164,7 +164,7 @@ ui <- dashboardPage(
             "If you wish to contribute to the project, do get in touch!",
             p("You can contact us via the Octocat and Mail buttons at the top-right of the website."),
             p("Please also read the ", 
-              a(href = "https://accessinfo.hk/en/request/shapefileshp_for_2019_district_c", 
+              a(href = "https://github.com/avisionh/dashboard-hkdistrictcouncillors/blob/feature/code-coverage/CODE_OF_CONDUCT.md", 
                 "Contributor Code of Conduct"), "
               before contributing.")
           ), hr()
