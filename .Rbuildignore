@@ -6,3 +6,5 @@
 ^\.development$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^codecov\.yml$
+^CODE_OF_CONDUCT\.md$

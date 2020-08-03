@@ -4,6 +4,9 @@ language: r
 #warnings_are_errors: true
 r:
   - release
+r_packages:
+  - covr
+
 sudo: required
 dist: trusty
 
@@ -21,6 +24,9 @@ install:
 
 script:
   - nohup R --slave --no-restore -e 'shiny::runApp(port = 3000)' &
+
+after_success:
+  - Rscript -e 'covr::codecov()'
   
 addons:
   apt:

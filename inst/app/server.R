@@ -22,7 +22,7 @@ server <- function(input, output, session) {
     handlerExpr = {
       
       # allows access to dashboard if consent, otherwise shutdown
-      if (input$button_cookieconsent == "Yes") {
+      if (input$button_cookieconsent == "Yes, I accept tracking") {
         removeModal()
       } else {
         stopApp()
@@ -113,6 +113,7 @@ server <- function(input, output, session) {
     }
   ) #renderInfoBox
   
+
   # iframe  ---------------------------------------------
   output$frame <- renderUI({
     HTML(react_data_dropdown()$iframe)
@@ -136,13 +137,12 @@ server <- function(input, output, session) {
   
   output$dc_table = renderDT(
     select(.data = data_master_raw,
-           Constituency = DropDownText,
-           Party,
-           DC,
            Region,
            District,
-           FB = "facebook"),
+           Constituency = DropDownText,
+           DC),
     filter = "top",
+    rownames = FALSE,
     options = list(lengthMenu = list(c(10, 20, -1),
                                      c('10', '20', 'All')),
                    pageLength = 20,

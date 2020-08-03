@@ -37,7 +37,7 @@ ui <- dashboardPage(
       # DCs list tab
       menuItem(
         text = "Overview of a DC",
-        icon = icon(name = "search"),
+        icon = icon(name = "user"),
         tabName = "tab_dcoverview"
       ),
       
@@ -79,7 +79,7 @@ ui <- dashboardPage(
       tabItem(
         tabName = "tab_dcoverview",
         selectizeInput(inputId = "input_dropdowntext",
-                    label = "請選擇選區 / Please choose a district",
+                    label = "請選擇選區 / Please type or select a district",
                     choices = sort(unique(data_master_raw$DropDownText))),
         
 
@@ -96,13 +96,16 @@ ui <- dashboardPage(
           column(
             width = 3,
             uiOutput("frame") # iframe
-          ), #column
+          ) #column
           
+        ), #fluidRow
+        
+        fluidRow(
           box(
-              solidHeader = TRUE, status = "success", width = 9,
-              plotOutput(outputId = "plot_district", width = NULL)
+            solidHeader = TRUE, status = "success", width = 9,
+            plotOutput(outputId = "plot_district", width = NULL)
           ) #box
-        )
+        ) #fluidRow
         
       ), #tabItem
       
@@ -161,7 +164,7 @@ ui <- dashboardPage(
             "If you wish to contribute to the project, do get in touch!",
             p("You can contact us via the Octocat and Mail buttons at the top-right of the website."),
             p("Please also read the ", 
-              a(href = "https://accessinfo.hk/en/request/shapefileshp_for_2019_district_c", 
+              a(href = "https://github.com/avisionh/dashboard-hkdistrictcouncillors/blob/feature/code-coverage/CODE_OF_CONDUCT.md", 
                 "Contributor Code of Conduct"), "
               before contributing.")
           ), hr()
