@@ -153,24 +153,6 @@ ui <- dashboardPage(
             p(strong("This website is not affiliated to any political individuals nor movements."))
           ),
           
-          # How to use the website?
-          h2(icon("users"), "如何使用此網站 / How to use the website?"), hr(), 
-          
-          div(
-            "透過點擊網站左方的按鈕，瀏覽不同內容",
-            tags$ul(
-              tags$li("Navigate across different tabs by clicking on the options in the left-hand black vertical box."),
-              tags$li("The ", strong("title"), " tab generic information.")
-            )
-          ),
-          div(
-            "Each of the tabs in the app are designed to do the following things:",
-            tags$ul(
-              tags$li("Navigate across different tabs by clicking on the options in the left-hand black vertical box."),
-              tags$li("The ", strong("title"), " tab generic information.")
-            )
-          ),
-          
           # Want to contribute?
           h2(icon("question-circle-o"), "想參與製作本網站 / Want to contribute?"), hr(),
           div(
