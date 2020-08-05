@@ -158,10 +158,9 @@ ui <- dashboardPage(
           div(
             "若你有興趣參與製作本網站，請與我們聯絡！",
             p("你可以透過網站右上方的 Github 及電郵連結聯絡我們。"),
-            p("Please also read the ", 
+            p("參與前，請先閱讀參與 ", 
               a(href = "https://github.com/avisionh/dashboard-hkdistrictcouncillors/blob/feature/code-coverage/CODE_OF_CONDUCT.md", 
-                "Contributor Code of Conduct"), "
-              before contributing.")
+                "製作者守則"), ".")
           ),
           hr(),
           div(
