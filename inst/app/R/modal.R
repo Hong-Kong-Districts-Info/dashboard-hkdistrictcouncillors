@@ -34,7 +34,7 @@ modal <- function(failed = FALSE) {
     # centre cookie-tracking input box, to ensure logging in
     div(style = "margin-left:auto; margin-right:auto; text-align:center;",
         radioButtons(inputId = "button_cookieconsent",
-                     label = cat("您願意繼續並啟用跟踪Cookie嗎\nDo you want to proceed and have tracking cookies enabled?"),
+                     label = cat("您願意繼續並啟用跟踪Cookie嗎?\nDo you want to proceed and have tracking cookies enabled?"),
                      choices = c("(是) Yes, I accept tracking", 
                                  "(否) No, I wish to exit the website"),
                      selected = "(否) No, I wish to exit the website",
