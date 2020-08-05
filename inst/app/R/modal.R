@@ -7,7 +7,7 @@ modal <- function(failed = FALSE) {
                 img(src = "logo.png", height = "100px"),
                 p(strong("使用條款 / Terms of Use"))),
     
-    p("您了解以下內容適用於本網站"),
+    p("您了解以下內容適用於本網站:"),
     
     tags$ul(
       tags$li("本網站不隸屬於任何政治人物或運動."), br(),
@@ -27,7 +27,7 @@ modal <- function(failed = FALSE) {
       tags$li("We use tracking cookies to give you the best online experience.")
     ), br(),
     
-    p("By proceeding further, you are agreeing to these Terms of Use."), br(),
+    p("By proceeding further, you are agreeing to these Terms of Use."),
     
     hr(),
     
