@@ -139,8 +139,14 @@ ui <- dashboardPage(
           width = 7, status = "success", solidHeader = TRUE,
           
           # Further Information
-          h2(icon("info"), "Further Information"), hr(),
+          h2(icon("info"), "更多資訊 / Further Information"), hr(),
           
+          div(
+            "此頁旨在簡介此網站的製作方法，以及參與的途徑。",
+            p("此網站旨在提供一站式資源，方便各位尋找和瀏覽香港各區區議員的 Facebook 專頁。"),
+            p(strong("此網站並不從屬於任何政治人物或運動。"))
+          ),
+          hr(),
           div(
             "On this tab, we describe how this website was constructed and ways to contribute.",
             p("Note, the aim of this app is to provide a convenient site for accessing the Facebook pages of district councillors in Hong Kong."),
@@ -148,8 +154,15 @@ ui <- dashboardPage(
           ),
           
           # How to use the website?
-          h2(icon("users"), "How to use the website?"), hr(), 
+          h2(icon("users"), "如何使用此網站 / How to use the website?"), hr(), 
           
+          div(
+            "透過點擊網站左方的按鈕，瀏覽不同內容",
+            tags$ul(
+              tags$li("Navigate across different tabs by clicking on the options in the left-hand black vertical box."),
+              tags$li("The ", strong("title"), " tab generic information.")
+            )
+          ),
           div(
             "Each of the tabs in the app are designed to do the following things:",
             tags$ul(
@@ -159,7 +172,16 @@ ui <- dashboardPage(
           ),
           
           # Want to contribute?
-          h2(icon("question-circle-o"), "Want to contribute?"), hr(),
+          h2(icon("question-circle-o"), "想參與製作本網站 / Want to contribute?"), hr(),
+          div(
+            "若你有興趣參與製作本網站，請與我們聯絡！",
+            p("你可以透過網站右上方的 Github 及電郵連結聯絡我們。"),
+            p("Please also read the ", 
+              a(href = "https://github.com/avisionh/dashboard-hkdistrictcouncillors/blob/feature/code-coverage/CODE_OF_CONDUCT.md", 
+                "Contributor Code of Conduct"), "
+              before contributing.")
+          ),
+          hr(),
           div(
             "If you wish to contribute to the project, do get in touch!",
             p("You can contact us via the Octocat and Mail buttons at the top-right of the website."),
@@ -175,10 +197,11 @@ ui <- dashboardPage(
           width = 5, status = "success", solidHeader = TRUE,
           
           # Where is the data from?
-          h2(icon("database"), "Where is the data from?"), hr(),
+          h2(icon("database"), "資料及數據來源 / Where is the data from?"), hr(),
+          
           
           div(
-            "This app uses data from: ", br(),
+            "此網站使用來自下列來源的資料及數據 / This app uses data from: ", br(),
             tags$ul(
               tags$li(a(href = "https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0", "Google Sheet of HK DCs")),
               tags$li(a(href = "https://en.wikipedia.org/wiki/2019_Hong_Kong_local_elections", "Wikipedia of HK DCs")),
@@ -189,8 +212,17 @@ ui <- dashboardPage(
           ), hr(),
           
           # What is the framework?
-          h2(icon("cogs"), "What is the framework?"), hr(),
+          h2(icon("cogs"), "製作框架 / What is the framework?"), hr(),
           
+          div(
+            "此網站以下列框架編寫及製作: ", br(),
+            tags$ul(
+              tags$li(a(href = "https://www.r-project.org/", "R"), "(數據處理及計算)"),
+              tags$li(a(href = "https://shiny.rstudio.com/", "R Shiny", target = "_blank"), "(網站設計及互動功能)"),
+              tags$li(a(href = "https://rstudio.github.io/shinydashboard/", "Shiny Dashboard", target = "_blank"), "(網站佈局及結構)")
+            )
+          ), 
+          hr(),
           div(
             "This app has been built using: ", br(),
             tags$ul(
