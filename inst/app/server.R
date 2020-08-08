@@ -159,4 +159,15 @@ server <- function(input, output, session) {
     ) #list
   ) #renderDT
   
+  
+
+  # ----- TAB: Survey ----- #
+  
+  # TypeForm Survey ---------------------------------------------------------
+  output$html_typeform = renderUI(
+    expr = {
+      html_typeform
+    }
+  )
+  
 }

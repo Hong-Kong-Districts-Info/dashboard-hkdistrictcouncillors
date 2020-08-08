@@ -65,3 +65,34 @@ map_hk_districts <- ggplot() +
   geom_sf(data = shape_hk, fill = '#009E73') +
   geom_sf(data = shape_district, fill = '#56B4E9', alpha = 0.2, linetype = 'dotted', size = 0.2) +
   plot_theme
+
+
+# Typeform HTML -----------------------------------------------------------
+html_typeform <- HTML(text = "<div class=\"typeform-widget\" 
+                              data-url=\"https://form.typeform.com/to/gFHC02gE\" 
+                              style=\"width: 100%; height: 500px;\"></div> 
+                              <script> (function() { var qs,
+                                                    js,
+                                                    q,
+                                                    s,
+                                                    d=document, 
+                                                    gi=d.getElementById, 
+                                                    ce=d.createElement, 
+                                                    gt=d.getElementsByTagName, 
+                                                    id=\"typef_orm\", 
+                                                    b=\"https://embed.typeform.com/\"; 
+                                                      if(!gi.call(d,id)) { js=ce.call(d,\"script\"); 
+                                                      js.id=id; js.src=b+\"embed.js\"; 
+                                                      q=gt.call(d,\"script\")[0]; 
+                                                      q.parentNode.insertBefore(js,q) } }
+                                        )() </script> 
+                              <div style=\"font-family:Sans-Serif;
+                                            font-size:12px;
+                                            color: #999;
+                                            opacity: 0.5; 
+                                            padding-top: 5px;
+                                          \"> powered by 
+                                          <a href=\"https://admin.typeform.com/signup?utm_campaign=gFHC02gE&utm_source=typeform.com-01EENYCBWQACS4BQ2SV4V5D2C9-free&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN\" 
+                                                  style=\"color: #999\" 
+                                                  target=\"_blank\">Typeform</a> </div>")
+
