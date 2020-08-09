@@ -14,9 +14,6 @@ ui <- dashboardPage(
   # Header
   header = dashboardHeader(
     title = "HK: District Councillors",
-    tags$li(actionLink(inputId = "button_navigation",
-                       label = "Open navigation sidebar"),
-            class = "dropdown"),
     tags$li(actionLink(inputId = "button_help", 
                        label = "Press for tutorial"),
             class = "dropdown"),
@@ -80,7 +77,7 @@ ui <- dashboardPage(
       
       ), # sidebarMenu
       data.step = 1,
-      data.intro = "Use this sidebar to navigate around the website."
+      data.intro = "Use this sidebar to navigate around the website. Press the icon of the three lines in the top-left to access this."
     ) #introBox
   ), #dashboardSidebar
   

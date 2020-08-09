@@ -66,13 +66,6 @@ server <- function(input, output, session) {
               }
   ) #observeEvent
   
-  # open navigation sidebar, the sidebarMenu
-  observeEvent(eventExpr = input$button_navigation,
-               handlerExpr = {
-                 removeClass(selector = "body", class = "sidebar-collapse")
-               }
-  ) #observeEvent
-  
   
   # ----- TAB: Overview of a DC ----- #
   
