@@ -14,7 +14,7 @@ library(tidyr)
 library(googlesheets4)
 library(sf)
 
-library(ggplot2)
+library(leaflet)
 
 ## shiny-related
 library(shiny)
@@ -25,26 +25,20 @@ library(DT)
 ## put gsheets into de-authorised state so no need for personal token for app
 gs4_deauth()
 
-## set theme for plots
-plot_theme <- theme(plot.title = element_text(face = "bold", hjust = 0.5),
-                    plot.subtitle = element_text(face = "bold", hjust = 0.5),
-                    panel.background = element_blank(),
-                    axis.line = element_blank(),
-                    axis.text = element_blank(),
-                    axis.ticks = element_blank())
-
 # Data file paths ---------------------------------------------------------
 sheet_url <- "https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/"
 path_data <- "extdata"
 path_shape_district <- paste0(path_data, "/" , "dcca_2019/DCCA_2019.shp")
-path_shape_hk <- paste0(path_data, "/", "gadm/gadm36_HKG_0.shp")
 
 
 # Data import -------------------------------------------------------------
 
 ## shapefiles
 shape_district <- st_read(dsn = path_shape_district)
-shape_hk <- st_read(dsn = path_shape_hk)
+shape_district <- st_transform(x = shape_district, crs = 4326)
+shape_district$centroids <- shape_district %>% 
+  st_centroid() %>% 
+  st_coordinates()
 
 ## gsheets
 data_master_raw <-
@@ -61,10 +55,16 @@ data_master_raw <-
 # Map import --------------------------------------------------------------
 
 ## Pre-load/create map
-map_hk_districts <- ggplot() +
-  geom_sf(data = shape_hk, fill = '#009E73') +
-  geom_sf(data = shape_district, fill = '#56B4E9', alpha = 0.2, linetype = 'dotted', size = 0.2) +
-  plot_theme
+map_hk_districts <- leaflet(data = st_as_sf(data_master_raw)) %>% 
+  addTiles() %>% 
+  addPolygons(weight = 0.5, 
+              fillOpacity = 0.3, 
+              color = '#009E73',
+              highlightOptions = highlightOptions(color = '#000000', 
+                                                  weight = 2,
+                                                  bringToFront = TRUE),
+              popup = data_master_raw$DropDownText,
+              options = popupOptions(clickable = TRUE, closeOnClick = TRUE))
 
 
 # Typeform HTML -----------------------------------------------------------

@@ -79,7 +79,7 @@ ui <- dashboardPage(
       tabItem(
         tabName = "tab_dcoverview",
         selectizeInput(inputId = "input_dropdowntext",
-                    label = "請選擇或輸入選區 / Please type or select a district",
+                    label = "請選擇或輸入選區 / Please type or select a constituency",
                     choices = sort(unique(data_master_raw$DropDownText))),
         
 
@@ -102,8 +102,8 @@ ui <- dashboardPage(
         
         fluidRow(
           box(
-            solidHeader = TRUE, status = "success", width = 9,
-            plotOutput(outputId = "plot_district", width = NULL)
+            solidHeader = TRUE, status = "success",
+            leafletOutput(outputId = "plot_district", width = "100%")
           ) #box
         ) #fluidRow
         
@@ -190,7 +190,6 @@ ui <- dashboardPage(
               tags$li(a(href = "https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0", "Google Sheet of HK DCs")),
               tags$li(a(href = "https://en.wikipedia.org/wiki/2019_Hong_Kong_local_elections", "Wikipedia of HK DCs")),
               tags$li("Facebook pages of each HK DC"),
-              tags$li(a(href = "https://gadm.org/", "Shapefiles of HK")),
               tags$li(a(href = "https://accessinfo.hk/en/request/shapefileshp_for_2019_district_c", "Shapefiles of HK district councils"))
             )
           ), hr(),
