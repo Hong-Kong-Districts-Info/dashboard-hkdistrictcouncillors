@@ -50,14 +50,14 @@ ui <- dashboardPage(
       
       # Survey tab
       menuItem(
-       text = "Survey",
-       icon = icon(name = "table"),
+       text = "Complete our survey",
+       icon = icon(name = "edit"),
        tabName = "tab_survey"
       ),
       
       # Construction tab
       menuItem(
-        text = "Construction",
+        text = "How this was made",
         icon = icon(name = "info-circle"),
         tabName = "tab_construction"
       )
