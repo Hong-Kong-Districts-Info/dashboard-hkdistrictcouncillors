@@ -131,7 +131,7 @@ server <- function(input, output, session) {
                     fillOpacity = 0.6) %>% 
         addPopups(lng = react_district_highlight()$centroids[,"X"],
                   lat = react_district_highlight()$centroids[,"Y"], 
-                  popup = react_district_highlight()$District) %>% 
+                  popup = react_district_highlight()$DropDownText) %>% 
         # centre map on user-chosen district
         setView(lng = react_district_highlight()$centroids[,"X"],
                 lat = react_district_highlight()$centroids[,"Y"], 

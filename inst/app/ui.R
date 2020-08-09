@@ -79,7 +79,7 @@ ui <- dashboardPage(
       tabItem(
         tabName = "tab_dcoverview",
         selectizeInput(inputId = "input_dropdowntext",
-                    label = "請選擇或輸入選區 / Please type or select a district",
+                    label = "請選擇或輸入選區 / Please type or select a constituency",
                     choices = sort(unique(data_master_raw$DropDownText))),
         
 

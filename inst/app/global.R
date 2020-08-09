@@ -63,15 +63,15 @@ data_master_raw <-
 # Map import --------------------------------------------------------------
 
 ## Pre-load/create map
-map_hk_districts <- leaflet(data = shape_district) %>% 
-  addProviderTiles(provider = providers$Wikimedia) %>% 
+map_hk_districts <- leaflet(data = st_as_sf(data_master_raw)) %>% 
+  addTiles() %>% 
   addPolygons(weight = 0.5, 
               fillOpacity = 0.3, 
               color = '#009E73',
               highlightOptions = highlightOptions(color = '#000000', 
                                                   weight = 2,
                                                   bringToFront = TRUE),
-              popup = shape_district$ENAME,
+              popup = data_master_raw$DropDownText,
               options = popupOptions(clickable = TRUE, closeOnClick = TRUE))
 
 
