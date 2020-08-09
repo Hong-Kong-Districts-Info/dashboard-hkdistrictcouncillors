@@ -41,21 +41,21 @@ ui <- dashboardPage(
         tabName = "tab_dcoverview"
       ),
       
-      # DCs list tab
+      # List of DCs tab
       menuItem(
         text = "List of DCs",
         icon = icon(name = "list-ul"),
         tabName = "tab_dclist"
       ),
       
-      # TypeForm survey
+      # Survey tab
       menuItem(
        text = "Survey",
        icon = icon(name = "table"),
-       tabName = "tab_typeform"
+       tabName = "tab_survey"
       ),
       
-      # construction tab
+      # Construction tab
       menuItem(
         text = "Construction",
         icon = icon(name = "info-circle"),
@@ -116,19 +116,20 @@ ui <- dashboardPage(
         tabName = "tab_dclist",
         
         fluidPage(
-          DTOutput("dc_table")
+          DTOutput(outputId = "dc_table")
         ) #fluidPage
         
       ), #tabItem
       
       
-      # Tab: TypeForm -----------------------------------------------------
+      # Tab: Survey -----------------------------------------------------
       
       tabItem(
-        tabName = "tab_typeform",
+        tabName = "tab_survey",
+        
         fluidPage(
           htmlOutput(outputId = "html_typeform")
-        )
+        ) #fluidPage
       ), #tabItem
       
       

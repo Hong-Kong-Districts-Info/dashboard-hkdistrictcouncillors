@@ -114,7 +114,7 @@ server <- function(input, output, session) {
   ) #renderInfoBox
   
 
-  # iframe  ---------------------------------------------
+  # RenderUI: FB Feed  ---------------------------------------------
   output$frame <- renderUI({
     HTML(react_data_dropdown()$iframe)
   })
@@ -133,14 +133,16 @@ server <- function(input, output, session) {
   
   # ----- TAB: List of DCs ----- #
   
-  # Data Table with DC Details  ---------------------------------------------
+  # RenderDT: DC Details  ---------------------------------------------
   
   output$dc_table = renderDT(
-    select(.data = data_master_raw,
-           Region,
-           District,
-           Constituency = DropDownText,
-           DC),
+    expr = {
+      select(.data = data_master_raw,
+             Region,
+             District,
+             Constituency = DropDownText,
+             DC)
+    }, #expr
     filter = "top",
     rownames = FALSE,
     options = list(lengthMenu = list(c(10, 20, -1),
@@ -157,8 +159,8 @@ server <- function(input, output, session) {
                      ) #list
                   ) #list
     ) #list
+
   ) #renderDT
-  
   
 
   # ----- TAB: Survey ----- #
