@@ -14,6 +14,12 @@ ui <- dashboardPage(
   # Header
   header = dashboardHeader(
     title = "HK: District Councillors",
+    tags$li(actionLink(inputId = "button_navigation",
+                       label = "Open navigation sidebar"),
+            class = "dropdown"),
+    tags$li(actionLink(inputId = "button_help", 
+                       label = "Press for tutorial"),
+            class = "dropdown"),
     tags$li(a(href = 'https://hong-kong-districts-info.github.io/',
               icon(name = 'globe-asia'),
               title = 'Website'),
@@ -37,7 +43,6 @@ ui <- dashboardPage(
     
     introjsUI(),
     useShinyjs(),
-    
     sidebarMenu(
       id = "menu",
       
@@ -69,10 +74,7 @@ ui <- dashboardPage(
         text = "How this was made",
         icon = icon(name = "info-circle"),
         tabName = "tab_construction"
-      ),
-    
-      # Tutorial button
-      actionButton(inputId = "button_help", "Press for tutorial")
+      )
     
     ) # sidebarMenu
   ), #dashboardSidebar

@@ -58,13 +58,20 @@ server <- function(input, output, session) {
                handlerExpr = {
                  introjs(session = session,
                          options = list("nextLabel" = "Next step",
-                                                    "prevLabel" = "Go back",
-                                                    "skipLabel" = "Close tutorial"),
+                                        "prevLabel" = "Go back",
+                                        "skipLabel" = "Close tutorial"),
                          events = list(onbeforechange = readCallback('switchTabs')))
                  # add class to minimise sidebar when going through tutorial - for mobile
                  addClass(selector = "body", class = "sidebar-collapse")
+              }
+  ) #observeEvent
+  
+  # open navigation sidebar, the sidebarMenu
+  observeEvent(eventExpr = input$button_navigation,
+               handlerExpr = {
+                 removeClass(selector = "body", class = "sidebar-collapse")
                }
-               ) #observeEvent
+  ) #observeEvent
   
   
   # ----- TAB: Overview of a DC ----- #
