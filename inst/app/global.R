@@ -70,7 +70,9 @@ map_hk_districts <- leaflet(data = shape_district) %>%
               color = '#009E73',
               highlightOptions = highlightOptions(color = '#000000', 
                                                   weight = 2,
-                                                  bringToFront = TRUE))
+                                                  bringToFront = TRUE),
+              popup = shape_district$ENAME,
+              options = popupOptions(clickable = TRUE, closeOnClick = TRUE))
 
 
 # Typeform HTML -----------------------------------------------------------
