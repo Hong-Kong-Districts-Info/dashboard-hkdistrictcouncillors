@@ -583,6 +583,13 @@
       "Repository": "CRAN",
       "Hash": "093584b944440c5cd07a696b3c8e0e4c"
     },
+    "rintrojs": {
+      "Package": "rintrojs",
+      "Version": "0.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "15a8768183fd609cee75e4789da27621"
+    },
     "rlang": {
       "Package": "rlang",
       "Version": "0.4.6",

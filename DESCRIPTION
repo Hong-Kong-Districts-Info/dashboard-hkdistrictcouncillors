@@ -28,7 +28,8 @@ Imports:
     googlesheets4,
     shinyBS,
     sf,
-    leaflet
+    leaflet,
+    rintrojs
 Suggests: 
     janitor,
     purrr,
