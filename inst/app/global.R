@@ -19,6 +19,7 @@ library(leaflet)
 ## shiny-related
 library(shiny)
 library(shinyBS)
+library(shinyjs)
 library(shinydashboard)
 library(DT)
 

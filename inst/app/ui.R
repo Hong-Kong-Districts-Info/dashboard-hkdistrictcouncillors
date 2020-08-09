@@ -36,6 +36,7 @@ ui <- dashboardPage(
   sidebar = dashboardSidebar(
     
     introjsUI(),
+    useShinyjs(),
     
     sidebarMenu(
       id = "menu",
@@ -62,17 +63,17 @@ ui <- dashboardPage(
        badgeColor = "green",
        tabName = "tab_survey"
       ),
-      
+    
       # Construction tab
       menuItem(
         text = "How this was made",
         icon = icon(name = "info-circle"),
         tabName = "tab_construction"
       ),
-      
+    
       # Tutorial button
       actionButton(inputId = "button_help", "Press for tutorial")
-      
+    
     ) # sidebarMenu
   ), #dashboardSidebar
   

@@ -55,11 +55,15 @@ server <- function(input, output, session) {
   
   # start introjs when button is pressed
   observeEvent(eventExpr = input$button_help,
-               handlerExpr = introjs(session = session,
-                                     options = list("nextLabel" = "Next step",
+               handlerExpr = {
+                 introjs(session = session,
+                         options = list("nextLabel" = "Next step",
                                                     "prevLabel" = "Go back",
                                                     "skipLabel" = "Close tutorial"),
-                                     events = list(onbeforechange = readCallback('switchTabs')))
+                         events = list(onbeforechange = readCallback('switchTabs')))
+                 # add class to minimise sidebar when going through tutorial - for mobile
+                 addClass(selector = "body", class = "sidebar-collapse")
+               }
                ) #observeEvent
   
   
