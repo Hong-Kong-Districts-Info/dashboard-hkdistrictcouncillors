@@ -28,7 +28,7 @@ Imports:
     googlesheets4,
     shinyBS,
     sf,
-    ggplot2
+    leaflet
 Suggests: 
     janitor,
     purrr,
