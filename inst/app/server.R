@@ -126,7 +126,8 @@ server <- function(input, output, session) {
       
       map_hk_districts %>% 
         addPolygons(data = react_district_highlight(),
-                    fill = '#D55E00',
+                    color = '#D55E00',
+                    weight = 0.5,
                     fillOpacity = 0.6)
       
     }

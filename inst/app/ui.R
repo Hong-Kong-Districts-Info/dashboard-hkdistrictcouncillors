@@ -102,8 +102,8 @@ ui <- dashboardPage(
         
         fluidRow(
           box(
-            solidHeader = TRUE, status = "success", width = 9,
-            leafletOutput(outputId = "plot_district", width = NULL)
+            solidHeader = TRUE, status = "success",
+            leafletOutput(outputId = "plot_district", width = "100%")
           ) #box
         ) #fluidRow
         
