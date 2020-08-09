@@ -34,30 +34,30 @@ ui <- dashboardPage(
     sidebarMenu(
       id = "menu",
       
-      # DCs list tab
+      # Overview of a DC tab
       menuItem(
         text = "Overview of a DC",
         icon = icon(name = "user"),
         tabName = "tab_dcoverview"
       ),
       
-      # DCs list tab
+      # List of DCs tab
       menuItem(
         text = "List of DCs",
         icon = icon(name = "list-ul"),
         tabName = "tab_dclist"
       ),
       
-      # DCs list tab
-      #menuItem(
-      #  text = "Details",
-      #  icon = icon(name = "table"),
-      #  tabName = "tab_dctable"
-      #)
-      
-      # construction tab
+      # Survey tab
       menuItem(
-        text = "Construction",
+       text = "Complete our survey",
+       icon = icon(name = "edit"),
+       tabName = "tab_survey"
+      ),
+      
+      # Construction tab
+      menuItem(
+        text = "How this was made",
         icon = icon(name = "info-circle"),
         tabName = "tab_construction"
       )
@@ -116,17 +116,20 @@ ui <- dashboardPage(
         tabName = "tab_dclist",
         
         fluidPage(
-          DTOutput("dc_table")
+          DTOutput(outputId = "dc_table")
         ) #fluidPage
         
       ), #tabItem
       
       
-      # Tab: DC Appendix -----------------------------------------------------
+      # Tab: Survey -----------------------------------------------------
       
       tabItem(
-        tabName = "tab_dctable"
+        tabName = "tab_survey",
         
+        fluidPage(
+          htmlOutput(outputId = "html_typeform")
+        ) #fluidPage
       ), #tabItem
       
       
