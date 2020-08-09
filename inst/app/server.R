@@ -51,6 +51,17 @@ server <- function(input, output, session) {
   )
   
   
+  # ----- OBSERVE EVENTS ----- #
+  
+  # start introjs when button is pressed
+  observeEvent(eventExpr = input$button_help,
+               handlerExpr = introjs(session = session,
+                                     options = list("nextLabel" = "Next step",
+                                                    "prevLabel" = "Go back",
+                                                    "skipLabel" = "Close tutorial"))
+               ) #observeEvent
+  
+  
   # ----- TAB: Overview of a DC ----- #
   
   # ValueBox: Party (English) -----------------------------------------------
@@ -180,6 +191,6 @@ server <- function(input, output, session) {
     expr = {
       html_typeform
     }
-  )
+  ) #renderUI
   
 }

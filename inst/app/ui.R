@@ -31,6 +31,8 @@ ui <- dashboardPage(
   # Sidebar
   sidebar = dashboardSidebar(
     
+    introjsUI(),
+    
     sidebarMenu(
       id = "menu",
       
@@ -60,7 +62,15 @@ ui <- dashboardPage(
         text = "How this was made",
         icon = icon(name = "info-circle"),
         tabName = "tab_construction"
+      ),
+      
+      # Tutorial tab
+      menuItem(
+        text = "How to use",
+        tabName = "tab_tutorial",
+        actionButton(inputId = "button_help", "Press for tutorial")
       )
+    
       
     ) # sidebarMenu
   ), #dashboardSidebar
