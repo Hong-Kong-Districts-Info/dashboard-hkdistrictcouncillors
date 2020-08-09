@@ -77,7 +77,8 @@ ui <- dashboardPage(
       
       ), # sidebarMenu
       data.step = 1,
-      data.intro = "Use this sidebar to navigate around the website. Press the icon of the three lines in the top-left to access this."
+      data.intro = "Use this sidebar to navigate around the website.",
+      data.hint = "Press the icon of the three lines in the top-left to access the navigation sidebar."
     ) #introBox
   ), #dashboardSidebar
   
@@ -101,7 +102,7 @@ ui <- dashboardPage(
                       choices = sort(unique(data_master_raw$DropDownText))),
           data.step = 2,
           data.intro = "This search controls the options displayed on this tab.",
-          data.hint = "You can select from the dropdown or type."
+          data.hint = "You can select from the dropdown or type a constituency in."
         ), #introBox
         
         # nested introBox

@@ -8,28 +8,10 @@
 #       server.R must create a function called server, like below:
 
 server <- function(input, output, session) {
-  
-  # Password and T&Cs Pop-up Box ---------------------------------------------------------
-  
-  # show modalDialog on app start-up
-  showModal(modal())  
-  
-  # check cookie-consent and render UI if correct
-  observeEvent(
-    
-    eventExpr = input$submit_cookieconsent,
-    
-    handlerExpr = {
-      
-      # allows access to dashboard if consent, otherwise shutdown
-      if (input$button_cookieconsent == "(是) Yes, I accept tracking") {
-        removeModal()
-      } else {
-        stopApp()
-      }
-    }
-  )
 
+  # initiate hints 
+  hintjs(session = session)
+  
   # ----- REACTIVES ----- #
   
   # filter data according to user selected option
@@ -53,7 +35,30 @@ server <- function(input, output, session) {
   
   # ----- OBSERVE EVENTS ----- #
   
-  # start introjs when button is pressed
+  # Password and T&Cs Pop-up Box ---------------------------------------------------------
+  
+  # show modalDialog on app start-up
+  showModal(modal())  
+  
+  # check cookie-consent and render UI if correct
+  observeEvent(
+    
+    eventExpr = input$submit_cookieconsent,
+    
+    handlerExpr = {
+      
+      # allows access to dashboard if consent, otherwise shutdown
+      if (input$button_cookieconsent == "(是) Yes, I accept tracking") {
+        removeModal()
+      } else {
+        stopApp()
+      }
+    }
+  )
+
+  # Interactive Tutorial ----------------------------------------------------
+
+  # start introjs and hide sidebar when button is pressed
   observeEvent(eventExpr = input$button_help,
                handlerExpr = {
                  introjs(session = session,
