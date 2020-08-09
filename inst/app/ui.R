@@ -190,7 +190,6 @@ ui <- dashboardPage(
               tags$li(a(href = "https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0", "Google Sheet of HK DCs")),
               tags$li(a(href = "https://en.wikipedia.org/wiki/2019_Hong_Kong_local_elections", "Wikipedia of HK DCs")),
               tags$li("Facebook pages of each HK DC"),
-              tags$li(a(href = "https://gadm.org/", "Shapefiles of HK")),
               tags$li(a(href = "https://accessinfo.hk/en/request/shapefileshp_for_2019_district_c", "Shapefiles of HK district councils"))
             )
           ), hr(),

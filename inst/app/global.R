@@ -37,17 +37,13 @@ plot_theme <- theme(plot.title = element_text(face = "bold", hjust = 0.5),
 sheet_url <- "https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/"
 path_data <- "extdata"
 path_shape_district <- paste0(path_data, "/" , "dcca_2019/DCCA_2019.shp")
-path_shape_hk <- paste0(path_data, "/", "gadm/gadm36_HKG_0.shp")
 
 
 # Data import -------------------------------------------------------------
 
 ## shapefiles
 shape_district <- st_read(dsn = path_shape_district)
-shape_hk <- st_read(dsn = path_shape_hk)
-
 shape_district <- st_transform(x = shape_district, crs = 4326)
-shape_hk <- st_transform(x = shape_hk, crs = 4326)
 
 ## gsheets
 data_master_raw <-
