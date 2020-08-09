@@ -58,7 +58,8 @@ server <- function(input, output, session) {
                handlerExpr = introjs(session = session,
                                      options = list("nextLabel" = "Next step",
                                                     "prevLabel" = "Go back",
-                                                    "skipLabel" = "Close tutorial"))
+                                                    "skipLabel" = "Close tutorial"),
+                                     events = list(onbeforechange = readCallback('switchTabs')))
                ) #observeEvent
   
   
