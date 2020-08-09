@@ -111,11 +111,11 @@ ui <- dashboardPage(
           
           introBox(
             fluidRow(
-              infoBoxOutput(outputId = "infobox_fb", width = NULL)
-            ),
+              infoBoxOutput(outputId = "infobox_fb", width = NULL)) %>% 
+              helper(type = "markdown",
+                     content = "infoboxfb"),
             data.step = 4,
-            data.intro = "This shows the DC's name and if the colour is blue, means they have a FB page.",
-            data.hint = "Click on this to access their public FB page."
+            data.intro = "This shows the DC's name and if the colour is blue, means they have a FB page."
           ),
           
           introBox(
@@ -149,12 +149,13 @@ ui <- dashboardPage(
             box(
               solidHeader = TRUE, status = "success",
               leafletOutput(outputId = "plot_district", width = "100%") %>% 
-                withSpinner()
+                withSpinner() %>% 
+                helper(type = "markdown",
+                       content = "plotdistrict")
             ) #box
           ), #fluidRow
           data.step = 7,
-          data.intro = "This highlights the constituency boundaries, with your selected constituency being highlighted.",
-          data.hint = "You can also use this to find the name of your constituency by selecting your region on the map."
+          data.intro = "This highlights the constituency boundaries, with your selected constituency being highlighted."
         ) #introBox
         
       ), #tabItem
