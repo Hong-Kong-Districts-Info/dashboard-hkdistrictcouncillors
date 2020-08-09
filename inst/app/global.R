@@ -25,14 +25,6 @@ library(DT)
 ## put gsheets into de-authorised state so no need for personal token for app
 gs4_deauth()
 
-## set theme for plots
-plot_theme <- theme(plot.title = element_text(face = "bold", hjust = 0.5),
-                    plot.subtitle = element_text(face = "bold", hjust = 0.5),
-                    panel.background = element_blank(),
-                    axis.line = element_blank(),
-                    axis.text = element_blank(),
-                    axis.ticks = element_blank())
-
 # Data file paths ---------------------------------------------------------
 sheet_url <- "https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/"
 path_data <- "extdata"
