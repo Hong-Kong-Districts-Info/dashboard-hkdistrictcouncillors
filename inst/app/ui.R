@@ -152,9 +152,13 @@ ui <- dashboardPage(
       tabItem(
         tabName = "tab_dclist",
         
-        fluidPage(
-          DTOutput(outputId = "dc_table")
-        ) #fluidPage
+        introBox(
+          fluidPage(
+            DTOutput(outputId = "dc_table")
+          ), #fluidPage
+          data.step = 7,
+          data.intro = "This table shows all the DCs and their associated info."
+        )
         
       ), #tabItem
       
@@ -164,9 +168,13 @@ ui <- dashboardPage(
       tabItem(
         tabName = "tab_survey",
         
-        fluidPage(
-          htmlOutput(outputId = "html_typeform")
-        ) #fluidPage
+        introBox(
+          fluidPage(
+            htmlOutput(outputId = "html_typeform")
+          ), #fluidPage
+          data.step = 8,
+          data.intro = "Don't forget to provide us with feedback. :)"
+        ) #introBox
       ), #tabItem
       
       
