@@ -14,6 +14,10 @@ ui <- dashboardPage(
   # Header
   header = dashboardHeader(
     title = "HK: District Councillors",
+    tags$li(a(href = 'https://hong-kong-districts-info.github.io/',
+              icon(name = 'globe-asia'),
+              title = 'Website'),
+            class = "dropdown"),
     tags$li(a(href = 'https://github.com/avisionh/dashboard-hkdistrictcouncillors/',
               icon("github"),
               title = "GitHub"),
