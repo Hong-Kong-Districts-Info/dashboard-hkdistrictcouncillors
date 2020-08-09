@@ -24,6 +24,7 @@ library(shinydashboard)
 library(DT)
 
 library(rintrojs)
+library(shinycssloaders)
 
 ## put gsheets into de-authorised state so no need for personal token for app
 gs4_deauth()

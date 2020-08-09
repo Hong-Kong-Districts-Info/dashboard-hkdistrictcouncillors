@@ -15,7 +15,7 @@ ui <- dashboardPage(
   header = dashboardHeader(
     title = "HK: District Councillors",
     tags$li(actionLink(inputId = "button_help", 
-                       label = "Press for tutorial"),
+                       label = "Tutorial"),
             class = "dropdown"),
     tags$li(a(href = 'https://hong-kong-districts-info.github.io/',
               icon(name = 'globe-asia'),
@@ -134,7 +134,8 @@ ui <- dashboardPage(
           fluidRow(
             column(
               width = 3,
-              uiOutput("frame") # iframe
+              uiOutput("frame") %>% 
+                withSpinner()
             ) #column
           ), #fluidRow
           data.step = 6,
@@ -145,7 +146,8 @@ ui <- dashboardPage(
           fluidRow(
             box(
               solidHeader = TRUE, status = "success",
-              leafletOutput(outputId = "plot_district", width = "100%")
+              leafletOutput(outputId = "plot_district", width = "100%") %>% 
+                withSpinner()
             ) #box
           ), #fluidRow
           data.step = 7,
@@ -163,7 +165,8 @@ ui <- dashboardPage(
         
         introBox(
           fluidPage(
-            DTOutput(outputId = "dc_table")
+            DTOutput(outputId = "dc_table") %>% 
+              withSpinner()
           ), #fluidPage
           data.step = 8,
           data.intro = "This table shows all the DCs and their associated info."
@@ -179,7 +182,8 @@ ui <- dashboardPage(
         
         introBox(
           fluidPage(
-            htmlOutput(outputId = "html_typeform")
+            htmlOutput(outputId = "html_typeform") %>% 
+              withSpinner()
           ), #fluidPage
           data.step = 9,
           data.intro = "Don't forget to provide us with feedback. :)"
