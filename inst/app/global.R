@@ -67,8 +67,8 @@ map_hk_districts <- leaflet(data = shape_district) %>%
   addProviderTiles(provider = providers$Wikimedia) %>% 
   addPolygons(weight = 0.5, 
               fillOpacity = 0.3, 
-              color = '#56B4E9',
-              highlightOptions = highlightOptions(color = "#000000", 
+              color = '#009E73',
+              highlightOptions = highlightOptions(color = '#000000', 
                                                   weight = 2,
                                                   bringToFront = TRUE))
 
