@@ -33,6 +33,8 @@ The Shiny app is deployed onto shinyapps.io in the links below:
     │   └── app/               
     |       ├── extdata/                        <- Data for app
     |       ├── R/                              <- Functions for app
+    |       ├── www/                            <- Logo files for app
+    |       ├── helpfiles/                      <- Markdown of shinyhelper tips
     |       ├── google-analytics.html           <- Link app with Google Analytics
     |       ├── global.R                        <- Static objects for app
     |       ├── server.R                        <- Reactive objects for app
