@@ -66,13 +66,8 @@ ui <- dashboardPage(
         tabName = "tab_construction"
       ),
       
-      # Tutorial tab
-      menuItem(
-        text = "How to use",
-        tabName = "tab_tutorial",
-        actionButton(inputId = "button_help", "Press for tutorial")
-      )
-    
+      # Tutorial button
+      actionButton(inputId = "button_help", "Press for tutorial")
       
     ) # sidebarMenu
   ), #dashboardSidebar
@@ -90,19 +85,34 @@ ui <- dashboardPage(
       
       tabItem(
         tabName = "tab_dcoverview",
-        selectizeInput(inputId = "input_dropdowntext",
-                    label = "請選擇或輸入選區 / Please type or select a constituency",
-                    choices = sort(unique(data_master_raw$DropDownText))),
         
-
-        fluidRow(
-          infoBoxOutput(outputId = "infobox_fb", width = NULL)
-        ),
+        introBox(
+          selectizeInput(inputId = "input_dropdowntext",
+                      label = "請選擇或輸入選區 / Please type or select a constituency",
+                      choices = sort(unique(data_master_raw$DropDownText))),
+          data.step = 1,
+          data.intro = "This search controls the options displayed on this tab.",
+          data.hint = "You can select from the dropdown or type."
+        ), #introBox
         
-        fluidRow(
-          infoBoxOutput(outputId = "infobox_party_en", width = NULL),
-          infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
-        ),
+        introBox(
+          
+          introBox(
+            fluidRow(
+              infoBoxOutput(outputId = "infobox_fb", width = NULL)
+            ),
+            data.step = 3,
+            data.intro = "This shows the DC's name and if the colour is blue, means they have a FB page.",
+            data.hint = "Click on this to access their public FB page."
+          ),
+          
+          fluidRow(
+            infoBoxOutput(outputId = "infobox_party_en", width = NULL),
+            infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
+          ),
+          data.step = 2,
+          data.intro = "These tiles provide basic information relating to the contituency selected."
+        ), #introBox
         
         fluidRow(
           column(
