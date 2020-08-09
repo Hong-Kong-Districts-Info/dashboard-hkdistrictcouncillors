@@ -98,11 +98,12 @@ ui <- dashboardPage(
         
         introBox(
           selectizeInput(inputId = "input_dropdowntext",
-                      label = "請選擇或輸入選區 / Please type or select a constituency",
-                      choices = sort(unique(data_master_raw$DropDownText))),
+                         label = "請選擇或輸入選區 / Please type or select a constituency",
+                         choices = sort(unique(data_master_raw$DropDownText))) %>% 
+            helper(type = "markdown",
+                   content = "dropdowntext"),
           data.step = 2,
-          data.intro = "This search controls the options displayed on this tab.",
-          data.hint = "You can select from the dropdown or type a constituency in."
+          data.intro = "This search controls the options displayed on this tab."
         ), #introBox
         
         # nested introBox

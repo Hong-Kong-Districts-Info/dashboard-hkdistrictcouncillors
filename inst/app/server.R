@@ -11,6 +11,8 @@ server <- function(input, output, session) {
 
   # initiate hints 
   hintjs(session = session)
+  # intiate shinyhelper
+  observe_helpers()
   
   # ----- REACTIVES ----- #
   

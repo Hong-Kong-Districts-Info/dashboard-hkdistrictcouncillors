@@ -24,6 +24,7 @@ library(shinydashboard)
 library(DT)
 
 library(rintrojs)
+library(shinyhelper)
 library(shinycssloaders)
 
 # set spinner options
