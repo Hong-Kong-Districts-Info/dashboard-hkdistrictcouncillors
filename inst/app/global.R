@@ -44,6 +44,9 @@ path_shape_district <- paste0(path_data, "/" , "dcca_2019/DCCA_2019.shp")
 ## shapefiles
 shape_district <- st_read(dsn = path_shape_district)
 shape_district <- st_transform(x = shape_district, crs = 4326)
+shape_district$centroids <- shape_district %>% 
+  st_centroid() %>% 
+  st_coordinates()
 
 ## gsheets
 data_master_raw <-

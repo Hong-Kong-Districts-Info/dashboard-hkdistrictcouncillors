@@ -128,7 +128,11 @@ server <- function(input, output, session) {
         addPolygons(data = react_district_highlight(),
                     color = '#D55E00',
                     weight = 0.5,
-                    fillOpacity = 0.6)
+                    fillOpacity = 0.6) %>% 
+        # centre map on user-chosen district
+        setView(lng = react_district_highlight()$centroids[,"X"],
+                lat = react_district_highlight()$centroids[,"Y"], 
+                zoom = 11)
       
     }
   )
