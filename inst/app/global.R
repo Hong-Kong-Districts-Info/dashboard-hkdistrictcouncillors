@@ -14,7 +14,7 @@ library(tidyr)
 library(googlesheets4)
 library(sf)
 
-library(ggplot2)
+library(leaflet)
 
 ## shiny-related
 library(shiny)
@@ -46,6 +46,9 @@ path_shape_hk <- paste0(path_data, "/", "gadm/gadm36_HKG_0.shp")
 shape_district <- st_read(dsn = path_shape_district)
 shape_hk <- st_read(dsn = path_shape_hk)
 
+shape_district <- st_transform(x = shape_district, crs = 4326)
+shape_hk <- st_transform(x = shape_hk, crs = 4326)
+
 ## gsheets
 data_master_raw <-
   googlesheets4::read_sheet(ss = sheet_url,
@@ -61,10 +64,14 @@ data_master_raw <-
 # Map import --------------------------------------------------------------
 
 ## Pre-load/create map
-map_hk_districts <- ggplot() +
-  geom_sf(data = shape_hk, fill = '#009E73') +
-  geom_sf(data = shape_district, fill = '#56B4E9', alpha = 0.2, linetype = 'dotted', size = 0.2) +
-  plot_theme
+map_hk_districts <- leaflet(data = shape_district) %>% 
+  addProviderTiles(provider = providers$Wikimedia) %>% 
+  addPolygons(weight = 0.5, 
+              fillOpacity = 0.3, 
+              color = '#56B4E9',
+              highlightOptions = highlightOptions(color = "#000000", 
+                                                  weight = 2,
+                                                  bringToFront = TRUE))
 
 
 # Typeform HTML -----------------------------------------------------------

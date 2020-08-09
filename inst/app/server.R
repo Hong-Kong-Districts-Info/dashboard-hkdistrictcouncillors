@@ -121,11 +121,13 @@ server <- function(input, output, session) {
 
 
   # RenderPlot: Districts ---------------------------------------------------
-  output$plot_district <- renderPlot(
+  output$plot_district <- renderLeaflet(
     expr = {
       
-      map_hk_districts +
-        geom_sf(data = react_district_highlight(), fill = '#D55E00', alpha = 0.5)
+      map_hk_districts %>% 
+        addPolygons(data = react_district_highlight(),
+                    fill = '#D55E00',
+                    fillOpacity = 0.6)
       
     }
   )
