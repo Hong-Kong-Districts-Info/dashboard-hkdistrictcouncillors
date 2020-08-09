@@ -70,7 +70,7 @@ map_hk_districts <- ggplot() +
 # Typeform HTML -----------------------------------------------------------
 html_typeform <- HTML(text = "<div class=\"typeform-widget\" 
                               data-url=\"https://form.typeform.com/to/gFHC02gE\" 
-                              style=\"width: 100%; height: 500px;\"></div> 
+                              style=\"width: 100%; height: 800px;\"></div> 
                               <script> (function() { var qs,
                                                     js,
                                                     q,
