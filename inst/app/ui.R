@@ -95,6 +95,7 @@ ui <- dashboardPage(
           data.hint = "You can select from the dropdown or type."
         ), #introBox
         
+        # nested introBox
         introBox(
           
           introBox(
@@ -106,28 +107,42 @@ ui <- dashboardPage(
             data.hint = "Click on this to access their public FB page."
           ),
           
-          fluidRow(
-            infoBoxOutput(outputId = "infobox_party_en", width = NULL),
-            infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
+          introBox(
+            fluidRow(
+              infoBoxOutput(outputId = "infobox_party", width = NULL),
+              infoBoxOutput(outputId = "infobox_constituency", width = NULL)
+            ),
+            data.step = 4,
+            data.intro = "These show the party and consituency of the DC selected."
           ),
+          
           data.step = 2,
           data.intro = "These tiles provide basic information relating to the contituency selected."
+        
         ), #introBox
         
-        fluidRow(
-          column(
-            width = 3,
-            uiOutput("frame") # iframe
-          ) #column
-          
-        ), #fluidRow
+        introBox(
+          fluidRow(
+            column(
+              width = 3,
+              uiOutput("frame") # iframe
+            ) #column
+          ), #fluidRow
+          data.step = 5,
+          data.intro = "This shows the latest posts by the DC on their FB page."
+        ), #introBox
         
-        fluidRow(
-          box(
-            solidHeader = TRUE, status = "success",
-            leafletOutput(outputId = "plot_district", width = "100%")
-          ) #box
-        ) #fluidRow
+        introBox(
+          fluidRow(
+            box(
+              solidHeader = TRUE, status = "success",
+              leafletOutput(outputId = "plot_district", width = "100%")
+            ) #box
+          ), #fluidRow
+          data.step = 6,
+          data.intro = "This highlights the constituency boundaries, with your selected constituency being highlighted.",
+          data.hint = "You can also use this to find the name of your constituency by selecting your region on the map."
+        ) #introBox
         
       ), #tabItem
       

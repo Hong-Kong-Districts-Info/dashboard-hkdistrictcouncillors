@@ -64,62 +64,47 @@ server <- function(input, output, session) {
   
   # ----- TAB: Overview of a DC ----- #
   
-  # ValueBox: Party (English) -----------------------------------------------
+  # InfoBox: Party (English) -----------------------------------------------
   output$infobox_fb <- renderInfoBox(
     expr = {
       tags$div(
-        tipify(
-          el = infoBox(value = paste0(react_data_dropdown()$DC_ZH, " / ", react_data_dropdown()$DC_EN),
-                       icon = icon(name = "facebook-square"),
-                       color = react_data_dropdown()$exists_fb,
-                       href = react_data_dropdown()$facebook,
-                       title = "區議員名稱 / DC's name",
-                       subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page.",
-                       width = 12),
-          title = "If it does not re-direct to their FB page, this means their FB page does not exist or we could not find it.",
-          trigger = "hover",
-          placement = "left"
-        ) #tipify
+        infoBox(value = paste0(react_data_dropdown()$DC_ZH, " / ", react_data_dropdown()$DC_EN),
+                icon = icon(name = "facebook-square"),
+                color = react_data_dropdown()$exists_fb,
+                href = react_data_dropdown()$facebook,
+                title = "區議員名稱 / DC's name",
+                subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page.",
+                width = 12)
       ) #div
     }
   ) #renderInfoBox
   
-  # ValueBox: Party (English) -----------------------------------------------
-  output$infobox_party_en <- renderInfoBox(
+  # InfoBox: Party (English) -----------------------------------------------
+  output$infobox_party <- renderInfoBox(
     expr = {
       tags$div(
-        tipify(
-          el = infoBox(value = react_data_dropdown()$Party_ZH,
-                       title = "黨派 / Affiliated party",
-                       subtitle = react_data_dropdown()$Party_EN,
-                       icon = icon(name = "vote-yea"),
-                       color = "green",
-                       fill = TRUE,
-                       width = 6),
-          title = "This is the political party that the DC belongs to", 
-          trigger = "hover",
-          placement = "bottom"
-        ) #tipify
+        infoBox(value = react_data_dropdown()$Party_ZH,
+                title = "黨派 / Affiliated party",
+                subtitle = react_data_dropdown()$Party_EN,
+                icon = icon(name = "vote-yea"),
+                color = "green",
+                fill = TRUE,
+                width = 6)
       ) #div
     }
   ) #renderInfoBox
 
   # InfoBox: Constituency (English) -----------------------------------------
-  output$infobox_constituency_en <- renderInfoBox(
+  output$infobox_constituency <- renderInfoBox(
     expr = {
       tags$div(
-        tipify(
-          el = infoBox(value = react_data_dropdown()$Constituency_ZH,
-                       title = "選區 / Constituency",
-                       subtitle = react_data_dropdown()$Constituency_EN,
-                       icon = icon(name = "map-signs"),
-                       color = "green",
-                       fill = TRUE,
-                       width = 6),
-          title = "This is the constituency the DC belongs to", 
-          trigger = "hover",
-          placement = "bottom"
-        ) #tipify
+        infoBox(value = react_data_dropdown()$Constituency_ZH,
+                title = "選區 / Constituency",
+                subtitle = react_data_dropdown()$Constituency_EN,
+                icon = icon(name = "map-signs"),
+                color = "green",
+                fill = TRUE,
+                width = 6)
       ) #div
     }
   ) #renderInfoBox
