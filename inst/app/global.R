@@ -26,6 +26,10 @@ library(DT)
 library(rintrojs)
 library(shinycssloaders)
 
+# set spinner options
+options(spinner.color = "#009E73",
+        spinner.type = 8)
+
 ## put gsheets into de-authorised state so no need for personal token for app
 gs4_deauth()
 

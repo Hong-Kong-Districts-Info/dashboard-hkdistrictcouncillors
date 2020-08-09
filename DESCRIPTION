@@ -29,7 +29,9 @@ Imports:
     shinyBS,
     sf,
     leaflet,
-    rintrojs
+    rintrojs,
+    shinycssloaders,
+    shinyjs
 Suggests: 
     janitor,
     purrr,
