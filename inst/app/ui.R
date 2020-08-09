@@ -54,6 +54,8 @@ ui <- dashboardPage(
       menuItem(
        text = "Complete our survey",
        icon = icon(name = "edit"),
+       badgeLabel = "new",
+       badgeColor = "green",
        tabName = "tab_survey"
       ),
       
