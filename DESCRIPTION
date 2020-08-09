@@ -31,7 +31,8 @@ Imports:
     leaflet,
     rintrojs,
     shinycssloaders,
-    shinyjs
+    shinyjs,
+    shinyhelper
 Suggests: 
     janitor,
     purrr,
