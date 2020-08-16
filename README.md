@@ -84,7 +84,7 @@ shiny::runApp(appDir = "inst/app.R")
 
 ## Data Source
 
-A list of the District Councillors and their Facebooks page hyperlinks are publicly-accessible on Google Drive [here](https://docs.google.com/spreadsheets/d/1usk9Q-5lA4bL_z6KXpUohc_2x_KhDgLxtm-YEtim_yk/edit#gid=0).
+A list of the District Councillors and their Facebooks page hyperlinks are publicly-accessible on Google Drive [here](https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/).
 
 ***
 
@@ -95,3 +95,6 @@ If you encounter a clear bug, please file an issue with a minimal reproducible e
 ## Code of Conduct
 
 Please note that the hkdistrictcouncillors project is released with a [Contributor Code of Conduct](https://github.com/avisionh/dashboard-hkdistrictcouncillors/blob/feature/code-coverage/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+
+## Project Team website
+To find out more about our project team and other projects by us, please visit our [website](https://hong-kong-districts-info.github.io/).
