@@ -14,6 +14,13 @@ ui <- dashboardPage(
   # Header
   header = dashboardHeader(
     title = "HK: District Councillors",
+    tags$li(actionLink(inputId = "button_help", 
+                       label = "Tutorial"),
+            class = "dropdown"),
+    tags$li(a(href = 'https://hong-kong-districts-info.github.io/',
+              icon(name = 'globe-asia'),
+              title = 'Website'),
+            class = "dropdown"),
     tags$li(a(href = 'https://github.com/avisionh/dashboard-hkdistrictcouncillors/',
               icon("github"),
               title = "GitHub"),
@@ -31,38 +38,48 @@ ui <- dashboardPage(
   # Sidebar
   sidebar = dashboardSidebar(
     
-    sidebarMenu(
-      id = "menu",
+    introjsUI(),
+    useShinyjs(),
+    
+    introBox(
+      sidebarMenu(
+        id = "menu",
+        
+        # Overview of a DC tab
+        menuItem(
+          text = "Overview of a DC",
+          icon = icon(name = "user"),
+          tabName = "tab_dcoverview"
+        ),
+        
+        # List of DCs tab
+        menuItem(
+          text = "List of DCs",
+          icon = icon(name = "list-ul"),
+          tabName = "tab_dclist"
+        ),
+        
+        # Survey tab
+        menuItem(
+         text = "Complete our survey",
+         icon = icon(name = "edit"),
+         badgeLabel = "new",
+         badgeColor = "green",
+         tabName = "tab_survey"
+        ),
       
-      # Overview of a DC tab
-      menuItem(
-        text = "Overview of a DC",
-        icon = icon(name = "user"),
-        tabName = "tab_dcoverview"
-      ),
+        # Construction tab
+        menuItem(
+          text = "How this was made",
+          icon = icon(name = "info-circle"),
+          tabName = "tab_construction"
+        )
       
-      # List of DCs tab
-      menuItem(
-        text = "List of DCs",
-        icon = icon(name = "list-ul"),
-        tabName = "tab_dclist"
-      ),
-      
-      # Survey tab
-      menuItem(
-       text = "Complete our survey",
-       icon = icon(name = "edit"),
-       tabName = "tab_survey"
-      ),
-      
-      # Construction tab
-      menuItem(
-        text = "How this was made",
-        icon = icon(name = "info-circle"),
-        tabName = "tab_construction"
-      )
-      
-    ) # sidebarMenu
+      ), # sidebarMenu
+      data.step = 1,
+      data.intro = "Use this sidebar to navigate around the website.",
+      data.hint = "Press the icon of the three lines in the top-left to access the navigation sidebar."
+    ) #introBox
   ), #dashboardSidebar
   
   # Body
@@ -78,34 +95,68 @@ ui <- dashboardPage(
       
       tabItem(
         tabName = "tab_dcoverview",
-        selectizeInput(inputId = "input_dropdowntext",
-                    label = "請選擇或輸入選區 / Please type or select a constituency",
-                    choices = sort(unique(data_master_raw$DropDownText))),
         
-
-        fluidRow(
-          infoBoxOutput(outputId = "infobox_fb", width = NULL)
-        ),
+        introBox(
+          selectizeInput(inputId = "input_dropdowntext",
+                         label = "請選擇或輸入選區 / Please type or select a constituency",
+                         choices = sort(unique(data_master_raw$DropDownText))) %>% 
+            helper(type = "markdown",
+                   content = "dropdowntext"),
+          data.step = 2,
+          data.intro = "This search controls the options displayed on this tab."
+        ), #introBox
         
-        fluidRow(
-          infoBoxOutput(outputId = "infobox_party_en", width = NULL),
-          infoBoxOutput(outputId = "infobox_constituency_en", width = NULL)
-        ),
-        
-        fluidRow(
-          column(
-            width = 3,
-            uiOutput("frame") # iframe
-          ) #column
+        # nested introBox
+        introBox(
           
-        ), #fluidRow
+          introBox(
+            fluidRow(
+              infoBoxOutput(outputId = "infobox_fb", width = NULL)) %>% 
+              helper(type = "markdown",
+                     content = "infoboxfb"),
+            data.step = 4,
+            data.intro = "This shows the DC's name and if the colour is blue, means they have a FB page."
+          ),
+          
+          introBox(
+            fluidRow(
+              infoBoxOutput(outputId = "infobox_party", width = NULL),
+              infoBoxOutput(outputId = "infobox_constituency", width = NULL)
+            ),
+            data.step = 5,
+            data.intro = "These show the party and consituency of the DC selected."
+          ),
+          
+          data.step = 3,
+          data.intro = "These tiles provide basic information relating to the contituency selected."
         
-        fluidRow(
-          box(
-            solidHeader = TRUE, status = "success",
-            leafletOutput(outputId = "plot_district", width = "100%")
-          ) #box
-        ) #fluidRow
+        ), #introBox
+        
+        introBox(
+          fluidRow(
+            column(
+              width = 3,
+              uiOutput("frame") %>% 
+                withSpinner()
+            ) #column
+          ), #fluidRow
+          data.step = 6,
+          data.intro = "This shows the latest posts by the DC on their FB page."
+        ), #introBox
+        
+        introBox(
+          fluidRow(
+            box(
+              solidHeader = TRUE, status = "success",
+              leafletOutput(outputId = "plot_district", width = "100%") %>% 
+                withSpinner() %>% 
+                helper(type = "markdown",
+                       content = "plotdistrict")
+            ) #box
+          ), #fluidRow
+          data.step = 7,
+          data.intro = "This highlights the constituency boundaries, with your selected constituency being highlighted."
+        ) #introBox
         
       ), #tabItem
       
@@ -115,9 +166,14 @@ ui <- dashboardPage(
       tabItem(
         tabName = "tab_dclist",
         
-        fluidPage(
-          DTOutput(outputId = "dc_table")
-        ) #fluidPage
+        introBox(
+          fluidPage(
+            DTOutput(outputId = "dc_table") %>% 
+              withSpinner()
+          ), #fluidPage
+          data.step = 8,
+          data.intro = "This table shows all the DCs and their associated info."
+        )
         
       ), #tabItem
       
@@ -127,9 +183,14 @@ ui <- dashboardPage(
       tabItem(
         tabName = "tab_survey",
         
-        fluidPage(
-          htmlOutput(outputId = "html_typeform")
-        ) #fluidPage
+        introBox(
+          fluidPage(
+            htmlOutput(outputId = "html_typeform") %>% 
+              withSpinner()
+          ), #fluidPage
+          data.step = 9,
+          data.intro = "Don't forget to provide us with feedback. :)"
+        ) #introBox
       ), #tabItem
       
       

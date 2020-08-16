@@ -8,6 +8,34 @@
 #       server.R must create a function called server, like below:
 
 server <- function(input, output, session) {
+
+  # initiate hints 
+  hintjs(session = session)
+  # intiate shinyhelper
+  observe_helpers()
+  
+  # ----- REACTIVES ----- #
+  
+  # filter data according to user selected option
+  react_data_dropdown <- reactive(
+    x = {
+      data_select <- filter(.data = data_master_raw, 
+                            DropDownText == input$input_dropdowntext)
+      
+      return(data_select)
+    }
+  )
+  
+  # convert filtered data to sf class for district map highlighting
+  react_district_highlight <- reactive(
+    x = {
+      data_select <- st_as_sf(x = react_data_dropdown())
+      return(data_select)
+    }
+  )
+  
+  
+  # ----- OBSERVE EVENTS ----- #
   
   # Password and T&Cs Pop-up Box ---------------------------------------------------------
   
@@ -30,85 +58,65 @@ server <- function(input, output, session) {
     }
   )
 
-  # ----- REACTIVES ----- #
-  
-  # filter data according to user selected option
-  react_data_dropdown <- reactive(
-    x = {
-      data_select <- filter(.data = data_master_raw, 
-                            DropDownText == input$input_dropdowntext)
-      
-      return(data_select)
-    }
-  )
-  
-  # convert filtered data to sf class for district map highlighting
-  react_district_highlight <- reactive(
-    x = {
-      data_select <- st_as_sf(x = react_data_dropdown())
-      return(data_select)
-    }
-  )
+  # Interactive Tutorial ----------------------------------------------------
+
+  # start introjs and hide sidebar when button is pressed
+  observeEvent(eventExpr = input$button_help,
+               handlerExpr = {
+                 introjs(session = session,
+                         options = list("nextLabel" = "Next step",
+                                        "prevLabel" = "Go back",
+                                        "skipLabel" = "Close tutorial"),
+                         events = list(onbeforechange = readCallback('switchTabs')))
+                 # add class to minimise sidebar when going through tutorial - for mobile
+                 addClass(selector = "body", class = "sidebar-collapse")
+              }
+  ) #observeEvent
   
   
   # ----- TAB: Overview of a DC ----- #
   
-  # ValueBox: Party (English) -----------------------------------------------
+  # InfoBox: Party (English) -----------------------------------------------
   output$infobox_fb <- renderInfoBox(
     expr = {
       tags$div(
-        tipify(
-          el = infoBox(value = paste0(react_data_dropdown()$DC_ZH, " / ", react_data_dropdown()$DC_EN),
-                       icon = icon(name = "facebook-square"),
-                       color = react_data_dropdown()$exists_fb,
-                       href = react_data_dropdown()$facebook,
-                       title = "區議員名稱 / DC's name",
-                       subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page.",
-                       width = 12),
-          title = "If it does not re-direct to their FB page, this means their FB page does not exist or we could not find it.",
-          trigger = "hover",
-          placement = "left"
-        ) #tipify
+        infoBox(value = paste0(react_data_dropdown()$DC_ZH, " / ", react_data_dropdown()$DC_EN),
+                icon = icon(name = "facebook-square"),
+                color = react_data_dropdown()$exists_fb,
+                href = react_data_dropdown()$facebook,
+                title = "區議員名稱 / DC's name",
+                subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page.",
+                width = 12)
       ) #div
     }
   ) #renderInfoBox
   
-  # ValueBox: Party (English) -----------------------------------------------
-  output$infobox_party_en <- renderInfoBox(
+  # InfoBox: Party (English) -----------------------------------------------
+  output$infobox_party <- renderInfoBox(
     expr = {
       tags$div(
-        tipify(
-          el = infoBox(value = react_data_dropdown()$Party_ZH,
-                       title = "黨派 / Affiliated party",
-                       subtitle = react_data_dropdown()$Party_EN,
-                       icon = icon(name = "vote-yea"),
-                       color = "green",
-                       fill = TRUE,
-                       width = 6),
-          title = "This is the political party that the DC belongs to", 
-          trigger = "hover",
-          placement = "bottom"
-        ) #tipify
+        infoBox(value = react_data_dropdown()$Party_ZH,
+                title = "黨派 / Affiliated party",
+                subtitle = react_data_dropdown()$Party_EN,
+                icon = icon(name = "vote-yea"),
+                color = "green",
+                fill = TRUE,
+                width = 6)
       ) #div
     }
   ) #renderInfoBox
 
   # InfoBox: Constituency (English) -----------------------------------------
-  output$infobox_constituency_en <- renderInfoBox(
+  output$infobox_constituency <- renderInfoBox(
     expr = {
       tags$div(
-        tipify(
-          el = infoBox(value = react_data_dropdown()$Constituency_ZH,
-                       title = "選區 / Constituency",
-                       subtitle = react_data_dropdown()$Constituency_EN,
-                       icon = icon(name = "map-signs"),
-                       color = "green",
-                       fill = TRUE,
-                       width = 6),
-          title = "This is the constituency the DC belongs to", 
-          trigger = "hover",
-          placement = "bottom"
-        ) #tipify
+        infoBox(value = react_data_dropdown()$Constituency_ZH,
+                title = "選區 / Constituency",
+                subtitle = react_data_dropdown()$Constituency_EN,
+                icon = icon(name = "map-signs"),
+                color = "green",
+                fill = TRUE,
+                width = 6)
       ) #div
     }
   ) #renderInfoBox
@@ -180,6 +188,6 @@ server <- function(input, output, session) {
     expr = {
       html_typeform
     }
-  )
+  ) #renderUI
   
 }
