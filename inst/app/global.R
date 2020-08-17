@@ -54,6 +54,9 @@ data_master_raw <-
   googlesheets4::read_sheet(ss = sheet_url,
                             sheet = "Master",
                             na = c("N/A", "")) %>% 
+  # link to individual DC page
+  mutate(ind_page = paste0("https://hong-kong-districts-info.github.io/dc/",
+                           tolower(ConstituencyCode))) %>%
   # infoBox colour indicating if FB link exists
   mutate(exists_fb = if_else(condition = !is.na(x = facebook), "blue", "black"),
          # remove hyphen for joining to shape file

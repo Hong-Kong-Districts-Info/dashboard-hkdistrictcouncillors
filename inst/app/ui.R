@@ -123,6 +123,9 @@ ui <- dashboardPage(
               infoBoxOutput(outputId = "infobox_party", width = NULL),
               infoBoxOutput(outputId = "infobox_constituency", width = NULL)
             ),
+            fluidRow(
+              infoBoxOutput(outputId = "individual_page", width = NULL)
+            ),
             data.step = 5,
             data.intro = "These show the party and consituency of the DC selected."
           ),

@@ -122,6 +122,25 @@ server <- function(input, output, session) {
   ) #renderInfoBox
   
 
+  # InfoBox: Individual DC Page ---------------------------------------------
+  ## Make this a clickable link to the individual DC page
+  output$individual_page <- renderInfoBox(
+    expr = {
+      tags$div(
+        infoBox(value = "",
+                title = "查看更多 / View more",
+                subtitle = "",
+                href = react_data_dropdown()$ind_page,
+                icon = icon(name = "hand-pointer"),
+                color = "green",
+                fill = TRUE,
+                width = 12)
+      ) #div
+    }
+  ) #renderInfoBox
+  
+  
+
   # RenderUI: FB Feed  ---------------------------------------------
   output$frame <- renderUI({
     HTML(react_data_dropdown()$iframe)
