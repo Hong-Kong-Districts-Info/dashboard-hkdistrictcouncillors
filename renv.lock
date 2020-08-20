@@ -303,6 +303,12 @@
       "Repository": "CRAN",
       "Hash": "ac5c6baf7822ce8732b343f14c072c4d"
     },
+    "hkdatasets": {
+      "Package": "hkdatasets",
+      "Version": "0.0.0.9000",
+      "Source": "unknown",
+      "Hash": "3f7e2cfad617ea21a3128b575642876e"
+    },
     "htmltools": {
       "Package": "htmltools",
       "Version": "0.5.0",

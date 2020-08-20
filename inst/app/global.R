@@ -13,6 +13,7 @@ library(dplyr)
 library(tidyr)
 library(googlesheets4)
 library(sf)
+library(hkdatasets) # Installed with tarball. See https://github.com/Hong-Kong-Districts-Info/hkdatasets
 
 library(leaflet)
 
