@@ -24,8 +24,8 @@ server <- function(input, output, session) {
           data_master_raw
           
         } else {
-          data_select <- filter(.data = data_master_raw,
-                                Region == input$input_region)
+          data_select <- dplyr::filter(.data = data_master_raw,
+                                District == input$input_region)
           return(data_select)
         }
     }
@@ -36,15 +36,16 @@ server <- function(input, output, session) {
   output$constituency_dropdown <- renderUI({
     selectizeInput(inputId = "input_dropdowntext",
                    label = "請選擇或輸入選區 / Please type or select a constituency",
-                   choices = react_region_dropdown()$DropDownText,
-                   selected = "香港島 / Hong Kong Island")
+                   choices = react_region_dropdown()$DropDownText)
   })
   
   # filter data according to user selected option
   react_data_dropdown <- reactive(
     x = {
-      data_select <- filter(.data = data_master_raw,
-                            DropDownText == input$input_dropdowntext)
+      
+      # data_master_raw[data_master_raw$DropDownText %in% input$input_dropdowntext,]
+      data_select <- dplyr::filter(.data = data_master_raw,
+                                   DropDownText %in% input$input_dropdowntext)
 
       return(data_select)
     }
