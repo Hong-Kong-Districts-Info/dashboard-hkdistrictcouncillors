@@ -121,6 +121,22 @@ server <- function(input, output, session) {
     }
   ) #renderInfoBox
   
+  # InfoBox: Phone number ---------------------------------------------
+  ## Make this a clickable link to the individual DC page
+  output$phone_number <- renderInfoBox(
+    expr = {
+      tags$div(
+        infoBox(value = react_data_dropdown()$Phone,
+                title = "聯絡電話 / Contact number",
+                subtitle = react_data_dropdown()$Phone,
+                icon = icon(name = "phone"),
+                color = "green",
+                fill = TRUE,
+                width = 6)
+      ) #div
+    }
+  ) #renderInfoBox
+  
 
   # InfoBox: Individual DC Page ---------------------------------------------
   ## Make this a clickable link to the individual DC page
@@ -134,7 +150,7 @@ server <- function(input, output, session) {
                 icon = icon(name = "hand-pointer"),
                 color = "green",
                 fill = TRUE,
-                width = 12)
+                width = 6)
       ) #div
     }
   ) #renderInfoBox

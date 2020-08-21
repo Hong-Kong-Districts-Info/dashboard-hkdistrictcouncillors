@@ -124,6 +124,7 @@ ui <- dashboardPage(
               infoBoxOutput(outputId = "infobox_constituency", width = NULL)
             ),
             fluidRow(
+              infoBoxOutput(outputId = "phone_number", width = NULL),
               infoBoxOutput(outputId = "individual_page", width = NULL)
             ),
             data.step = 5,
