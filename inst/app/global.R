@@ -11,7 +11,6 @@
 ## data wrangling
 library(dplyr)
 library(tidyr)
-library(googlesheets4)
 library(sf)
 library(hkdatasets) # Installed with tarball. See https://github.com/Hong-Kong-Districts-Info/hkdatasets
 
@@ -32,11 +31,9 @@ library(shinycssloaders)
 options(spinner.color = "#009E73",
         spinner.type = 8)
 
-## put gsheets into de-authorised state so no need for personal token for app
-gs4_deauth()
 
 # Data file paths ---------------------------------------------------------
-sheet_url <- "https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/"
+
 path_data <- "extdata"
 path_shape_district <- paste0(path_data, "/" , "dcca_2019/DCCA_2019.shp")
 
@@ -50,21 +47,30 @@ shape_district$centroids <- shape_district %>%
   st_centroid() %>% 
   st_coordinates()
 
-## gsheets
+# add iframe to master sheet ----------------------------------------------
+chunk1 <- '<iframe src="https://www.facebook.com/plugins/page.php?href='
+chunk3 <- '&tabs=timeline&width=400&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=3131730406906292" width="400" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>'
+
+## Take data from HK data sets
 data_master_raw <-
-  googlesheets4::read_sheet(ss = sheet_url,
-                            sheet = "Master",
-                            na = c("N/A", "")) %>% 
+  hkdatasets::hkdc %>%
   # link to individual DC page
   mutate(ind_page = paste0("https://hong-kong-districts-info.github.io/dc/",
                            tolower(ConstituencyCode))) %>%
   # infoBox colour indicating if FB link exists
-  mutate(exists_fb = if_else(condition = !is.na(x = facebook), "blue", "black"),
+  mutate(exists_fb = if_else(condition = !is.na(x = FacebookURL), "blue", "black"),
          # remove hyphen for joining to shape file
-         ConstituencyCode = gsub(x = ConstituencyCode, pattern = "-", replacement = "")) %>% 
-  left_join(y = shape_district, by = c("ConstituencyCode" = "CACODE"))
-
-
+         ConstituencyCode = gsub(x = ConstituencyCode, pattern = "-", replacement = "")) %>%
+  left_join(y = shape_district, by = c("ConstituencyCode" = "CACODE")) %>%
+  
+  # Create bilingual categories to show on app and iframe link
+  mutate(Region = paste(Region_ZH, "/", Region_EN),
+         District = paste(District_ZH, "/", District_EN),
+         DropDownText = paste0(ConstituencyCode, ": ", Constituency_ZH, " / ", Constituency_EN),
+         Party = paste(Party_ZH, "/", Party_EN),
+         DC = paste(DC_ZH, "/", DC_EN),
+         iframe = paste(chunk1, FacebookURL, chunk3))
+  
 # Map import --------------------------------------------------------------
 
 ## Pre-load/create map
