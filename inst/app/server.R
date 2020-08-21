@@ -83,7 +83,7 @@ server <- function(input, output, session) {
         infoBox(value = paste0(react_data_dropdown()$DC_ZH, " / ", react_data_dropdown()$DC_EN),
                 icon = icon(name = "facebook-square"),
                 color = react_data_dropdown()$exists_fb,
-                href = react_data_dropdown()$facebook,
+                href = react_data_dropdown()$FacebookURL,
                 title = "區議員名稱 / DC's name",
                 subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page.",
                 width = 12)
@@ -121,6 +121,36 @@ server <- function(input, output, session) {
     }
   ) #renderInfoBox
   
+  # InfoBox: District -----------------------------------------
+  output$infobox_district <- renderInfoBox(
+    expr = {
+      tags$div(
+        infoBox(value = react_data_dropdown()$District_ZH,
+                title = "區議會 / District",
+                subtitle = react_data_dropdown()$District_EN,
+                icon = icon(name = "map-signs"),
+                color = "green",
+                fill = TRUE,
+                width = 6)
+      ) #div
+    }
+  ) #renderInfoBox
+  
+  # InfoBox: Address -----------------------------------------
+  output$infobox_address <- renderInfoBox(
+    expr = {
+      tags$div(
+        infoBox(value = react_data_dropdown()$Address,
+                title = "地址 / Address",
+                # subtitle = react_data_dropdown()$District_EN,
+                icon = icon(name = "map-signs"),
+                color = "green",
+                fill = TRUE,
+                width = 6)
+      ) #div
+    }
+  ) #renderInfoBox
+  
   # InfoBox: Phone number ---------------------------------------------
   ## Make this a clickable link to the individual DC page
   output$phone_number <- renderInfoBox(
@@ -128,7 +158,7 @@ server <- function(input, output, session) {
       tags$div(
         infoBox(value = react_data_dropdown()$Phone,
                 title = "聯絡電話 / Contact number",
-                subtitle = react_data_dropdown()$Phone,
+                # subtitle = react_data_dropdown()$Phone,
                 icon = icon(name = "phone"),
                 color = "green",
                 fill = TRUE,
@@ -145,7 +175,7 @@ server <- function(input, output, session) {
       tags$div(
         infoBox(value = "",
                 title = "查看更多 / View more",
-                subtitle = "",
+                subtitle = "Hong Kong Districts Info website",
                 href = react_data_dropdown()$ind_page,
                 icon = icon(name = "hand-pointer"),
                 color = "green",

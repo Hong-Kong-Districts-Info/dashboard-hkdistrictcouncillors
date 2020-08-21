@@ -120,11 +120,16 @@ ui <- dashboardPage(
           
           introBox(
             fluidRow(
-              infoBoxOutput(outputId = "infobox_party", width = NULL),
+              infoBoxOutput(outputId = "infobox_district", width = NULL),
               infoBoxOutput(outputId = "infobox_constituency", width = NULL)
             ),
             fluidRow(
+              infoBoxOutput(outputId = "infobox_party", width = NULL),
               infoBoxOutput(outputId = "phone_number", width = NULL),
+              
+            ),
+            fluidRow(
+              infoBoxOutput(outputId = "infobox_address", width = NULL),
               infoBoxOutput(outputId = "individual_page", width = NULL)
             ),
             data.step = 5,
