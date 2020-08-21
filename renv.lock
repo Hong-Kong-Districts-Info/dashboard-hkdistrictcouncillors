@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "3.6.2",
+    "Version": "3.6.3",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -306,8 +306,14 @@
     "hkdatasets": {
       "Package": "hkdatasets",
       "Version": "0.0.0.9000",
-      "Source": "unknown",
-      "Hash": "3f7e2cfad617ea21a3128b575642876e"
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "hkdatasets",
+      "RemoteUsername": "Hong-Kong-Districts-Info",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "1c32dd8bbdc698b29ff8adc66e57eb61bfdb33de",
+      "Hash": "7b00740b9d1ade5dae5da8964e7dd2e8"
     },
     "htmltools": {
       "Package": "htmltools",
