@@ -97,11 +97,15 @@ ui <- dashboardPage(
         tabName = "tab_dcoverview",
         
         introBox(
-          selectizeInput(inputId = "input_dropdowntext",
-                         label = "請選擇或輸入選區 / Please type or select a constituency",
-                         choices = sort(unique(data_master_raw$DropDownText))) %>% 
+          selectizeInput(inputId = "input_region",
+                         label = "請選擇或輸入地區 / Please type or select a district",
+                         choices = c("全部 / All", unique(data_master_raw$Region)),
+                         selected = "全部 / All") %>% 
             helper(type = "markdown",
                    content = "dropdowntext"),
+          
+          # Dropdown box for constituency; uses renderUI
+          uiOutput("constituency_dropdown"),
           data.step = 2,
           data.intro = "This search controls the options displayed on this tab."
         ), #introBox

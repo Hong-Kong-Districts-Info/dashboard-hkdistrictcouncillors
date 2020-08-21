@@ -16,12 +16,36 @@ server <- function(input, output, session) {
   
   # ----- REACTIVES ----- #
   
+  # filter data according to user selected region
+  react_region_dropdown <- reactive(
+    x = {
+        if(input$input_region == "全部 / All"){
+          
+          data_master_raw
+          
+        } else {
+          data_select <- filter(.data = data_master_raw,
+                                Region == input$input_region)
+          return(data_select)
+        }
+    }
+  )
+  
+  # renderUI for second dropdown for constituency
+  # dropdown filters according to selected region
+  output$constituency_dropdown <- renderUI({
+    selectizeInput(inputId = "input_dropdowntext",
+                   label = "請選擇或輸入選區 / Please type or select a constituency",
+                   choices = react_region_dropdown()$DropDownText,
+                   selected = "香港島 / Hong Kong Island")
+  })
+  
   # filter data according to user selected option
   react_data_dropdown <- reactive(
     x = {
-      data_select <- filter(.data = data_master_raw, 
+      data_select <- filter(.data = data_master_raw,
                             DropDownText == input$input_dropdowntext)
-      
+
       return(data_select)
     }
   )
@@ -184,7 +208,6 @@ server <- function(input, output, session) {
       ) #div
     }
   ) #renderInfoBox
-  
   
 
   # RenderUI: FB Feed  ---------------------------------------------
