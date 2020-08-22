@@ -1,0 +1,20 @@
+{
+  "cultural_date_format": "%d-%m-%Y",
+  "languages": ["en", "zh"],
+  "translation": [
+    {"en": "Please type or select a constituency", "zh": "請選擇或輸入選區"},
+    {"en": "Further Information", "zh": "更多資訊"},
+    {
+      "en": "On this tab, we describe how this website was constructed and ways to contribute.",
+      "zh": "此頁旨在簡介此網站的製作方法，以及參與的途徑。"
+    },
+    {
+      "en": "Note, the aim of this app is to provide a convenient site for accessing the Facebook pages of district councillors in Hong Kong.",
+      "zh": "此網站旨在提供一站式資源，方便各位尋找和瀏覽香港各區區議員的 Facebook 專頁。"
+    },
+    {
+      "en": "This website is not affiliated to any political individuals nor movements.",
+      "zh": "此網站並不從屬於任何政治人物或運動。"
+    }
+    ]
+}
