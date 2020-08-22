@@ -105,7 +105,8 @@ ui <- dashboardPage(
                    content = "dropdowntext"),
           
           # Dropdown box for constituency; uses renderUI
-          uiOutput("constituency_dropdown"),
+          uiOutput("constituency_dropdown") %>% 
+            withSpinner(),
           data.step = 2,
           data.intro = "This search controls the options displayed on this tab."
         ), #introBox
