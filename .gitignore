@@ -9,3 +9,5 @@
 
 # api/auth keys
 .httr-oauth
+*.dcf
+inst/app/rsconnect/shinyapps.io/hkdistricts-info/dashboard-hkdistrictcouncillors-dev.dcf
