@@ -110,7 +110,7 @@ ui <- dashboardPage(
           
           # Dropdown box for constituency
           uiOutput(outputId = "ui_inputconstituency"),
-
+          
           data.step = 2,
           data.intro = "This search controls the options displayed on this tab."
         ), #introBox
@@ -212,6 +212,7 @@ ui <- dashboardPage(
         box(
           width = 7, status = "success", solidHeader = TRUE,
           uiOutput(outputId = "ui_infocontribute")
+
         ), #box
         
         box(
