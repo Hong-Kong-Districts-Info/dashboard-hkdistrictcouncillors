@@ -89,6 +89,12 @@ ui <- dashboardPage(
       tags$head(includeHTML(("google-analytics.html")))
     ),
     
+    # Suppress Warnings
+    tags$style(type="text/css",
+               ".shiny-output-error { visibility: hidden; }",
+               ".shiny-output-error:before { visibility: hidden; }"
+    ),
+    
     tabItems(
       
       # Tab: Overview of a DC ----------------------------------------------------------
@@ -97,6 +103,8 @@ ui <- dashboardPage(
         tabName = "tab_dcoverview",
         
         introBox(
+          # Dropdown box for region
+          # Used as an input to render the constituency_dropdown below
           selectizeInput(inputId = "input_region",
                          label = "請選擇或輸入地區 / Please type or select a district",
                          choices = c("全部 / All", unique(data_master_raw$District)),
