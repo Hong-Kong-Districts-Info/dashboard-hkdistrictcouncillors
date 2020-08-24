@@ -31,14 +31,18 @@ The Shiny app is deployed onto shinyapps.io in the links below:
     ├── inst/
     │   ├── app.R                               <- App script calling sub-scripts
     │   └── app/               
-    |       ├── extdata/                        <- Data for app
+    |       ├── extdata/                        <- External data gathered for app
+    |       ├── data/                           <- Internal data created for app
     |       ├── R/                              <- Functions for app
     |       ├── www/                            <- Logo files for app
+    |       ├── modules/                        <- Components of server.R objects
     |       ├── helpfiles/                      <- Markdown of shinyhelper tips
     |       ├── google-analytics.html           <- Link app with Google Analytics
     |       ├── global.R                        <- Static objects for app
     |       ├── server.R                        <- Reactive objects for app
     |       └── ui.R                            <- User-interface for app
+    |
+    ├── tests/                                  <- Files for unit-testing
     |
     ├── .development/
     │   ├── googlesheets_dataclean.R            <- Wrangles Google Sheet data for app
