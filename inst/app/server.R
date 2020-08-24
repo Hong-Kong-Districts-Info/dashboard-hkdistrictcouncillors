@@ -96,6 +96,7 @@ server <- function(input, output, session) {
 
   # ----- TAB: Overview of a DC ----- #
   
+<<<<<<< HEAD
   # renderUI for second dropdown for constituency
   # dropdown filters according to selected region
   # method implemented in https://stackoverflow.com/questions/45975959/create-reactive-selectinput-flexdashboard-with-shiny
@@ -120,21 +121,27 @@ server <- function(input, output, session) {
       ) #div
     }
   ) #renderInfoBox
-  
+||||||| parent of fc6f5af... refactor: Move infobox for parties into module
   # InfoBox: Party (English) -----------------------------------------------
-  output$infobox_party <- renderInfoBox(
+  output$infobox_fb <- renderInfoBox(
     expr = {
       tags$div(
-        infoBox(value = react_data_dropdown()$Party_ZH,
-                title = "黨派 / Affiliated party",
-                subtitle = react_data_dropdown()$Party_EN,
-                icon = icon(name = "vote-yea"),
-                color = "green",
-                fill = TRUE,
-                width = 6)
+        infoBox(value = paste0(react_data_dropdown()$DC_ZH, " / ", react_data_dropdown()$DC_EN),
+                icon = icon(name = "facebook-square"),
+                color = react_data_dropdown()$exists_fb,
+                href = react_data_dropdown()$facebook,
+                title = "區議員名稱 / DC's name",
+                subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page.",
+                width = 12)
       ) #div
     }
   ) #renderInfoBox
+=======
+  
+>>>>>>> fc6f5af... refactor: Move infobox for parties into module
+  
+  # InfoBox: Party (English) -----------------------------------------------
+  source(file = "modules/infobox_party.R", local = TRUE)
 
   # InfoBox: Constituency (English) -----------------------------------------
   output$infobox_constituency <- renderInfoBox(
