@@ -32,7 +32,8 @@ Imports:
     rintrojs,
     shinycssloaders,
     shinyjs,
-    shinyhelper
+    shinyhelper,
+    shiny.i18n
 Suggests: 
     janitor,
     purrr,
