@@ -189,4 +189,8 @@ server <- function(input, output, session) {
   # TypeForm Survey ---------------------------------------------------------
   source(file = "modules/ui_survey.R", local = TRUE)
   
+  
+  # ----- TAB: Construction ----- #
+  source(file = "modules/ui_infocontribute.R", local = TRUE)
 }
+
