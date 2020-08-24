@@ -11,8 +11,9 @@ Authors@R:
            role = "aut",
            email = "martinchan53@gmail.com"),
     person(given = "Ocean",
-           family = "",
-           role = "aut"))
+           family = "Cheung",
+           role = "aut",
+           email = "ocean0609@gmail.com"))
 Description: This stores the code underlying the dashboard.
 License: MIT + file LICENSE
 Encoding: UTF-8
