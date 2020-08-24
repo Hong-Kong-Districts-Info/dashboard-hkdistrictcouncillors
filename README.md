@@ -69,12 +69,14 @@ The Shiny app is deployed onto shinyapps.io in the links below:
 ***
 
 ## Installation
-Install and run this app locally in your command shell (instructions for iOS):
+Ensure you have R version 3.6.2. Install and run this app locally in your command shell (instructions for iOS):
 
 ```shell
 git clone https://github.com/avisionh/dashboard-hkdistrictcouncillors.git
 cd dashboard-hkdistrictcouncillors
 r
+install.packages(pkgs = "renv", Ncpus = 1)
+renv::restore()
 shiny::runApp(appDir = "inst/app.R")
 ```
 
