@@ -15,6 +15,7 @@ server <- function(input, output, session) {
   observe_helpers()
   
   # ----- REACTIVES ----- #
+
   
   # filter data according to user selected region
   react_region_dropdown <- reactive(
@@ -70,6 +71,22 @@ server <- function(input, output, session) {
       } else {
         stopApp()
       }
+    }
+  )
+  
+  # set language
+  observeEvent(
+    
+    eventExpr = input$button_language,
+    
+    handlerExpr = {
+      
+      selected <- input$button_language
+      print(selected)
+      if (length(selected) > 0 && selected %in% lang$languages) {
+        lang$set_translation_language(selected)
+      }
+      return(lang)
     }
   )
 
