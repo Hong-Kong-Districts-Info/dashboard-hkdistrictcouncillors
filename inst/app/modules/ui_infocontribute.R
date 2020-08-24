@@ -4,7 +4,7 @@ output$ui_infocontribute <- renderUI(
     HTML(
       text = paste0(
         # Further Information
-        h2(icon("info"), "更多資訊 / Further Information"), hr(),
+        h2(icon("info"), react_lang()$t("Further Information")), hr(),
         
         div(
           "此頁旨在簡介此網站的製作方法，以及參與的途徑。",

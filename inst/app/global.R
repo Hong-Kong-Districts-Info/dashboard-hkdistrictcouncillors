@@ -78,7 +78,6 @@ data_master_raw <-
 ## translation
 lang <- Translator$new(translation_json_path = path_language)
 
-
 # Map import --------------------------------------------------------------
 
 ## Pre-load/create map

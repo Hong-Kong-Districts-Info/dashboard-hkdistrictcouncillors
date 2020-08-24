@@ -16,6 +16,17 @@ server <- function(input, output, session) {
   
   # ----- REACTIVES ----- #
 
+  # set language based on user input
+  react_lang <- reactive(
+    x = {
+      selected <- input$button_language
+      print(selected)
+      if (length(selected) > 0 && selected %in% lang$languages) {
+        lang$set_translation_language(selected)
+      }
+      return(lang)
+    }
+  )
   
   # filter data according to user selected region
   react_region_dropdown <- reactive(
@@ -73,22 +84,7 @@ server <- function(input, output, session) {
       }
     }
   )
-  
-  # set language
-  observeEvent(
-    
-    eventExpr = input$button_language,
-    
-    handlerExpr = {
-      
-      selected <- input$button_language
-      print(selected)
-      if (length(selected) > 0 && selected %in% lang$languages) {
-        lang$set_translation_language(selected)
-      }
-      return(lang)
-    }
-  )
+
 
   # Interactive Tutorial ----------------------------------------------------
 
@@ -107,7 +103,6 @@ server <- function(input, output, session) {
   
 
   # ----- TAB: Overview of a DC ----- #
-  
 
   # RenderUI: Input Region ----------------------------------------------------
   source(file = "modules/ui_inputregion.R", local = TRUE)
@@ -146,4 +141,6 @@ server <- function(input, output, session) {
   # ----- TAB: Construction ----- #
   source(file = "modules/ui_infocontribute.R", local = TRUE)
   source(file = "modules/ui_dataframework.R", local = TRUE)
+  
 }
+
