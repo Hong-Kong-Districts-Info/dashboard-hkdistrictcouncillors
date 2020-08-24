@@ -96,7 +96,6 @@ server <- function(input, output, session) {
 
   # ----- TAB: Overview of a DC ----- #
   
-<<<<<<< HEAD
   # renderUI for second dropdown for constituency
   # dropdown filters according to selected region
   # method implemented in https://stackoverflow.com/questions/45975959/create-reactive-selectinput-flexdashboard-with-shiny
@@ -107,56 +106,15 @@ server <- function(input, output, session) {
                    selected = "A01: 中環 / CHUNG WAN")
   })
   
-  # InfoBox: Party (English) -----------------------------------------------
-  output$infobox_fb <- renderInfoBox(
-    expr = {
-      tags$div(
-        infoBox(value = paste0(react_data_dropdown()$DC_ZH, " / ", react_data_dropdown()$DC_EN),
-                icon = icon(name = "facebook-square"),
-                color = react_data_dropdown()$exists_fb,
-                href = react_data_dropdown()$FacebookURL,
-                title = "區議員名稱 / DC's name",
-                subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page.",
-                width = 12)
-      ) #div
-    }
-  ) #renderInfoBox
-||||||| parent of fc6f5af... refactor: Move infobox for parties into module
-  # InfoBox: Party (English) -----------------------------------------------
-  output$infobox_fb <- renderInfoBox(
-    expr = {
-      tags$div(
-        infoBox(value = paste0(react_data_dropdown()$DC_ZH, " / ", react_data_dropdown()$DC_EN),
-                icon = icon(name = "facebook-square"),
-                color = react_data_dropdown()$exists_fb,
-                href = react_data_dropdown()$facebook,
-                title = "區議員名稱 / DC's name",
-                subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page.",
-                width = 12)
-      ) #div
-    }
-  ) #renderInfoBox
-=======
+
+  # InfoBox: FB -----------------------------------------------
+  source(file = "modules/infobox_fb.R", local = TRUE)
   
->>>>>>> fc6f5af... refactor: Move infobox for parties into module
-  
-  # InfoBox: Party (English) -----------------------------------------------
+  # InfoBox: Party -----------------------------------------------
   source(file = "modules/infobox_party.R", local = TRUE)
 
-  # InfoBox: Constituency (English) -----------------------------------------
-  output$infobox_constituency <- renderInfoBox(
-    expr = {
-      tags$div(
-        infoBox(value = react_data_dropdown()$Constituency_ZH,
-                title = "選區 / Constituency",
-                subtitle = react_data_dropdown()$Constituency_EN,
-                icon = icon(name = "map-signs"),
-                color = "green",
-                fill = TRUE,
-                width = 6)
-      ) #div
-    }
-  ) #renderInfoBox
+  # InfoBox: Constituency -----------------------------------------
+  source(file = "modules/infobox_constituency.R", local = TRUE)
   
   # InfoBox: District -----------------------------------------
   output$infobox_district <- renderInfoBox(
@@ -228,26 +186,8 @@ server <- function(input, output, session) {
     HTML(react_data_dropdown()$iframe)
   })
 
-
   # RenderPlot: Districts ---------------------------------------------------
-  output$plot_district <- renderLeaflet(
-    expr = {
-      
-      map_hk_districts %>% 
-        addPolygons(data = react_district_highlight(),
-                    color = '#D55E00',
-                    weight = 0.5,
-                    fillOpacity = 0.6) %>% 
-        addPopups(lng = react_district_highlight()$centroids[,"X"],
-                  lat = react_district_highlight()$centroids[,"Y"], 
-                  popup = react_district_highlight()$DropDownText) %>% 
-        # centre map on user-chosen district
-        setView(lng = react_district_highlight()$centroids[,"X"],
-                lat = react_district_highlight()$centroids[,"Y"], 
-                zoom = 11)
-      
-    }
-  )
+  source(file = "modules/leaflet_district.R", local = TRUE)
 
   
   # ----- TAB: List of DCs ----- #
