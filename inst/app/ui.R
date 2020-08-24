@@ -98,6 +98,7 @@ ui <- dashboardPage(
         tabName = "tab_dcoverview",
         
         introBox(
+
           # Dropdown box for region
           # Used as an input to render the constituency_dropdown below
           selectizeInput(inputId = "input_region",
@@ -108,8 +109,8 @@ ui <- dashboardPage(
                    content = "dropdowntext"),
           
           # Dropdown box for constituency; uses renderUI
-          uiOutput("constituency_dropdown") %>% 
-            withSpinner(),
+          uiOutput(outputId = "ui_inputconstituency"),
+
           data.step = 2,
           data.intro = "This search controls the options displayed on this tab."
         ), #introBox
