@@ -182,14 +182,11 @@ server <- function(input, output, session) {
   
 
   # RenderUI: FB Feed  ---------------------------------------------
-  output$frame <- renderUI(
-    expr = {
-      HTML(react_data_dropdown()$iframe)
-    }
-  ) #renderUI
+  source(file = "modules/ui_fbfeed.R", local = TRUE)
 
   # RenderPlot: Districts ---------------------------------------------------
   source(file = "modules/leaflet_district.R", local = TRUE)
+  
   
   # ----- TAB: List of DCs ----- #
   
@@ -200,10 +197,6 @@ server <- function(input, output, session) {
   # ----- TAB: Survey ----- #
   
   # TypeForm Survey ---------------------------------------------------------
-  output$html_typeform = renderUI(
-    expr = {
-      html_typeform
-    }
-  ) #renderUI
+  source(file = "modules/ui_survey.R", local = TRUE)
   
 }

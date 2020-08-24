@@ -153,7 +153,7 @@ ui <- dashboardPage(
           fluidRow(
             column(
               width = 6,
-              uiOutput("frame") %>% 
+              uiOutput(outputId = "ui_fbfeed") %>% 
                 withSpinner()
             ) #column
           ), #fluidRow
@@ -204,7 +204,7 @@ ui <- dashboardPage(
         
         introBox(
           fluidPage(
-            htmlOutput(outputId = "html_typeform") %>% 
+            htmlOutput(outputId = "ui_survey") %>% 
               withSpinner()
           ), #fluidPage
           data.step = 9,
