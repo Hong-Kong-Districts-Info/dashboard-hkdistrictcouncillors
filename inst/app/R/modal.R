@@ -6,6 +6,12 @@ modal <- function(failed = FALSE) {
     title = div(style = "text-align: center;",
                 img(src = "logo.png", height = "100px"),
                 p(strong("使用條款 / Terms of Use"))),
+
+    radioButtons(inputId = "button_language",
+                 label = "Please select a language",
+                 choiceNames = c("中文", "English"),
+                 choiceValues = c("zh", "en"),
+                 selected = "zh"),
     
     p("您了解以下內容適用於本網站。如要繼續使用本網站，即表示您同意以上使用條款:"),
     
