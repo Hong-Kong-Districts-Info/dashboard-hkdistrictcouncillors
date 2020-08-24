@@ -28,10 +28,6 @@ ui <- dashboardPage(
     tags$li(a(href = 'mailto: hkdistricts.info@gmail.com',
               icon("envelope"),
               title = "Email us"),
-            class = "dropdown"),
-    tags$li(a(href = 'https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors/',
-              img(src = 'logo.png', title = "Back to Home", height = "46px"),
-              style = "padding-top:2px; padding-bottom:2px;"),
             class = "dropdown")
   ),
   
@@ -73,7 +69,17 @@ ui <- dashboardPage(
           text = "How this was made",
           icon = icon(name = "info-circle"),
           tabName = "tab_construction"
-        )
+        ),
+        
+        # Logo
+        div(a(href = 'https://hkdistricts-info.shinyapps.io/dashboard-hkdistrictcouncillors/',
+              img(src = "logo.png",
+                  title = "Back to home",
+                  width = "200px",
+                  style = "position:fixed; left:10px; bottom:10px"
+                ) #img
+              ) #a
+        ) #div
       
       ), # sidebarMenu
       data.step = 1,
