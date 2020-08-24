@@ -182,44 +182,19 @@ server <- function(input, output, session) {
   
 
   # RenderUI: FB Feed  ---------------------------------------------
-  output$frame <- renderUI({
-    HTML(react_data_dropdown()$iframe)
-  })
+  output$frame <- renderUI(
+    expr = {
+      HTML(react_data_dropdown()$iframe)
+    }
+  ) #renderUI
 
   # RenderPlot: Districts ---------------------------------------------------
   source(file = "modules/leaflet_district.R", local = TRUE)
-
   
   # ----- TAB: List of DCs ----- #
   
   # RenderDT: DC Details  ---------------------------------------------
-  
-  output$dc_table = renderDT(
-    expr = {
-      select(.data = data_master_raw,
-             Region,
-             District,
-             Constituency = DropDownText,
-             DC)
-    }, #expr
-    filter = "top",
-    rownames = FALSE,
-    options = list(lengthMenu = list(c(10, 20, -1),
-                                     c('10', '20', 'All')),
-                   pageLength = 20,
-                   buttons = list(
-                     list(
-                       extend = "collection",
-                       text = 'Show All',
-                       action = DT::JS("function ( e, dt, node, config ) {
-                                    dt.page.len(-1);
-                                    dt.ajax.reload();
-                                }")
-                     ) #list
-                  ) #list
-    ) #list
-
-  ) #renderDT
+  source(file = "modules/dt_districtcouncillor.R", local = TRUE)
   
 
   # ----- TAB: Survey ----- #

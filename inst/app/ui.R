@@ -187,7 +187,7 @@ ui <- dashboardPage(
         
         introBox(
           fluidPage(
-            DTOutput(outputId = "dc_table") %>% 
+            DTOutput(outputId = "dt_districtcouncillor") %>% 
               withSpinner()
           ), #fluidPage
           data.step = 8,
