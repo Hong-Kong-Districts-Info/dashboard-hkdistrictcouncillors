@@ -192,5 +192,6 @@ server <- function(input, output, session) {
   
   # ----- TAB: Construction ----- #
   source(file = "modules/ui_infocontribute.R", local = TRUE)
-}
 
+  source(file = "modules/ui_dataframework.R", local = TRUE)
+}
