@@ -602,6 +602,13 @@
       "Repository": "CRAN",
       "Hash": "ee4ed72d7a5047d9e73cf922ad66e9c9"
     },
+    "shiny.i18n": {
+      "Package": "shiny.i18n",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "574a2e2d7c05255193331fc3de7577b7"
+    },
     "shinyBS": {
       "Package": "shinyBS",
       "Version": "0.61",
