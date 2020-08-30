@@ -39,8 +39,8 @@ server <- function(input, output, session) {
     x = {
       
       # data_master_raw[data_master_raw$DropDownText %in% input$input_dropdowntext,]
-      data_select <- dplyr::filter(.data = data_master_raw,
-                                   DropDownText == req(input$input_dropdowntext))
+      data_select <- filter(.data = data_master_raw,
+                            DropDownText == req(input$input_dropdowntext))
 
       return(data_select)
     }
