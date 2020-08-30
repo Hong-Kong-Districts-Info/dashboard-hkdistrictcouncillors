@@ -12,7 +12,7 @@
 library(dplyr)
 library(tidyr)
 library(sf)
-library(hkdatasets) # Installed with tarball. See https://github.com/Hong-Kong-Districts-Info/hkdatasets
+library(hkdatasets)
 
 library(leaflet)
 
@@ -114,4 +114,3 @@ html_typeform <- HTML(text = "<div class=\"typeform-widget\"
                                           <a href=\"https://admin.typeform.com/signup?utm_campaign=gFHC02gE&utm_source=typeform.com-01EENYCBWQACS4BQ2SV4V5D2C9-free&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN\" 
                                                   style=\"color: #999\" 
                                                   target=\"_blank\">Typeform</a> </div>")
-
