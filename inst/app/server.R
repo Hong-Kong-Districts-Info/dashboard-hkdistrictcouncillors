@@ -34,23 +34,13 @@ server <- function(input, output, session) {
     }
   )
   
-  # renderUI for second dropdown for constituency
-  # dropdown filters according to selected region
-  # method implemented in https://stackoverflow.com/questions/45975959/create-reactive-selectinput-flexdashboard-with-shiny
-  output$constituency_dropdown <- renderUI({
-    selectizeInput(inputId = "input_dropdowntext",
-                   label = "請選擇或輸入選區 / Please type or select a constituency",
-                   choices = react_region_dropdown()$DropDownText,
-                   selected = "A01: 中環 / CHUNG WAN")
-  })
-  
   # filter data according to user selected option
   react_data_dropdown <- reactive(
     x = {
       
       # data_master_raw[data_master_raw$DropDownText %in% input$input_dropdowntext,]
       data_select <- dplyr::filter(.data = data_master_raw,
-                                   DropDownText == input$input_dropdowntext)
+                                   DropDownText == req(input$input_dropdowntext))
 
       return(data_select)
     }
@@ -105,6 +95,16 @@ server <- function(input, output, session) {
   
 
   # ----- TAB: Overview of a DC ----- #
+  
+  # renderUI for second dropdown for constituency
+  # dropdown filters according to selected region
+  # method implemented in https://stackoverflow.com/questions/45975959/create-reactive-selectinput-flexdashboard-with-shiny
+  output$constituency_dropdown <- renderUI({
+    selectizeInput(inputId = "input_dropdowntext",
+                   label = "請選擇或輸入選區 / Please type or select a constituency",
+                   choices = react_region_dropdown()$DropDownText,
+                   selected = "A01: 中環 / CHUNG WAN")
+  })
   
   # InfoBox: Party (English) -----------------------------------------------
   output$infobox_fb <- renderInfoBox(
