@@ -89,12 +89,6 @@ ui <- dashboardPage(
       tags$head(includeHTML(("google-analytics.html")))
     ),
     
-    # Suppress Warnings
-    tags$style(type="text/css",
-               ".shiny-output-error { visibility: hidden; }",
-               ".shiny-output-error:before { visibility: hidden; }"
-    ),
-    
     tabItems(
       
       # Tab: Overview of a DC ----------------------------------------------------------
