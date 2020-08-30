@@ -26,8 +26,8 @@ server <- function(input, output, session) {
         } else {
           
           
-          data_select <- dplyr::filter(.data = data_master_raw,
-                                       District == input$input_region)
+          data_select <- filter(.data = data_master_raw,
+                                             District == input$input_region)
           
           return(data_select)
         }
