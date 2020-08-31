@@ -105,16 +105,10 @@ ui <- dashboardPage(
         
         introBox(
 
-          # Dropdown box for region
-          # Used as an input to render the constituency_dropdown below
-          selectizeInput(inputId = "input_region",
-                         label = "請選擇或輸入地區 / Please type or select a district",
-                         choices = c("全部 / All", unique(data_master_raw$District)),
-                         selected = "全部 / All") %>% 
-            helper(type = "markdown",
-                   content = "dropdowntext"),
+          # Dropdown box for region; impacts ui_inputconstituency
+          uiOutput(outputId = "ui_inputregion"),
           
-          # Dropdown box for constituency; uses renderUI
+          # Dropdown box for constituency
           uiOutput(outputId = "ui_inputconstituency"),
 
           data.step = 2,

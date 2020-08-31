@@ -19,18 +19,20 @@ server <- function(input, output, session) {
   # filter data according to user selected region
   react_region_dropdown <- reactive(
     x = {
-        if(input$input_region == "全部 / All"){
-          data_master_raw
-        } else {
-          data_select <- filter(.data = data_master_raw,
-                                District == input$input_region)
-          return(data_select)
-        }
+      req(input$input_region)
+      
+      if(input$input_region == "全部 / All"){
+        return(data_master_raw)
+      } else {
+        data_select <- filter(.data = data_master_raw,
+                              District == input$input_region)
+        return(data_select)
+      }
     }
   )
   
   # filter data according to user selected option
-  react_data_dropdown <- reactive(
+  react_constituency_dropdown <- reactive(
     x = {
       req(input$input_constituency)
       data_select <- filter(.data = data_master_raw, 
@@ -42,7 +44,7 @@ server <- function(input, output, session) {
   # convert filtered data to sf class for district map highlighting
   react_district_highlight <- reactive(
     x = {
-      data_select <- st_as_sf(x = react_data_dropdown())
+      data_select <- st_as_sf(x = react_constituency_dropdown())
       return(data_select)
     }
   )
@@ -89,6 +91,10 @@ server <- function(input, output, session) {
 
   # ----- TAB: Overview of a DC ----- #
   
+
+  # RenderUI: Input Region ----------------------------------------------------
+  source(file = "modules/ui_inputregion.R", local = TRUE)
+  
   # RenderUI: Input Constituency --------------------------------------------
   source(file = "modules/ui_inputconstituency.R", local = TRUE)
   
@@ -105,9 +111,9 @@ server <- function(input, output, session) {
   output$infobox_district <- renderInfoBox(
     expr = {
       tags$div(
-        infoBox(value = react_data_dropdown()$District_ZH,
+        infoBox(value = react_constituency_dropdown()$District_ZH,
                 title = "區議會 / District",
-                subtitle = react_data_dropdown()$District_EN,
+                subtitle = react_constituency_dropdown()$District_EN,
                 icon = icon(name = "map-signs"),
                 color = "green",
                 fill = TRUE,
@@ -120,9 +126,9 @@ server <- function(input, output, session) {
   output$infobox_address <- renderInfoBox(
     expr = {
       tags$div(
-        infoBox(value = react_data_dropdown()$Address,
+        infoBox(value = react_constituency_dropdown()$Address,
                 title = "地址 / Address",
-                # subtitle = react_data_dropdown()$District_EN,
+                # subtitle = react_constituency_dropdown()$District_EN,
                 icon = icon(name = "map-signs"),
                 color = "green",
                 fill = TRUE,
@@ -136,9 +142,9 @@ server <- function(input, output, session) {
   output$phone_number <- renderInfoBox(
     expr = {
       tags$div(
-        infoBox(value = react_data_dropdown()$Phone,
+        infoBox(value = react_constituency_dropdown()$Phone,
                 title = "聯絡電話 / Contact number",
-                # subtitle = react_data_dropdown()$Phone,
+                # subtitle = react_constituency_dropdown()$Phone,
                 icon = icon(name = "phone"),
                 color = "green",
                 fill = TRUE,
@@ -156,7 +162,7 @@ server <- function(input, output, session) {
         infoBox(value = "",
                 title = "查看更多 / View more",
                 subtitle = "Hong Kong Districts Info website",
-                href = react_data_dropdown()$ind_page,
+                href = react_constituency_dropdown()$ind_page,
                 icon = icon(name = "hand-pointer"),
                 color = "green",
                 fill = TRUE,
