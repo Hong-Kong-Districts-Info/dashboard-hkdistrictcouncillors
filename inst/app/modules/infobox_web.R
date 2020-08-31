@@ -1,4 +1,4 @@
-# InfoBox: Party (English) -----------------------------------------------
+# InfoBox: Party -----------------------------------------------
 output$infobox_web <- renderInfoBox(
   expr = {
     tags$div(

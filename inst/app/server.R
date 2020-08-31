@@ -104,21 +104,8 @@ server <- function(input, output, session) {
   # InfoBox: Party -----------------------------------------------
   source(file = "modules/infobox_party.R", local = TRUE)
   
-  # InfoBox: Phone number ---------------------------------------------
-  ## Make this a clickable link to the individual DC page
-  output$phone_number <- renderInfoBox(
-    expr = {
-      tags$div(
-        infoBox(value = react_constituency_dropdown()$Phone,
-                title = "聯絡電話 / Contact number",
-                subtitle = "email placeholder",
-                icon = icon(name = "address-card"),
-                color = "green",
-                fill = TRUE,
-                width = 6)
-      ) #div
-    }
-  ) #renderInfoBox
+  # InfoBox: Contact ---------------------------------------------
+  source(file = "modules/infobox_contact.R", local = TRUE)
 
   # RenderUI: FB Feed  ---------------------------------------------
   source(file = "modules/ui_fbfeed.R", local = TRUE)
