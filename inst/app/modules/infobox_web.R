@@ -8,7 +8,9 @@ output$infobox_web <- renderInfoBox(
               href = react_constituency_dropdown()$ind_page,
               title = "區議員名稱 / DC's name",
               subtitle = react_constituency_dropdown()$Address,
-              width = 12)
+              width = 12) %>% 
+        helper(type = "markdown",
+               content = "infoboxweb")
     ) #div
   }
 ) #renderInfoBox
