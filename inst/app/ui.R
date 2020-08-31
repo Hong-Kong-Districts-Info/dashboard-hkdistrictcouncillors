@@ -86,7 +86,8 @@ ui <- dashboardPage(
   body = dashboardBody(
     
     tags$head(
-      tags$head(includeHTML(("google-analytics.html")))
+      tags$head(includeHTML(("google-analytics.html"))),
+      tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
     ),
     
     tabItems(
@@ -97,11 +98,18 @@ ui <- dashboardPage(
         tabName = "tab_dcoverview",
         
         introBox(
-          selectizeInput(inputId = "input_dropdowntext",
-                         label = "請選擇或輸入選區 / Please type or select a constituency",
-                         choices = sort(unique(data_master_raw$DropDownText))) %>% 
+          # Dropdown box for region
+          # Used as an input to render the constituency_dropdown below
+          selectizeInput(inputId = "input_region",
+                         label = "請選擇或輸入地區 / Please type or select a district",
+                         choices = c("全部 / All", unique(data_master_raw$District)),
+                         selected = "全部 / All") %>% 
             helper(type = "markdown",
                    content = "dropdowntext"),
+          
+          # Dropdown box for constituency; uses renderUI
+          uiOutput("constituency_dropdown") %>% 
+            withSpinner(),
           data.step = 2,
           data.intro = "This search controls the options displayed on this tab."
         ), #introBox
@@ -120,8 +128,17 @@ ui <- dashboardPage(
           
           introBox(
             fluidRow(
-              infoBoxOutput(outputId = "infobox_party", width = NULL),
+              infoBoxOutput(outputId = "infobox_district", width = NULL),
               infoBoxOutput(outputId = "infobox_constituency", width = NULL)
+            ),
+            fluidRow(
+              infoBoxOutput(outputId = "infobox_party", width = NULL),
+              infoBoxOutput(outputId = "phone_number", width = NULL),
+              
+            ),
+            fluidRow(
+              infoBoxOutput(outputId = "infobox_address", width = NULL),
+              infoBoxOutput(outputId = "individual_page", width = NULL)
             ),
             data.step = 5,
             data.intro = "These show the party and consituency of the DC selected."
@@ -135,7 +152,7 @@ ui <- dashboardPage(
         introBox(
           fluidRow(
             column(
-              width = 3,
+              width = 6,
               uiOutput("frame") %>% 
                 withSpinner()
             ) #column
@@ -147,7 +164,9 @@ ui <- dashboardPage(
         introBox(
           fluidRow(
             box(
-              solidHeader = TRUE, status = "success",
+              solidHeader = TRUE,
+              status = "success",
+              width = 12,
               leafletOutput(outputId = "plot_district", width = "100%") %>% 
                 withSpinner() %>% 
                 helper(type = "markdown",

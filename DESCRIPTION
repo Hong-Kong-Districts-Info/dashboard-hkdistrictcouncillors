@@ -25,7 +25,6 @@ Imports:
     shiny,
     shinydashboard,
     DT,
-    googlesheets4,
     shinyBS,
     sf,
     leaflet,

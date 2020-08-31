@@ -16,12 +16,32 @@ server <- function(input, output, session) {
   
   # ----- REACTIVES ----- #
   
+  # filter data according to user selected region
+  react_region_dropdown <- reactive(
+    x = {
+        if(input$input_region == "全部 / All"){
+          
+          data_master_raw
+          
+        } else {
+          
+          
+          data_select <- filter(.data = data_master_raw,
+                                             District == input$input_region)
+          
+          return(data_select)
+        }
+    }
+  )
+  
   # filter data according to user selected option
   react_data_dropdown <- reactive(
     x = {
-      data_select <- filter(.data = data_master_raw, 
-                            DropDownText == input$input_dropdowntext)
       
+      # data_master_raw[data_master_raw$DropDownText %in% input$input_dropdowntext,]
+      data_select <- filter(.data = data_master_raw,
+                            DropDownText == req(input$input_dropdowntext))
+
       return(data_select)
     }
   )
@@ -73,8 +93,18 @@ server <- function(input, output, session) {
               }
   ) #observeEvent
   
-  
+
   # ----- TAB: Overview of a DC ----- #
+  
+  # renderUI for second dropdown for constituency
+  # dropdown filters according to selected region
+  # method implemented in https://stackoverflow.com/questions/45975959/create-reactive-selectinput-flexdashboard-with-shiny
+  output$constituency_dropdown <- renderUI({
+    selectizeInput(inputId = "input_dropdowntext",
+                   label = "請選擇或輸入選區 / Please type or select a constituency",
+                   choices = react_region_dropdown()$DropDownText,
+                   selected = "A01: 中環 / CHUNG WAN")
+  })
   
   # InfoBox: Party (English) -----------------------------------------------
   output$infobox_fb <- renderInfoBox(
@@ -83,7 +113,7 @@ server <- function(input, output, session) {
         infoBox(value = paste0(react_data_dropdown()$DC_ZH, " / ", react_data_dropdown()$DC_EN),
                 icon = icon(name = "facebook-square"),
                 color = react_data_dropdown()$exists_fb,
-                href = react_data_dropdown()$facebook,
+                href = react_data_dropdown()$FacebookURL,
                 title = "區議員名稱 / DC's name",
                 subtitle = "按此格到區議員的面書專頁 / Click this box to visit their FB page.",
                 width = 12)
@@ -114,6 +144,70 @@ server <- function(input, output, session) {
                 title = "選區 / Constituency",
                 subtitle = react_data_dropdown()$Constituency_EN,
                 icon = icon(name = "map-signs"),
+                color = "green",
+                fill = TRUE,
+                width = 6)
+      ) #div
+    }
+  ) #renderInfoBox
+  
+  # InfoBox: District -----------------------------------------
+  output$infobox_district <- renderInfoBox(
+    expr = {
+      tags$div(
+        infoBox(value = react_data_dropdown()$District_ZH,
+                title = "區議會 / District",
+                subtitle = react_data_dropdown()$District_EN,
+                icon = icon(name = "map-signs"),
+                color = "green",
+                fill = TRUE,
+                width = 6)
+      ) #div
+    }
+  ) #renderInfoBox
+  
+  # InfoBox: Address -----------------------------------------
+  output$infobox_address <- renderInfoBox(
+    expr = {
+      tags$div(
+        infoBox(value = react_data_dropdown()$Address,
+                title = "地址 / Address",
+                # subtitle = react_data_dropdown()$District_EN,
+                icon = icon(name = "map-signs"),
+                color = "green",
+                fill = TRUE,
+                width = 6)
+      ) #div
+    }
+  ) #renderInfoBox
+  
+  # InfoBox: Phone number ---------------------------------------------
+  ## Make this a clickable link to the individual DC page
+  output$phone_number <- renderInfoBox(
+    expr = {
+      tags$div(
+        infoBox(value = react_data_dropdown()$Phone,
+                title = "聯絡電話 / Contact number",
+                # subtitle = react_data_dropdown()$Phone,
+                icon = icon(name = "phone"),
+                color = "green",
+                fill = TRUE,
+                width = 6)
+      ) #div
+    }
+  ) #renderInfoBox
+  
+
+  # InfoBox: Individual DC Page ---------------------------------------------
+  ## Make this a clickable link to the individual DC page
+  output$individual_page <- renderInfoBox(
+    expr = {
+      tags$div(
+        infoBox(value = "",
+                title = "查看更多 / View more",
+                subtitle = "Hong Kong Districts Info website",
+                href = react_data_dropdown()$ind_page,
+                icon = icon(name = "hand-pointer"),
                 color = "green",
                 fill = TRUE,
                 width = 6)

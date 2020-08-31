@@ -86,6 +86,8 @@ shiny::runApp(appDir = "inst/app.R")
 
 A list of the District Councillors and their Facebooks page hyperlinks are publicly-accessible on Google Drive [here](https://docs.google.com/spreadsheets/d/1007RLMHSukSJ5OfCcDJdnJW5QMZyS2P-81fe7utCZwk/).
 
+The data is also available as an R package on https://github.com/Hong-Kong-Districts-Info/hkdatasets.
+
 ***
 
 ## Getting help
