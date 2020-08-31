@@ -86,7 +86,8 @@ ui <- dashboardPage(
   body = dashboardBody(
     
     tags$head(
-      tags$head(includeHTML(("google-analytics.html")))
+      tags$head(includeHTML(("google-analytics.html"))),
+      tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
     ),
     
     tabItems(
@@ -151,7 +152,7 @@ ui <- dashboardPage(
         introBox(
           fluidRow(
             column(
-              width = 3,
+              width = 6,
               uiOutput("frame") %>% 
                 withSpinner()
             ) #column
@@ -163,7 +164,9 @@ ui <- dashboardPage(
         introBox(
           fluidRow(
             box(
-              solidHeader = TRUE, status = "success",
+              solidHeader = TRUE,
+              status = "success",
+              width = 12,
               leafletOutput(outputId = "plot_district", width = "100%") %>% 
                 withSpinner() %>% 
                 helper(type = "markdown",

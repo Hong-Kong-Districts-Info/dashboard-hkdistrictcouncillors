@@ -48,8 +48,9 @@ shape_district$centroids <- shape_district %>%
   st_coordinates()
 
 # add iframe to master sheet ----------------------------------------------
-chunk1 <- '<iframe src="https://www.facebook.com/plugins/page.php?href='
-chunk3 <- '&tabs=timeline&width=400&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=3131730406906292" width="400" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>'
+chunk1 <- '<div class="container2"><iframe class="responsive-iframe" src="https://www.facebook.com/plugins/page.php?href='
+chunk3 <- '&tabs=timeline&width=400&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=3131730406906292" width="400" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe></div>'
+
 
 ## Take data from HK data sets
 data_master_raw <-
@@ -69,7 +70,7 @@ data_master_raw <-
          DropDownText = paste0(ConstituencyCode, ": ", Constituency_ZH, " / ", Constituency_EN),
          Party = paste(Party_ZH, "/", Party_EN),
          DC = paste(DC_ZH, "/", DC_EN),
-         iframe = paste(chunk1, FacebookURL, chunk3))
+         iframe = paste0(chunk1, FacebookURL, chunk3))
   
 # Map import --------------------------------------------------------------
 
