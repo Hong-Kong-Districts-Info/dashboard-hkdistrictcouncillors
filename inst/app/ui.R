@@ -84,7 +84,7 @@ ui <- dashboardPage(
       ), # sidebarMenu
       data.step = 1,
       data.intro = "Use this sidebar to navigate around the website.",
-      data.hint = "Press the icon of the three lines in the top-left to access the navigation sidebar."
+      data.hint = "按左上方的三線圖標，以打開側欄。 / Press the icon of the three lines in the top-left to access the navigation sidebar."
     ) #introBox
   ), #dashboardSidebar
   
