@@ -103,24 +103,6 @@ server <- function(input, output, session) {
   
   # InfoBox: Party -----------------------------------------------
   source(file = "modules/infobox_party.R", local = TRUE)
-
-  # InfoBox: Constituency -----------------------------------------
-  source(file = "modules/infobox_constituency.R", local = TRUE)
-  
-  # InfoBox: District -----------------------------------------
-  output$infobox_district <- renderInfoBox(
-    expr = {
-      tags$div(
-        infoBox(value = react_constituency_dropdown()$District_ZH,
-                title = "區議會 / District",
-                subtitle = react_constituency_dropdown()$District_EN,
-                icon = icon(name = "map-signs"),
-                color = "green",
-                fill = TRUE,
-                width = 6)
-      ) #div
-    }
-  ) #renderInfoBox
   
   # InfoBox: Address -----------------------------------------
   output$infobox_address <- renderInfoBox(
