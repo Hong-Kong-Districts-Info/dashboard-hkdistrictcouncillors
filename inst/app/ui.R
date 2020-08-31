@@ -128,12 +128,8 @@ ui <- dashboardPage(
           introBox(
             fluidRow(
               infoBoxOutput(outputId = "infobox_party", width = NULL),
-              infoBoxOutput(outputId = "phone_number", width = NULL),
+              infoBoxOutput(outputId = "infobox_contact", width = NULL),
               
-            ),
-            fluidRow(
-              infoBoxOutput(outputId = "infobox_address", width = NULL),
-              infoBoxOutput(outputId = "individual_page", width = NULL)
             ),
             data.step = 5,
             data.intro = "These show the party and consituency of the DC selected."
