@@ -5,15 +5,14 @@ modal <- function(failed = FALSE) {
     
     title = div(style = "text-align: center;",
                 img(src = "logo.png", height = "100px"),
-                p(strong("使用條款 / Terms of Use"))),
+                p(strong(react_lang()$t("Terms of Use")))),
 
     radioButtons(inputId = "button_language",
                  label = "Please select a language",
                  choiceNames = c("中文", "English"),
                  choiceValues = c("zh", "en"),
                  selected = "zh"),
-    
-    p("您了解以下內容適用於本網站。如要繼續使用本網站，即表示您同意以上使用條款:"),
+
     
     tags$ul(
       tags$li("本網站不隸屬於任何政治人物或運動。"), br(),
@@ -23,8 +22,8 @@ modal <- function(failed = FALSE) {
     
     hr(),
     
-    p("You understand that the following applies to this website.
-      By proceeding further, you are agreeing to these Terms of Use."),
+    p(react_lang()$t("You understand that the following applies to this website.
+      By proceeding further, you are agreeing to these Terms of Use.")),
     
     tags$ul(
       tags$li("We are not affiliated to any political individuals nor movements."), br(),
