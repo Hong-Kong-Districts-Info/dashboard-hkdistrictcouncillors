@@ -1,36 +1,19 @@
 # Modal Dialog box --------------------------------------------------------
-modal <- function(failed = FALSE) {
+modal_lang <- function() {
   
   modalDialog(
     
     title = div(style = "text-align: center;",
                 img(src = "logo.png", height = "100px"),
-                p(strong(react_lang()$t("Terms of Use")))),
+                p(strong("Terms of Use"))),
 
     radioButtons(inputId = "button_language",
                  label = "Please select a language",
                  choiceNames = c("中文", "English"),
                  choiceValues = c("zh", "en"),
                  selected = "zh"),
-
     
-    tags$ul(
-      tags$li("本網站不隸屬於任何政治人物或運動。"), br(),
-      tags$li("本網站對任何潛在的濫用不承擔任何責任。"), br(),
-      tags$li("本網站使用跟踪cookie為您提供最佳的在線體驗。")
-    ), br(),
-    
-    hr(),
-    
-    p(react_lang()$t("You understand that the following applies to this website.
-      By proceeding further, you are agreeing to these Terms of Use.")),
-    
-    tags$ul(
-      tags$li("We are not affiliated to any political individuals nor movements."), br(),
-      tags$li("We are not liable for any potential misuses."), br(),
-      tags$li("We use tracking cookies to give you the best online experience.")
-    ), br(),
-    
+    uiOutput(outputId = "ui_modalterms"),
     hr(),
     
     # centre cookie-tracking input box, to ensure logging in
