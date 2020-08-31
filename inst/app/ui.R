@@ -120,9 +120,7 @@ ui <- dashboardPage(
           
           introBox(
             fluidRow(
-              infoBoxOutput(outputId = "infobox_web", width = NULL)) %>% 
-              helper(type = "markdown",
-                     content = "infoboxweb"),
+              infoBoxOutput(outputId = "infobox_web", width = NULL)),
             data.step = 4,
             data.intro = "This shows the DC's name and if the colour is blue, means they have a FB page."
           ),
