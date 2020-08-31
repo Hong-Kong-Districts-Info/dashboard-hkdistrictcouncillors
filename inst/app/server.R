@@ -66,8 +66,8 @@ server <- function(input, output, session) {
   
   # Password and T&Cs Pop-up Box ---------------------------------------------------------
   
-  # show modalDialog on app start-up
-  showModal(modal())  
+  # select language on app start-up
+  showModal(ui = modal_lang())  
   
   # check cookie-consent and render UI if correct
   observeEvent(
@@ -101,7 +101,9 @@ server <- function(input, output, session) {
               }
   ) #observeEvent
   
-
+  # ----- ModalDialog ----- #
+  source(file = "modules/ui_modalterms.R", local = TRUE)
+  
   # ----- TAB: Overview of a DC ----- #
 
   # RenderUI: Input Region ----------------------------------------------------
