@@ -1,5 +1,5 @@
 # InfoBox: Party (English) -----------------------------------------------
-output$infobox_fb <- renderInfoBox(
+output$infobox_web <- renderInfoBox(
   expr = {
     tags$div(
       infoBox(value = paste0(react_constituency_dropdown()$DC_ZH, " / ", react_constituency_dropdown()$DC_EN),

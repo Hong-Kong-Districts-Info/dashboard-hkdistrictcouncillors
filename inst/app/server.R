@@ -98,8 +98,8 @@ server <- function(input, output, session) {
   # RenderUI: Input Constituency --------------------------------------------
   source(file = "modules/ui_inputconstituency.R", local = TRUE)
   
-  # InfoBox: FB -----------------------------------------------
-  source(file = "modules/infobox_fb.R", local = TRUE)
+  # InfoBox: Web -----------------------------------------------
+  source(file = "modules/infobox_web.R", local = TRUE)
   
   # InfoBox: Party -----------------------------------------------
   source(file = "modules/infobox_party.R", local = TRUE)
@@ -111,8 +111,8 @@ server <- function(input, output, session) {
       tags$div(
         infoBox(value = react_constituency_dropdown()$Phone,
                 title = "聯絡電話 / Contact number",
-                # subtitle = react_constituency_dropdown()$Phone,
-                icon = icon(name = "phone"),
+                subtitle = "email placeholder",
+                icon = icon(name = "address-card"),
                 color = "green",
                 fill = TRUE,
                 width = 6)
