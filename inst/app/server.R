@@ -20,15 +20,10 @@ server <- function(input, output, session) {
   react_region_dropdown <- reactive(
     x = {
         if(input$input_region == "全部 / All"){
-          
           data_master_raw
-          
         } else {
-          
-          
           data_select <- filter(.data = data_master_raw,
-                                             District == input$input_region)
-          
+                                District == input$input_region)
           return(data_select)
         }
     }
@@ -192,6 +187,5 @@ server <- function(input, output, session) {
   
   # ----- TAB: Construction ----- #
   source(file = "modules/ui_infocontribute.R", local = TRUE)
-
   source(file = "modules/ui_dataframework.R", local = TRUE)
 }
