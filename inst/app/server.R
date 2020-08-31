@@ -101,12 +101,14 @@ server <- function(input, output, session) {
               }
   ) #observeEvent
   
+  
   # ----- ModalDialog ----- #
   source(file = "modules/ui_modaltitle.R", local = TRUE)
   source(file = "modules/ui_modalbuttonlang.R", local = TRUE)
   source(file = "modules/ui_modalterms.R", local = TRUE)
   source(file = "modules/ui_modalcookies.R", local = TRUE)
   source(file = "modules/ui_modalfooter.R", local = TRUE)
+  
   
   # ----- TAB: Overview of a DC ----- #
 

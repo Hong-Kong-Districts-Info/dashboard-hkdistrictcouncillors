@@ -77,6 +77,8 @@
       "zh": "黨派"
     },
     
+    
+    
     {
       "en": "Further Information", 
       "zh": "更多資訊"
@@ -95,6 +97,31 @@
     {
       "en": "This website is not affiliated to any political individuals nor movements.",
       "zh": "此網站並不從屬於任何政治人物或運動。"
+    },
+    
+    {
+      "en": "Want to contribute?",
+      "zh": "想參與製作本網站"
+    },
+    
+    {
+      "en": "If you wish to contribute to the project, do get in touch!",
+      "zh": "若你有興趣參與製作本網站，請與我們聯絡！"
+    },
+    
+    {
+      "en": "You can contact us via the Octocat and Mail buttons at the top-right of the website.",
+      "zh": "你可以透過網站右上方的 Github 及電郵連結聯絡我們。"
+    },
+    
+    {
+      "en": "Please also read the ",
+      "zh": "參與前，請先閱讀參與 "
+    },
+    
+    {
+      "en": "Contributor Code of Conduct",
+      "zh": "製作者守則"
     }
   ]
 }
