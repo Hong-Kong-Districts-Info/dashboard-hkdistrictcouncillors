@@ -104,21 +104,6 @@ server <- function(input, output, session) {
   # InfoBox: Party -----------------------------------------------
   source(file = "modules/infobox_party.R", local = TRUE)
   
-  # InfoBox: Address -----------------------------------------
-  output$infobox_address <- renderInfoBox(
-    expr = {
-      tags$div(
-        infoBox(value = react_constituency_dropdown()$Address,
-                title = "地址 / Address",
-                # subtitle = react_constituency_dropdown()$District_EN,
-                icon = icon(name = "map-signs"),
-                color = "green",
-                fill = TRUE,
-                width = 6)
-      ) #div
-    }
-  ) #renderInfoBox
-  
   # InfoBox: Phone number ---------------------------------------------
   ## Make this a clickable link to the individual DC page
   output$phone_number <- renderInfoBox(
@@ -134,25 +119,6 @@ server <- function(input, output, session) {
       ) #div
     }
   ) #renderInfoBox
-  
-
-  # InfoBox: Individual DC Page ---------------------------------------------
-  ## Make this a clickable link to the individual DC page
-  output$individual_page <- renderInfoBox(
-    expr = {
-      tags$div(
-        infoBox(value = "",
-                title = "查看更多 / View more",
-                subtitle = "Hong Kong Districts Info website",
-                href = react_constituency_dropdown()$ind_page,
-                icon = icon(name = "hand-pointer"),
-                color = "green",
-                fill = TRUE,
-                width = 6)
-      ) #div
-    }
-  ) #renderInfoBox
-  
 
   # RenderUI: FB Feed  ---------------------------------------------
   source(file = "modules/ui_fbfeed.R", local = TRUE)
