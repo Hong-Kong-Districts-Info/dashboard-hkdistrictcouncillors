@@ -6,7 +6,7 @@ output$infobox_web <- renderInfoBox(
               icon = icon(name = "globe-asia"),
               color = react_constituency_dropdown()$exists_web,
               href = react_constituency_dropdown()$ind_page,
-              title = "區議員名稱 / DC's name",
+              title = react_lang()$t("DC's name"),
               subtitle = react_constituency_dropdown()$Address,
               width = 12) %>% 
         helper(type = "markdown",
