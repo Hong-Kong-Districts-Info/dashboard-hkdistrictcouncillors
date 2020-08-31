@@ -1,5 +1,5 @@
 output$ui_fbfeed <- renderUI(
   expr = {
-    HTML(react_data_dropdown()$iframe)
+    HTML(react_constituency_dropdown()$iframe)
   }
 ) #renderUI
