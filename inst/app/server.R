@@ -77,7 +77,7 @@ server <- function(input, output, session) {
     handlerExpr = {
       
       # allows access to dashboard if consent, otherwise shutdown
-      if (input$button_cookieconsent == "(是) Yes, I accept tracking") {
+      if (input$button_cookieconsent ==  react_lang()$t("Yes, I accept tracking")) {
         removeModal()
       } else {
         stopApp()
@@ -102,7 +102,11 @@ server <- function(input, output, session) {
   ) #observeEvent
   
   # ----- ModalDialog ----- #
+  source(file = "modules/ui_modaltitle.R", local = TRUE)
+  source(file = "modules/ui_modalbuttonlang.R", local = TRUE)
   source(file = "modules/ui_modalterms.R", local = TRUE)
+  source(file = "modules/ui_modalcookies.R", local = TRUE)
+  source(file = "modules/ui_modalfooter.R", local = TRUE)
   
   # ----- TAB: Overview of a DC ----- #
 

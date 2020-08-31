@@ -1,6 +1,5 @@
 output$ui_modalterms <- renderUI(
   expr = {
-    
     HTML(
       text = paste0(
         p(react_lang()$t("You understand that the following applies to this website. By proceeding further, you are agreeing to these Terms of Use.")),

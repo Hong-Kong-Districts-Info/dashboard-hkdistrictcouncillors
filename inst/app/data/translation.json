@@ -11,6 +11,11 @@
     },
     
     {
+      "en": "Please select a language",
+      "zh": "請選擇一種語言"
+    },
+    
+    {
       "en": "You understand that the following applies to this website. By proceeding further, you are agreeing to these Terms of Use.",
       "zh": "您了解以下內容適用於本網站。如要繼續使用本網站，即表示您同意以上使用條款."
     },
@@ -29,6 +34,28 @@
       "en": "We use tracking cookies to give you the best online experience.",
       "zh": "本網站使用跟踪cookie為您提供最佳的在線體驗。"
     },
+    
+    {
+      "en": "Do you want to proceed and have tracking cookies enabled?",
+      "zh": "您是否願意繼續並啟用跟踪Cookie嗎?"
+    },
+    
+    {
+      "en": "Yes, I accept tracking",
+      "zh": "是"
+    },
+    
+    {
+      "en": "No, I wish to exit the website",
+      "zh": "否"
+    },
+    
+    {
+      "en": "Submit",
+      "zh": "提交"
+    },
+    
+    
     
     {
       "en": "Please type or select a district",
