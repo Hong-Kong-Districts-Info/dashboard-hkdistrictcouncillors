@@ -122,6 +122,43 @@
     {
       "en": "Contributor Code of Conduct",
       "zh": "製作者守則"
+    },
+    
+    
+    {
+      "en": "Where is the data from?",
+      "zh": "資料及數據來源"
+    },
+    
+    {
+      "en": "This app uses data from: ",
+      "zh": "此網站使用來自下列來源的資料及數據"
+    },
+    
+    {
+      "en": "What is the framework?",
+      "zh": "製作框架"
+    },
+    
+    {
+      "en": "This app has been built using: ",
+      "zh": "此網站以下列框架編寫及製作: "
+    },
+    
+    {
+      "en": "(for the data processing and calculation)",
+      "zh": "(數據處理及計算)"
+    },
+    
+    {
+      "en": "(for the app design and interactivity)",
+      "zh": "(網站設計及互動功能)"
+    },
+    
+    {
+      "en": "(for the app layout and structure)",
+      "zh": "(網站佈局及結構)"
     }
+    
   ]
 }
