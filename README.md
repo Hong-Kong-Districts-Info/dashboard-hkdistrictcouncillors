@@ -100,3 +100,5 @@ Please note that the hkdistrictcouncillors project is released with a [Contribut
 
 ## Project Team website
 To find out more about our project team and other projects by us, please visit our [website](https://hong-kong-districts-info.github.io/).
+
+This branch adds a small change to include our Trello board link to the README.
