@@ -64,6 +64,8 @@ The Shiny app is deployed onto shinyapps.io in the links below:
     │
     ├── codecov.yml                             <- Instructions for codecov.io checks
     │
+    ├── Dockerfile                              <- Create Docker container
+    │
     └── dashboard-hkdistrictcouncillors.Rproj   <- Config to establish Rproject
 
 ***
@@ -72,7 +74,7 @@ The Shiny app is deployed onto shinyapps.io in the links below:
 Ensure you have R version 3.6.2. Install and run this app locally in your command shell (instructions for iOS):
 
 ```shell
-git clone https://github.com/avisionh/dashboard-hkdistrictcouncillors.git
+git clone https://github.com/Hong-Kong-Districts-Info/dashboard-hkdistrictcouncillors.git
 cd dashboard-hkdistrictcouncillors
 r
 install.packages(pkgs = "renv", Ncpus = 1)
@@ -80,10 +82,25 @@ renv::restore()
 shiny::runApp(appDir = "inst/app.R")
 ```
 
-### Components of the app
-1. Data mapping the Facebook pages of each district councillor to their names, constituencies, and basic information
-2. API connection to Facebook pages
-3. Shiny front-end and visualisation
+To run this app via Docker, in the directory where the `Dockerfile` is, execute the following in your command shell (instructions for iOS):
+
+```shell
+
+# build and run Docker container
+docker build -t dashboard-hkdistrictcouncillors .
+docker run -rm -p 3838:3838 dashboard-hkdistrictcouncillors
+
+# get your IP address
+ipconfig getifaddr en0
+```
+
+Then, in your web-browser, type in:
+
+```
+http://<your_ip_address>:3838/
+```
+
+***
 
 ## Development considerations
 - Not all district councillors will have public Facebook pages, but the aim is for the app to be as comprehensive as possible in coverage.

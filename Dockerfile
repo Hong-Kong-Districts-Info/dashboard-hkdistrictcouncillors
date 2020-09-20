@@ -1,3 +1,5 @@
+# source: https://medium.com/@8451marketing/dockerizing-shiny-apps-a1d81f6cfb9e
+
 # get shiny image
 FROM rocker/shiny:3.5.1
 
