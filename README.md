@@ -1,6 +1,6 @@
 # Dashboard: Hong Kong District Councillors <img src="https://raw.githubusercontent.com/avisionh/dashboard-hkdistrictcouncillors/master/inst/app/www/logo.png" align="right" height="140" />
 
-[![Travis build status](https://travis-ci.org/Hong-Kong-Districts-Info/dashboard-hkdistrictcouncillors.svg?branch=master)](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors) [![R build status](https://github.com/avisionh/dashboard-hkdistrictcouncillors/workflows/R-CMD-check/badge.svg)](https://github.com/avisionh/dashboard-hkdistrictcouncillors/actions) [![Codecov test coverage](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors/branch/master/graph/badge.svg)](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#concept) [![Travis build status](https://travis-ci.org/Hong-Kong-Districts-Info/dashboard-hkdistrictcouncillors.svg?branch=master)](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors) [![R build status](https://github.com/avisionh/dashboard-hkdistrictcouncillors/workflows/R-CMD-check/badge.svg)](https://github.com/avisionh/dashboard-hkdistrictcouncillors/actions) [![Codecov test coverage](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors/branch/master/graph/badge.svg)](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 > *To provide a convenient site for live information on the district councillors in Hong Kong, via aggregating posts and feeds from their public Facebook pages.*
 
@@ -82,7 +82,7 @@ renv::restore()
 shiny::runApp(appDir = "inst/app.R")
 ```
 
-To run this app via Docker, in the directory where the `Dockerfile` is, execute the following in your command shell (instructions for iOS):
+You can run this app via Docker. In the directory where the `Dockerfile` is, execute the following in your command shell (instructions for iOS):
 
 ```shell
 
@@ -99,6 +99,8 @@ Then, in your web-browser, type in:
 ```
 http://<your_ip_address>:3838/
 ```
+
+For more on Docker, please see our wiki page [here](https://github.com/Hong-Kong-Districts-Info/dashboard-hkdistrictcouncillors/wiki/Helpsheet:-Docker).
 
 ***
 
