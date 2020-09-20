@@ -9,7 +9,10 @@ RUN apt-get update && apt-get install -y \
   libudunits2-dev \
   libgdal-dev \
   libgeos-dev \
-  libproj-dev
+  libproj-dev; \
+  rm -r /srv/shiny-server; \ 
+  mkdir -p /var/lib/shiny-server/bookmarks/shiny; \ 
+  sed -i 's/3838/3838 0.0.0.0/' /etc/shiny-server/shiny-server.conf
 
 # install renv on Docker image
 ENV RENV_VERSION 0.12.0-3
