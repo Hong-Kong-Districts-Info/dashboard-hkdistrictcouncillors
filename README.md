@@ -82,13 +82,29 @@ renv::restore()
 shiny::runApp(appDir = "inst/app.R")
 ```
 
-You can run this app via Docker. In the directory where the `Dockerfile` is, execute the following in your command shell (instructions for iOS):
+You can run this app via Docker.
+
+```shell
+docker pull avisionh/hkdistrictcouncillors:1.0
+docker run -rm -p 3838:3838 hkdistrictcouncillors:1.0
+
+# get your IP address
+ipconfig getifaddr en0
+```
+
+Then, in your web-browser, type in:
+
+```
+http://<your_ip_address>:3838/
+```
+
+If you wish to build the Docker image yourself, please follow the instructions. In the directory where the `Dockerfile` is, execute the following in your command shell (instructions for iOS):
 
 ```shell
 
 # build and run Docker container
-docker build -t dashboard-hkdistrictcouncillors .
-docker run -rm -p 3838:3838 dashboard-hkdistrictcouncillors
+docker build -t hkdistrictcouncillors .
+docker run -rm -p 3838:3838 hkdistrictcouncillors
 
 # get your IP address
 ipconfig getifaddr en0
