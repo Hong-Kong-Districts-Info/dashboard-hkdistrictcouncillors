@@ -14,6 +14,8 @@ library(tidyr)
 library(sf)
 library(hkdatasets)
 
+library(shiny.i18n)
+
 library(leaflet)
 
 ## shiny-related
@@ -36,6 +38,7 @@ options(spinner.color = "#009E73",
 
 path_data <- "extdata"
 path_shape_district <- paste0(path_data, "/" , "dcca_2019/DCCA_2019.shp")
+path_language <- "data/translation.json"
 
 
 # Data import -------------------------------------------------------------
@@ -59,7 +62,7 @@ data_master_raw <-
   mutate(ind_page = paste0("https://hong-kong-districts-info.github.io/dc/",
                            tolower(ConstituencyCode))) %>%
   # infoBox colour indicating if FB link exists
-  mutate(exists_fb = if_else(condition = !is.na(x = FacebookURL), "blue", "black"),
+  mutate(exists_web = if_else(condition = !is.na(x = ind_page), "blue", "black"),
          # remove hyphen for joining to shape file
          ConstituencyCode = gsub(x = ConstituencyCode, pattern = "-", replacement = "")) %>%
   left_join(y = shape_district, by = c("ConstituencyCode" = "CACODE")) %>%
@@ -72,6 +75,9 @@ data_master_raw <-
          DC = paste(DC_ZH, "/", DC_EN),
          iframe = paste0(chunk1, FacebookURL, chunk3))
   
+## translation
+lang <- Translator$new(translation_json_path = path_language)
+
 # Map import --------------------------------------------------------------
 
 ## Pre-load/create map

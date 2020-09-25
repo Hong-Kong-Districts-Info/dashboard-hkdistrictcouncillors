@@ -1,6 +1,6 @@
 # Dashboard: Hong Kong District Councillors <img src="https://raw.githubusercontent.com/avisionh/dashboard-hkdistrictcouncillors/master/inst/app/www/logo.png" align="right" height="140" />
 
-[![Travis build status](https://travis-ci.org/Hong-Kong-Districts-Info/dashboard-hkdistrictcouncillors.svg?branch=master)](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors) [![R build status](https://github.com/avisionh/dashboard-hkdistrictcouncillors/workflows/R-CMD-check/badge.svg)](https://github.com/avisionh/dashboard-hkdistrictcouncillors/actions) [![Codecov test coverage](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors/branch/master/graph/badge.svg)](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#concept) [![Travis build status](https://travis-ci.org/Hong-Kong-Districts-Info/dashboard-hkdistrictcouncillors.svg?branch=master)](https://travis-ci.com/avisionh/dashboard-hkdistrictcouncillors) [![R build status](https://github.com/avisionh/dashboard-hkdistrictcouncillors/workflows/R-CMD-check/badge.svg)](https://github.com/avisionh/dashboard-hkdistrictcouncillors/actions) [![Codecov test coverage](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors/branch/master/graph/badge.svg)](https://codecov.io/gh/avisionh/dashboard-hkdistrictcouncillors?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 > *To provide a convenient site for live information on the district councillors in Hong Kong, via aggregating posts and feeds from their public Facebook pages.*
 
@@ -31,14 +31,18 @@ The Shiny app is deployed onto shinyapps.io in the links below:
     ├── inst/
     │   ├── app.R                               <- App script calling sub-scripts
     │   └── app/               
-    |       ├── extdata/                        <- Data for app
+    |       ├── extdata/                        <- External data gathered for app
+    |       ├── data/                           <- Internal data created for app
     |       ├── R/                              <- Functions for app
     |       ├── www/                            <- Logo files for app
+    |       ├── modules/                        <- Components of server.R objects
     |       ├── helpfiles/                      <- Markdown of shinyhelper tips
     |       ├── google-analytics.html           <- Link app with Google Analytics
     |       ├── global.R                        <- Static objects for app
     |       ├── server.R                        <- Reactive objects for app
     |       └── ui.R                            <- User-interface for app
+    |
+    ├── tests/                                  <- Files for unit-testing
     |
     ├── .development/
     │   ├── googlesheets_dataclean.R            <- Wrangles Google Sheet data for app
@@ -60,24 +64,43 @@ The Shiny app is deployed onto shinyapps.io in the links below:
     │
     ├── codecov.yml                             <- Instructions for codecov.io checks
     │
+    ├── Dockerfile                              <- Create Docker container
+    │
     └── dashboard-hkdistrictcouncillors.Rproj   <- Config to establish Rproject
 
 ***
 
 ## Installation
-Install and run this app locally in your command shell (instructions for iOS):
+Run this app locally with R version 4.0.2 in your command shell (instructions for iOS):
 
 ```shell
-git clone https://github.com/avisionh/dashboard-hkdistrictcouncillors.git
+git clone https://github.com/Hong-Kong-Districts-Info/dashboard-hkdistrictcouncillors.git
 cd dashboard-hkdistrictcouncillors
 r
+install.packages(pkgs = "renv", Ncpus = 1)
+renv::restore()
 shiny::runApp(appDir = "inst/app.R")
 ```
 
-### Components of the app
-1. Data mapping the Facebook pages of each district councillor to their names, constituencies, and basic information
-2. API connection to Facebook pages
-3. Shiny front-end and visualisation
+Alternatively, you can run this app via Docker.
+
+```shell
+docker pull avisionh/hkdistrictcouncillors:1.0
+docker run -rm -p 3838:3838 hkdistrictcouncillors:1.0
+
+# get your IP address
+ipconfig getifaddr en0
+```
+
+Then, in your web-browser, type in:
+
+```
+http://<your_ip_address>:3838/
+```
+
+For more on Docker, please see our wiki page [here](https://github.com/Hong-Kong-Districts-Info/dashboard-hkdistrictcouncillors/wiki/Helpsheet:-Docker).
+
+***
 
 ## Development considerations
 - Not all district councillors will have public Facebook pages, but the aim is for the app to be as comprehensive as possible in coverage.
