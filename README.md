@@ -71,7 +71,7 @@ The Shiny app is deployed onto shinyapps.io in the links below:
 ***
 
 ## Installation
-Ensure you have R version 3.6.2. Install and run this app locally in your command shell (instructions for iOS):
+Run this app locally with R version 4.0.2 in your command shell (instructions for iOS):
 
 ```shell
 git clone https://github.com/Hong-Kong-Districts-Info/dashboard-hkdistrictcouncillors.git
@@ -82,29 +82,11 @@ renv::restore()
 shiny::runApp(appDir = "inst/app.R")
 ```
 
-You can run this app via Docker.
+Alternatively, you can run this app via Docker.
 
 ```shell
 docker pull avisionh/hkdistrictcouncillors:1.0
 docker run -rm -p 3838:3838 hkdistrictcouncillors:1.0
-
-# get your IP address
-ipconfig getifaddr en0
-```
-
-Then, in your web-browser, type in:
-
-```
-http://<your_ip_address>:3838/
-```
-
-If you wish to build the Docker image yourself, please follow the instructions. In the directory where the `Dockerfile` is, execute the following in your command shell (instructions for iOS):
-
-```shell
-
-# build and run Docker container
-docker build -t hkdistrictcouncillors .
-docker run -rm -p 3838:3838 hkdistrictcouncillors
 
 # get your IP address
 ipconfig getifaddr en0
