@@ -84,7 +84,7 @@ ui <- dashboardPage(
       ), # sidebarMenu
       data.step = 1,
       data.intro = "Use this sidebar to navigate around the website.",
-      data.hint = "Press the icon of the three lines in the top-left to access the navigation sidebar."
+      data.hint = "按左上方的三線圖標，以打開側欄。 / Press the icon of the three lines in the top-left to access the navigation sidebar."
     ) #introBox
   ), #dashboardSidebar
   
@@ -110,7 +110,7 @@ ui <- dashboardPage(
           
           # Dropdown box for constituency
           uiOutput(outputId = "ui_inputconstituency"),
-
+          
           data.step = 2,
           data.intro = "This search controls the options displayed on this tab."
         ), #introBox
@@ -212,6 +212,7 @@ ui <- dashboardPage(
         box(
           width = 7, status = "success", solidHeader = TRUE,
           uiOutput(outputId = "ui_infocontribute")
+
         ), #box
         
         box(

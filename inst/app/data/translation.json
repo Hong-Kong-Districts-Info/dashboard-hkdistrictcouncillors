@@ -1,0 +1,169 @@
+{
+  "cultural_date_format": "%d-%m-%Y",
+  
+  "languages": ["en", "zh"],
+  
+  "translation": [
+    
+    {
+      "en": "Terms of Use",
+      "zh": "使用條款"
+    },
+    
+    {
+      "en": "Please select a language",
+      "zh": "請選擇一種語言"
+    },
+    
+    {
+      "en": "You understand that the following applies to this website. By proceeding further, you are agreeing to these Terms of Use.",
+      "zh": "您了解以下內容適用於本網站。如要繼續使用本網站，即表示您同意以上使用條款."
+    },
+    
+    {
+      "en": "We are not affiliated to any political individuals nor movements.",
+      "zh": "本網站不隸屬於任何政治人物或運動。"
+    },
+    
+    {
+      "en": "We are not liable for any potential misuses.",
+      "zh": "本網站對任何潛在的濫用不承擔任何責任。"
+    },
+    
+    {
+      "en": "We use tracking cookies to give you the best online experience.",
+      "zh": "本網站使用跟踪cookie為您提供最佳的在線體驗。"
+    },
+    
+    {
+      "en": "Do you want to proceed and have tracking cookies enabled?",
+      "zh": "您是否願意繼續並啟用跟踪Cookie嗎?"
+    },
+    
+    {
+      "en": "Yes, I accept tracking",
+      "zh": "是，我同意"
+    },
+    
+    {
+      "en": "No, I wish to exit the website",
+      "zh": "否，帶我離開"
+    },
+    
+    {
+      "en": "Submit",
+      "zh": "提交"
+    },
+    
+    
+    
+    {
+      "en": "Please type or select a district",
+      "zh": "請選擇或輸入地區"
+    },
+    
+    {
+      "en": "Please type or select a constituency", 
+      "zh": "請選擇或輸入選區"
+    },
+    
+    {
+      "en": "DC's name",
+      "zh": "區議員名稱"
+    },
+    
+    {
+      "en": "Affiliated party",
+      "zh": "黨派"
+    },
+    
+    {
+      "en": "Phone and email",
+      "zh": "電話和電子郵件"
+    },
+    
+    
+    
+    {
+      "en": "Further Information", 
+      "zh": "更多資訊"
+    },
+    
+    {
+      "en": "On this tab, we describe how this website was constructed and ways to contribute.",
+      "zh": "此頁旨在簡介此網站的製作方法，以及參與的途徑。"
+    },
+    
+    {
+      "en": "Note, the aim of this app is to provide a convenient site for accessing the Facebook pages of district councillors in Hong Kong.",
+      "zh": "此網站旨在提供一站式資源，方便各位尋找和瀏覽香港各區區議員的 Facebook 專頁。"
+    },
+    
+    {
+      "en": "This website is not affiliated to any political individuals nor movements.",
+      "zh": "此網站並不從屬於任何政治人物或運動。"
+    },
+    
+    {
+      "en": "Want to contribute?",
+      "zh": "想參與製作本網站"
+    },
+    
+    {
+      "en": "If you wish to contribute to the project, do get in touch!",
+      "zh": "若你有興趣參與製作本網站，請與我們聯絡！"
+    },
+    
+    {
+      "en": "You can contact us via the Octocat and Mail buttons at the top-right of the website.",
+      "zh": "你可以透過網站右上方的 Github 及電郵連結聯絡我們。"
+    },
+    
+    {
+      "en": "Please also read the ",
+      "zh": "參與前，請先閱讀參與 "
+    },
+    
+    {
+      "en": "Contributor Code of Conduct",
+      "zh": "製作者守則"
+    },
+    
+    
+    {
+      "en": "Where is the data from?",
+      "zh": "資料及數據來源"
+    },
+    
+    {
+      "en": "This app uses data from: ",
+      "zh": "此網站使用來自下列來源的資料及數據"
+    },
+    
+    {
+      "en": "What is the framework?",
+      "zh": "製作框架"
+    },
+    
+    {
+      "en": "This app has been built using: ",
+      "zh": "此網站以下列框架編寫及製作: "
+    },
+    
+    {
+      "en": "(for the data processing and calculation)",
+      "zh": "(數據處理及計算)"
+    },
+    
+    {
+      "en": "(for the app design and interactivity)",
+      "zh": "(網站設計及互動功能)"
+    },
+    
+    {
+      "en": "(for the app layout and structure)",
+      "zh": "(網站佈局及結構)"
+    }
+    
+  ]
+}

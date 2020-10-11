@@ -15,6 +15,18 @@ server <- function(input, output, session) {
   observe_helpers()
   
   # ----- REACTIVES ----- #
+
+  # set language based on user input
+  react_lang <- reactive(
+    x = {
+      selected <- input$button_language
+      print(selected)
+      if (length(selected) > 0 && selected %in% lang$languages) {
+        lang$set_translation_language(selected)
+      }
+      return(lang)
+    }
+  )
   
   # filter data according to user selected region
   react_region_dropdown <- reactive(
@@ -54,8 +66,8 @@ server <- function(input, output, session) {
   
   # Password and T&Cs Pop-up Box ---------------------------------------------------------
   
-  # show modalDialog on app start-up
-  showModal(modal())  
+  # select language on app start-up
+  showModal(ui = modal_lang())  
   
   # check cookie-consent and render UI if correct
   observeEvent(
@@ -65,13 +77,14 @@ server <- function(input, output, session) {
     handlerExpr = {
       
       # allows access to dashboard if consent, otherwise shutdown
-      if (input$button_cookieconsent == "(是) Yes, I accept tracking") {
+      if (input$button_cookieconsent ==  react_lang()$t("Yes, I accept tracking")) {
         removeModal()
       } else {
         stopApp()
       }
     }
   )
+
 
   # Interactive Tutorial ----------------------------------------------------
 
@@ -88,9 +101,16 @@ server <- function(input, output, session) {
               }
   ) #observeEvent
   
-
-  # ----- TAB: Overview of a DC ----- #
   
+  # ----- ModalDialog ----- #
+  source(file = "modules/ui_modaltitle.R", local = TRUE)
+  source(file = "modules/ui_modalbuttonlang.R", local = TRUE)
+  source(file = "modules/ui_modalterms.R", local = TRUE)
+  source(file = "modules/ui_modalcookies.R", local = TRUE)
+  source(file = "modules/ui_modalfooter.R", local = TRUE)
+  
+  
+  # ----- TAB: Overview of a DC ----- #
 
   # RenderUI: Input Region ----------------------------------------------------
   source(file = "modules/ui_inputregion.R", local = TRUE)
@@ -129,4 +149,6 @@ server <- function(input, output, session) {
   # ----- TAB: Construction ----- #
   source(file = "modules/ui_infocontribute.R", local = TRUE)
   source(file = "modules/ui_dataframework.R", local = TRUE)
+  
 }
+
